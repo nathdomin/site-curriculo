@@ -98,12 +98,14 @@
     {
       "title": "Currículo em Site",
       "description": "Liderei a evolução técnica de um projeto web via orquestração por IA (Gemini, Claude) , aplicando engenharia de prompts para refatorar código, resolver conflitos e criar animações fluidas. Essa experiência comprova minha capacidade de utilizar a IA generativa como motor prático para escalar projetos tecnológicos, entregando código limpo e interfaces premium.",
-      "link": "portfolio-nathdomin.netlify.app",
-      "image": "/img/uploads/captura_de_tela_2026-08-26_203639-removebg-preview.png"
+      "link": "https://portfolio-nathdomin.netlify.app/",
+      "image": "/img/uploads/captura-de-tela-2026-08-26-203939.png"
     },
     {
-      "title": "teste 2",
-      "link": "https://github.com/seu-usuario/seu-projeto"
+      "title": "Site Institucional - Viva+",
+      "link": "https://vivaplus.netlify.app/",
+      "description": "Site institucional da Viva+, empresa de bem-estar corporativo focada em saúde, lazer, cultura e integração social. Desenvolvido em HTML, CSS e JavaScript, com apresentação da empresa, setores, equipe e projetos, além de um painel administrativo que permite à equipe atualizar o conteúdo sem precisar programar. Contei com o apoio do Claude (IA da Anthropic) no desenvolvimento do códig",
+      "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png"
     }
   ],
   "hero": {
