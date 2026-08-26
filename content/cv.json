@@ -5,23 +5,23 @@
     "subtitle": "Olá, eu sou",
     "name_line1": "Nathan",
     "name_line2": "Domingues",
-    "profession": "Recursos Humanos & Inteligência Artificial",
-    "description": "Atuando na interseção entre gestão humana e tecnologia corporativa. Busco aplicar conhecimentos acadêmicos no desenvolvimento de soluções inovadoras.",
+    "profession": "Inteligência Artificial e Tecnologia",
+    "description": "Estudante de IA | RH CSC na Coca-Cola FEMSA | Python, Prompt Engineering & Desenvolvimento Assistido por IA",
     "cta_text": "Vamos Conversar",
     "photo": "/img/uploads/1787783254138.png"
   },
   "about": {
-    "description": "Tenho 19 anos, ensino médio completo e atualmente atuo como Aprendiz de RH (CSC) na Coca-Cola FEMSA. Em paralelo, estou cursando Tecnologia em Inteligência Artificial na Universidade Santa Cecília, buscando ampliar meus conhecimentos técnicos e desenvolver fortes competências na área de tecnologia e negócios.\n\nPossuo grandes habilidades de comunicação, organização e trabalho em equipe, além de muita proatividade e facilidade de aprendizado. Meu maior interesse é contribuir ativamente para o crescimento das empresas, unindo o cuidado com as pessoas à eficiência da inovação digital.",
+    "description": "Com atuação prática no CSC da Coca-Cola FEMSA, apoio diariamente o setor de Recursos Humanos na gestão de benefícios, conferência fiscal, cadastros e rotinas administrativas de alto volume.\nComo estudante de Inteligência Artificial (Universidade Santa Cecília), dedico meus estudos à aplicação prática de Python, Engenharia de Prompts para LLMs, Prototipagem Rápida com IA e desenvolvimento de software.\n\nBusco aplicar o aprendizado acadêmico e as ferramentas de IA Generativa para transformar tarefas operacionais em processos mais ágeis e inteligentes, contribuindo diretamente para a eficiência e inovação do ecossistema de negócios.",
     "info_boxes": [
       {
         "icon": "ph-map-pin",
         "title": "Localização",
-        "subtitle": "Praia Grande - SP"
+        "subtitle": "Santos - SP"
       },
       {
         "icon": "ph-briefcase",
         "title": "Atuação",
-        "subtitle": "RH Estratégico & Suporte"
+        "subtitle": "Jovem Aprendiz RH - CSC"
       },
       {
         "icon": "ph-robot",
