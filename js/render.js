@@ -91,6 +91,27 @@ function renderCvContent(data) {
         }
     }
 
+    // ---- Projetos ----
+    const projectsContainer = document.getElementById('projects-container');
+    if (projectsContainer && Array.isArray(data.projects)) {
+        projectsContainer.innerHTML = data.projects.map(project => `
+            <div class="project-card reveal">
+                ${project.image ? `
+                <div class="project-img-wrapper">
+                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title || '')}" class="project-img" loading="lazy">
+                </div>` : ''}
+                <div class="project-body">
+                    <h3 class="project-title">${escapeHtml(project.title || '')}</h3>
+                    ${project.description ? `<p class="project-description">${escapeHtml(project.description)}</p>` : ''}
+                    ${project.link ? `
+                    <a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" class="project-link">
+                        Ver Projeto <i class="ph ph-arrow-up-right"></i>
+                    </a>` : ''}
+                </div>
+            </div>
+        `).join('');
+    }
+
     // ---- Contato ----
     if (data.contact) {
         setText('contact-email-text', data.contact.email);
