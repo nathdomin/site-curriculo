@@ -716,6 +716,113 @@ a {
     }
 }
 
+/* ================= PROJECTS ================= */
+.projects-container {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+}
+
+.project-card {
+    display: flex;
+    flex-direction: column;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: var(--depth-shadow);
+    overflow: hidden;
+    transition: 0.35s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.55);
+    border-color: var(--primary-color);
+}
+
+.project-img-wrapper {
+    width: 100%;
+    height: 200px;
+    overflow: hidden;
+    background: var(--container-color);
+}
+
+.project-img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover .project-img {
+    transform: scale(1.08);
+}
+
+.project-body {
+    display: flex;
+    flex-direction: column;
+    flex: 1;
+    padding: 1.5rem;
+    gap: 0.75rem;
+}
+
+.project-title {
+    font-size: var(--h3-font-size);
+    color: var(--title-color);
+    font-family: var(--title-font);
+    font-weight: var(--font-semi);
+}
+
+.project-description {
+    color: var(--text-color);
+    line-height: 1.6;
+    font-size: var(--small-font-size);
+    flex: 1;
+}
+
+.project-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    align-self: flex-start;
+    margin-top: 0.5rem;
+    color: var(--primary-color);
+    font-family: var(--title-font);
+    font-weight: var(--font-semi);
+    font-size: var(--small-font-size);
+    border: 1px solid var(--primary-color);
+    padding: 0.6rem 1.25rem;
+    border-radius: 50px;
+    transition: 0.3s;
+}
+
+.project-link:hover {
+    background-color: var(--primary-color);
+    color: #000;
+    transform: translateY(-3px);
+    box-shadow: 0 10px 20px rgba(69, 243, 255, 0.2);
+}
+
+.project-link i {
+    transition: transform 0.3s;
+}
+
+.project-link:hover i {
+    transform: translateX(3px);
+}
+
+@media screen and (min-width: 576px) {
+    .projects-container {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media screen and (min-width: 1024px) {
+    .projects-container {
+        grid-template-columns: repeat(3, 1fr);
+    }
+}
+
 /* ================= CONTACT ================= */
 .contact-wrapper {
     display: flex;
