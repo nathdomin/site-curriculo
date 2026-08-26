@@ -119,28 +119,33 @@ function scrollActive() {
 window.addEventListener('scroll', scrollActive);
 
 
-/* ================= SCROLL REVEAL ANIMATION (Intersection Observer) ================= */
-const revealElements = document.querySelectorAll('.reveal, .reveal-delay');
+/* ================= SCROLL REVEAL ANIMATION (Intersection Observer) =================
+   Executado via initRevealAnimations(), chamado depois que o conteúdo dinâmico
+   (experiência, formação, skills, etc.) já foi inserido no DOM por js/render.js.
+*/
+function initRevealAnimations() {
+    const revealElements = document.querySelectorAll('.reveal, .reveal-delay');
 
-const revealOptions = {
-    threshold: 0.1, // trigger when 10% of element is visible
-    rootMargin: "0px 0px -50px 0px"
-};
+    const revealOptions = {
+        threshold: 0.1, // trigger when 10% of element is visible
+        rootMargin: "0px 0px -50px 0px"
+    };
 
-const revealOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-            return;
-        } else {
-            entry.target.classList.add('active');
-            observer.unobserve(entry.target);
-        }
+    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+        entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+                return;
+            } else {
+                entry.target.classList.add('active');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, revealOptions);
+
+    revealElements.forEach(el => {
+        revealOnScroll.observe(el);
     });
-}, revealOptions);
-
-revealElements.forEach(el => {
-    revealOnScroll.observe(el);
-});
+}
 
 /* ================= DARK LIGHT THEME ================= */
 const themeButton = document.getElementById('theme-button');
@@ -207,10 +212,34 @@ function apply3DTilt(elements, maxTilt = 15, lift = -10, scale = 1.02) {
     });
 }
 
-// Cards de contato: efeito mais acentuado
-const tiltCards = document.querySelectorAll('.js-tilt');
-apply3DTilt(tiltCards, 15, -10, 1.02);
+function initTiltEffects() {
+    // Cards de contato: efeito mais acentuado
+    const tiltCards = document.querySelectorAll('.js-tilt');
+    apply3DTilt(tiltCards, 15, -10, 1.02);
 
-// Foto de perfil: efeito mais sutil
-const tiltPhoto = document.querySelectorAll('.js-tilt-photo');
-apply3DTilt(tiltPhoto, 8, -6, 1.03);
+    // Foto de perfil: efeito mais sutil
+    const tiltPhoto = document.querySelectorAll('.js-tilt-photo');
+    apply3DTilt(tiltPhoto, 8, -6, 1.03);
+}
+
+/* ================= INICIALIZAÇÃO APÓS RENDER DO CONTEÚDO =================
+   js/render.js dispara "cv:rendered" assim que content/cv.json é carregado
+   e injetado no DOM (mesmo em caso de falha no fetch, para não travar o site).
+*/
+document.addEventListener('cv:rendered', () => {
+    initRevealAnimations();
+    initTiltEffects();
+});
+
+// Segurança: caso o evento nunca dispare por algum motivo, inicializa mesmo assim
+window.addEventListener('load', () => {
+    setTimeout(() => {
+        if (!window.__cvInitDone) {
+            window.__cvInitDone = true;
+            initRevealAnimations();
+            initTiltEffects();
+        }
+    }, 1500);
+});
+
+document.addEventListener('cv:rendered', () => { window.__cvInitDone = true; });
