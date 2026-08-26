@@ -97,8 +97,9 @@
   "projects": [
     {
       "title": "Currículo em Site",
-      "description": "Projeto de desenvolvimento web construído através de orquestração de código por Inteligência Artificial (Vibecoding). A partir de uma base arquitetada no Lovable, assumi a liderança técnica da aplicação utilizando o Gemini e o Claude como assistentes diretos de desenvolvimento.\n\nAtravés da Engenharia de Prompts e de revisões lógicas constantes, conduzi a refatoração de arquivos CSS e JavaScript, a resolução de conflitos de UI e a criação de animações fluidas. A experiência consolida a capacidade de utilizar a IA Generativa não apenas como ferramenta de consulta, mas como um motor para gerar código limpo, interfaces premium e escalar projetos de tecnologia",
-      "link": "portfolio-nathdomin.netlify.app"
+      "description": "Neste projeto web desenvolvido via orquestração de código por IA (Vibecoding) com base no Lovable, atuei na liderança técnica utilizando Gemini e Claude como assistentes. Através de Engenharia de Prompts e revisões lógicas, conduzi a refatoração de CSS e JS, resolvi conflitos de UI e criei animações fluidas. Essa experiência consolida o uso da IA Generativa como um motor prático para gerar código limpo e interfaces premium, comprovando minha capacidade de escalar projetos tecnológicos de forma inovadora.",
+      "link": "portfolio-nathdomin.netlify.app",
+      "image": "/img/uploads/captura_de_tela_2026-08-26_203639-removebg-preview.png"
     },
     {
       "title": "teste 2",
