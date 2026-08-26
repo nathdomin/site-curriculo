@@ -96,6 +96,13 @@
       }
     ]
   },
+  "projects": [
+    {
+      "title": "Meu Primeiro Projeto",
+      "description": "Uma breve descrição do que é esse projeto, quais tecnologias foram usadas e qual problema ele resolve.",
+      "link": "https://github.com/seu-usuario/seu-projeto"
+    }
+  ],
   "contact": {
     "email": "nathandomin44@gmail.com",
     "linkedin_label": "Nathan Domingues",
