@@ -99,6 +99,10 @@
       "title": "teste",
       "description": "Uma breve descrição do que é esse projeto, quais tecnologias foram usadas e qual problema ele resolve.",
       "link": "https://github.com/seu-usuario/seu-projeto"
+    },
+    {
+      "title": "teste 2",
+      "link": "https://github.com/seu-usuario/seu-projeto"
     }
   ],
   "hero": {
