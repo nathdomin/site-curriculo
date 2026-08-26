@@ -84,6 +84,16 @@ collections:
                   - { label: "Nome do Curso", name: "title", widget: "string" }
                   - { label: "Instituição", name: "institution", widget: "string" }
 
+          - label: "Projetos"
+            name: "projects"
+            widget: "list"
+            summary: "{{title}}"
+            fields:
+              - { label: "Nome do Projeto", name: "title", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text", required: false }
+              - { label: "Link do Projeto", name: "link", widget: "string", hint: "Ex: https://github.com/seu-usuario/projeto" }
+              - { label: "Foto/Print do Projeto", name: "image", widget: "image", required: false }
+
           - label: "Contato"
             name: "contact"
             widget: "object"
