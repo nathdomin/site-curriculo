@@ -956,6 +956,16 @@ a {
     }
 }
 
+.projects-github-footer {
+    display: flex;
+    justify-content: center;
+    margin-top: 2.5rem;
+}
+
+.projects-github-footer .button i {
+    font-size: 1.15rem;
+}
+
 /* ================= CONTACT ================= */
 .contact-wrapper {
     display: flex;
