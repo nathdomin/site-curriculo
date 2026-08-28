@@ -103,4 +103,6 @@ collections:
               - { label: "LinkedIn - Link do Perfil", name: "linkedin_url", widget: "string" }
               - { label: "WhatsApp - Texto Exibido", name: "whatsapp_label", widget: "string" }
               - { label: "WhatsApp - Link (wa.me/55...)", name: "whatsapp_url", widget: "string" }
+              - { label: "GitHub - Texto Exibido", name: "github_label", widget: "string" }
+              - { label: "GitHub - Link do Perfil", name: "github_url", widget: "string" }
               - { label: "Arquivo PDF do Currículo", name: "cv_pdf", widget: "file", media_folder: "/", public_folder: "/" }

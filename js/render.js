@@ -126,6 +126,10 @@ function renderCvContent(data) {
         const whatsappLink = document.getElementById('contact-whatsapp-link');
         if (whatsappLink && data.contact.whatsapp_url) whatsappLink.setAttribute('href', data.contact.whatsapp_url);
 
+        setText('contact-github-text', data.contact.github_label);
+        const githubLink = document.getElementById('contact-github-link');
+        if (githubLink && data.contact.github_url) githubLink.setAttribute('href', data.contact.github_url);
+
         const cvLink = document.getElementById('cv-download-link');
         if (cvLink && data.contact.cv_pdf) cvLink.setAttribute('href', data.contact.cv_pdf);
     }
