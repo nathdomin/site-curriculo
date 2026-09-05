@@ -108,6 +108,11 @@
       "link": "https://vivaplus.netlify.app/",
       "description": "Site institucional da Viva+, empresa de bem-estar corporativo focada em saúde, lazer, cultura e integração social. Desenvolvido em HTML, CSS e JavaScript, com apresentação da empresa, setores, equipe e projetos, além de um painel administrativo que permite à equipe atualizar o conteúdo sem precisar programar. Contei com o apoio do Claude (IA da Anthropic) no desenvolvimento do código",
       "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png"
+    },
+    {
+      "title": "DigiKof",
+      "description": "DigiKof é um app web para digitalização e organização de documentos, feito para substituir arquivos físicos de escritório por um sistema digital simples. Permite criar pastas personalizadas, digitalizar documentos direto pela câmera do celular (com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner de verdade), buscar documentos dentro de cada pasta e acessar tudo com login protegido. Tem interface responsiva, adaptada tanto para uso no computador quanto no celular.",
+      "link": "https://digikof.netlify.app/"
     }
   ],
   "hero": {
