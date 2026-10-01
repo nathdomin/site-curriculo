@@ -26,8 +26,8 @@
     ],
     "courses": [
       {
-        "date": "Julho 2026 - Atual",
-        "title": "Montagem e Manutenção de Computadores",
+        "date": "Julho 2026 - Setembro 2026",
+        "title": "Montagem, Manutenção e Otimização de Computadores.",
         "institution": "Kingston Maker"
       },
       {
@@ -44,6 +44,11 @@
         "date": "Janeiro 2025",
         "title": "Noções Básicas da Internet",
         "institution": "IBM Skill Build"
+      },
+      {
+        "date": "Setembro 2026 - Setembro 2026",
+        "title": "Ética na Era da IA",
+        "institution": "Fundação Bradesco"
       }
     ]
   },
