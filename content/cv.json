@@ -119,6 +119,12 @@
       "description": "DigiKof é um app web para digitalização e organização de documentos, feito para substituir arquivos físicos de escritório por um sistema digital simples. Permite criar pastas personalizadas, digitalizar documentos direto pela câmera do celular (com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner de verdade), buscar documentos dentro de cada pasta e acessar tudo com login protegido. Tem interface responsiva, adaptada tanto para uso no computador quanto no celular.",
       "link": "https://digikof.netlify.app/",
       "image": "/img/uploads/captura-de-tela-2026-09-05-170533.png"
+    },
+    {
+      "title": "Agente de IA para Currículos",
+      "image": "/img/uploads/captura-de-tela-2026-10-12-182643.png",
+      "description": "O Agente de IA da Viva+ é uma solução HRTech completa que automatiza a leitura e triagem de currículos com zero viés inconsciente. O sistema extrai dados de arquivos PDF e DOCX, cruza o perfil do candidato com os requisitos dinâmicos da empresa em tempo real e utiliza a API do Google Gemini para alocar o profissional no setor ideal, avaliando estritamente competências técnicas e operacionais em total conformidade com a LGPD.\n\nToda a arquitetura foi estruturada em microsserviços, orquestrando quatro plataformas na nuvem de forma assíncrona. O backend foi desenvolvido em Python com FastAPI e hospedado no Render, comunicando-se com o Supabase para o banco de dados relacional e com o Backblaze B2 para o armazenamento seguro dos documentos, enquanto o frontend opera via Netlify. Para garantir uma experiência contínua, a aplicação conta com engenharia de resiliência e backoff automático, suportando picos de alta demanda e limites de cota da inteligência artificial de forma transparente para o usuário final.",
+      "link": "https://agenteia-vivaplus.onrender.com/"
     }
   ],
   "hero": {
