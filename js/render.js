@@ -58,9 +58,11 @@ function renderCvContent(data) {
         if (infoContainer && Array.isArray(data.about.info_boxes)) {
             infoContainer.innerHTML = data.about.info_boxes.map(box => `
                 <div class="info-box">
-                    <i class="ph ${escapeHtml(box.icon || '')}"></i>
-                    <h3 class="info-title">${escapeHtml(box.title || '')}</h3>
-                    <span class="info-subtitle">${escapeHtml(box.subtitle || '')}</span>
+                    <span class="info-icon"><i class="ph ${escapeHtml(box.icon || '')}"></i></span>
+                    <div class="info-text">
+                        <h3 class="info-title">${escapeHtml(box.title || '')}</h3>
+                        <span class="info-subtitle">${escapeHtml(box.subtitle || '')}</span>
+                    </div>
                 </div>
             `).join('');
         }
@@ -388,9 +390,14 @@ function setText(elementId, value) {
     if (el) el.textContent = value;
 }
 
-// Converte quebras de linha duplas em parágrafos/<br> para o campo "Sobre Mim"
+// Formata o campo "Sobre Mim": linha em branco separa parágrafos, quebra simples
+// vira nova linha e **texto** fica em destaque
 function textToHtml(text) {
-    return escapeHtml(text).split(/\n\s*\n/).join('<br><br>');
+    return escapeHtml(text)
+        .replace(/\*\*(.+?)\*\*/g, '<strong class="highlight">$1</strong>')
+        .split(/\n\s*\n/)
+        .map(paragraph => paragraph.replace(/\n/g, '<br>'))
+        .join('<br><br>');
 }
 
 function escapeHtml(str) {

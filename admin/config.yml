@@ -33,7 +33,7 @@ collections:
             name: "about"
             widget: "object"
             fields:
-              - { label: "Texto Sobre Mim", name: "description", widget: "text" }
+              - { label: "Texto Sobre Mim", name: "description", widget: "text", hint: "Deixe uma linha em branco para separar parágrafos. Coloque **entre asteriscos** as palavras que devem ficar em destaque." }
               - label: "Caixas de Destaque"
                 name: "info_boxes"
                 widget: "list"

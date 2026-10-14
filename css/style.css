@@ -454,51 +454,84 @@ a {
     margin-bottom: 2.5rem;
 }
 
+.about-description .highlight {
+    color: var(--title-color);
+    font-weight: var(--font-semi);
+}
+
+/* Cards em formato de linha: 1 coluna no celular, quantas couberem no desktop */
 .about-info {
     display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 1.5rem;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
 }
 
 .info-box {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    padding: 1.5rem;
     border-radius: 12px;
-    text-align: center;
-    transition: 0.3s;
-    box-shadow: var(--depth-shadow);
+    text-align: left;
+    transition: border-color 0.3s ease;
 }
 
 .info-box:hover {
-    background: var(--primary-color);
-    color: var(--container-color);
-    transform: translateY(-8px);
-    box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
+    border-color: var(--primary-color);
 }
 
-.info-box i {
-    font-size: 2rem;
+.info-icon {
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 10px;
+    background: rgba(77, 168, 218, 0.12);
+    transition: background-color 0.3s ease;
+}
+
+.info-icon i {
+    font-size: 1.4rem;
     color: var(--primary-color);
-    margin-bottom: 1rem;
+    transition: color 0.3s ease;
 }
 
-.info-box:hover i {
+.info-box:hover .info-icon {
+    background: var(--primary-color);
+}
+
+.info-box:hover .info-icon i {
     color: var(--container-color);
+}
+
+.info-text {
+    min-width: 0;
 }
 
 .info-title {
-    font-size: var(--normal-font-size);
-    margin-bottom: 0.25rem;
-}
-
-.info-subtitle {
-    font-size: var(--small-font-size);
+    font-size: 0.75rem;
+    font-weight: var(--font-regular);
+    text-transform: uppercase;
+    letter-spacing: 1px;
     color: var(--text-color);
 }
 
-.info-box:hover .info-subtitle {
-    color: var(--container-color);
+.info-subtitle {
+    display: block;
+    font-family: var(--title-font);
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+}
+
+@media screen and (min-width: 768px) {
+    .about-info {
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+    }
 }
 
 /* ================= EXPERIENCE ================= */
@@ -1294,9 +1327,6 @@ a {
 
 /* ================= MEDIA QUERIES (DESKTOP) ================= */
 @media screen and (min-width: 576px) {
-    .about-info {
-        grid-template-columns: repeat(3, 1fr);
-    }
     .skills-container {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1325,7 +1355,6 @@ a {
         grid-template-columns: 1fr;
         max-width: 800px;
         margin: 0 auto;
-        text-align: center;
     }
 }
 
