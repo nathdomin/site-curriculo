@@ -53,6 +53,11 @@
     ]
   },
   "meta_description": "Currículo online de Nathan Domingues, Aprendiz de RH na Coca-Cola FEMSA e estudante de Inteligência Artificial.",
+  "github": {
+    "username": "nathdomin",
+    "max_repos": 6,
+    "hidden_repos": []
+  },
   "education": [
     {
       "date": "AGOSTO DE 2026 - JULHO DE 2028",
@@ -145,7 +150,7 @@
     },
     {
       "title": "Agente de IA para Currículos",
-      "image": "/img/uploads/captura-de-tela-2026-10-12-182643.png",
+      "image": "/img/uploads/captura-de-tela-2026-10-14-191952.png",
       "description": "Agente de IA da Viva+ é um app web de inteligência artificial para recrutamento e triagem de currículos, feito para substituir a análise manual por um sistema automatizado e totalmente imparcial. Permite o upload de documentos em PDF ou DOCX, extrai os dados do candidato e utiliza IA para cruzar o perfil com as vagas disponíveis na empresa (com processamento ético que ignora dados sensíveis e avalia apenas competências reais), salvando todo o histórico estruturado em nuvem. Tem arquitetura resiliente integrada a bancos de dados, adaptada para evitar travamentos durante picos de alta demanda.",
       "link": "https://agenteia-vivaplus.onrender.com/",
       "tags": [
@@ -167,10 +172,5 @@
     "cta_text": "Vamos Conversar",
     "photo": "/img/uploads/1787783254138.png"
   },
-  "meta_title": "Nathan Domingues | Currículo",
-  "github": {
-    "username": "nathdomin",
-    "max_repos": 6,
-    "hidden_repos": []
-  }
+  "meta_title": "Nathan Domingues | Currículo"
 }
