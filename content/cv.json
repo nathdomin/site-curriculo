@@ -136,5 +136,10 @@
     "cta_text": "Vamos Conversar",
     "photo": "/img/uploads/1787783254138.png"
   },
-  "meta_title": "Nathan Domingues | Currículo"
+  "meta_title": "Nathan Domingues | Currículo",
+  "github": {
+    "username": "nathdomin",
+    "max_repos": 6,
+    "hidden_repos": []
+  }
 }

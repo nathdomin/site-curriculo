@@ -94,6 +94,15 @@ collections:
               - { label: "Link do Projeto", name: "link", widget: "string", hint: "Ex: https://github.com/seu-usuario/projeto" }
               - { label: "Foto/Print do Projeto", name: "image", widget: "image", required: false }
 
+          - label: "Repositórios do GitHub"
+            name: "github"
+            widget: "object"
+            hint: "Os repositórios públicos são carregados automaticamente do GitHub."
+            fields:
+              - { label: "Usuário do GitHub", name: "username", widget: "string" }
+              - { label: "Quantidade máxima de repositórios", name: "max_repos", widget: "number", value_type: "int", min: 1, max: 30, default: 6 }
+              - { label: "Repositórios a ocultar", name: "hidden_repos", widget: "list", required: false, hint: "Nome exato do repositório. Ex: site-curriculo" }
+
           - label: "Contato"
             name: "contact"
             widget: "object"

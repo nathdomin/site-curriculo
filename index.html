@@ -33,6 +33,7 @@
                     <li class="nav-item"><a href="#formacao" class="nav-link">Formação</a></li>
                     <li class="nav-item"><a href="#habilidades" class="nav-link">Competências</a></li>
                     <li class="nav-item"><a href="#projetos" class="nav-link">Projetos</a></li>
+                    <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
                     <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
                 </ul>
                 <div class="nav-close" id="nav-close" role="button" aria-label="Fechar menu" tabindex="0"></div>
@@ -185,60 +186,64 @@
             </div>
         </section>
 
+        <!-- GITHUB -->
+        <section class="github section" id="github">
+            <div class="container">
+                <h2 class="section-title reveal">Repositórios no GitHub</h2>
+                <span class="section-subtitle reveal">Código aberto e atualizado</span>
+
+                <div class="github-profile reveal" id="github-profile">
+                    <!-- Preenchido dinamicamente via API do GitHub (js/render.js) -->
+                </div>
+
+                <div class="github-repos" id="github-repos">
+                    <p class="github-status">Carregando repositórios...</p>
+                </div>
+            </div>
+        </section>
+
         <!-- CONTATO -->
         <section class="contact section" id="contato">
             <div class="container">
                 <h2 class="section-title reveal">Contato</h2>
                 <span class="section-subtitle reveal">Vamos construir algo incrível juntos</span>
 
-                <div class="contact-wrapper">
-                    <!-- Card Email -->
-                    <div class="contact-card reveal js-tilt">
-                        <div class="contact-icon">
-                            <i class="ph ph-envelope-simple"></i>
-                        </div>
-                        <h3 class="contact-title">Email</h3>
-                        <span class="contact-data" id="contact-email-text">nathandomin44@gmail.com</span>
-                        <a href="mailto:nathandomin44@gmail.com" class="contact-btn" id="contact-email-link">
-                            Escreva para mim <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
+                <div class="contact-panel reveal">
+                    <a href="mailto:nathandomin44@gmail.com" class="contact-item" id="contact-email-link">
+                        <span class="contact-icon"><i class="ph ph-envelope-simple"></i></span>
+                        <span class="contact-text">
+                            <span class="contact-label">Email</span>
+                            <span class="contact-data" id="contact-email-text">nathandomin44@gmail.com</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right contact-arrow"></i>
+                    </a>
 
-                    <!-- Card LinkedIn -->
-                    <div class="contact-card reveal js-tilt">
-                        <div class="contact-icon">
-                            <i class="ph ph-linkedin-logo"></i>
-                        </div>
-                        <h3 class="contact-title">LinkedIn</h3>
-                        <span class="contact-data" id="contact-linkedin-text">Nathan Domingues</span>
-                        <a href="https://www.linkedin.com/in/nathan-domingues-985606321/?skipRedirect=true" target="_blank" class="contact-btn" id="contact-linkedin-link">
-                            Visitar Perfil <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
-                    
-                    <!-- Card WhatsApp -->
-                    <div class="contact-card reveal js-tilt">
-                        <div class="contact-icon">
-                            <i class="ph ph-whatsapp-logo"></i>
-                        </div>
-                        <h3 class="contact-title">WhatsApp</h3>
-                        <span class="contact-data" id="contact-whatsapp-text">+55 13 99136-5365</span>
-                        <a href="https://wa.me/5513991365365" target="_blank" class="contact-btn" id="contact-whatsapp-link">
-                            Mande mensagem <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
+                    <a href="https://www.linkedin.com/in/nathan-domingues-985606321/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin-link">
+                        <span class="contact-icon"><i class="ph ph-linkedin-logo"></i></span>
+                        <span class="contact-text">
+                            <span class="contact-label">LinkedIn</span>
+                            <span class="contact-data" id="contact-linkedin-text">Nathan Domingues</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right contact-arrow"></i>
+                    </a>
 
-                    <!-- Card GitHub -->
-                    <div class="contact-card reveal js-tilt">
-                        <div class="contact-icon">
-                            <i class="ph ph-github-logo"></i>
-                        </div>
-                        <h3 class="contact-title">GitHub</h3>
-                        <span class="contact-data" id="contact-github-text">nathdomin</span>
-                        <a href="https://github.com/nathdomin" target="_blank" class="contact-btn" id="contact-github-link">
-                            Ver Perfil <i class="ph ph-arrow-right"></i>
-                        </a>
-                    </div>
+                    <a href="https://wa.me/5513991365365" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-whatsapp-link">
+                        <span class="contact-icon"><i class="ph ph-whatsapp-logo"></i></span>
+                        <span class="contact-text">
+                            <span class="contact-label">WhatsApp</span>
+                            <span class="contact-data" id="contact-whatsapp-text">+55 13 99136-5365</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right contact-arrow"></i>
+                    </a>
+
+                    <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-github-link">
+                        <span class="contact-icon"><i class="ph ph-github-logo"></i></span>
+                        <span class="contact-text">
+                            <span class="contact-label">GitHub</span>
+                            <span class="contact-data" id="contact-github-text">nathdomin</span>
+                        </span>
+                        <i class="ph ph-arrow-up-right contact-arrow"></i>
+                    </a>
                 </div>
 
                 <div class="download-resume reveal">

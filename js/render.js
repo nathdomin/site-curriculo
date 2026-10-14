@@ -133,6 +133,114 @@ function renderCvContent(data) {
         const cvLink = document.getElementById('cv-download-link');
         if (cvLink && data.contact.cv_pdf) cvLink.setAttribute('href', data.contact.cv_pdf);
     }
+
+    // ---- GitHub (carregado à parte, direto da API do GitHub) ----
+    loadGithubRepos(data);
+}
+
+/* ---------------- Repositórios do GitHub ---------------- */
+
+const GITHUB_LANG_COLORS = {
+    JavaScript: '#f1e05a',
+    TypeScript: '#3178c6',
+    Python: '#3572A5',
+    HTML: '#e34c26',
+    CSS: '#663399',
+    Java: '#b07219',
+    'C#': '#178600',
+    PHP: '#4F5D95',
+    'Jupyter Notebook': '#DA5B0B'
+};
+
+async function loadGithubRepos(data) {
+    const reposContainer = document.getElementById('github-repos');
+    const profileContainer = document.getElementById('github-profile');
+    if (!reposContainer) return;
+
+    const config = data.github || {};
+    const githubUrl = (data.contact && data.contact.github_url) || '';
+    const username = (config.username || githubUrl.split('github.com/')[1] || '').replace(/\/.*$/, '').trim();
+    const maxRepos = Number(config.max_repos) || 6;
+    const hidden = (config.hidden_repos || []).map(name => String(name).toLowerCase().trim());
+
+    if (!username) {
+        reposContainer.innerHTML = '<p class="github-status">Usuário do GitHub não configurado.</p>';
+        return;
+    }
+
+    const profileUrl = `https://github.com/${encodeURIComponent(username)}`;
+
+    try {
+        const [user, repos] = await Promise.all([
+            fetchGithubCached(`https://api.github.com/users/${encodeURIComponent(username)}`),
+            fetchGithubCached(`https://api.github.com/users/${encodeURIComponent(username)}/repos?sort=pushed&per_page=100`)
+        ]);
+
+        if (profileContainer) {
+            profileContainer.innerHTML = `
+                <img src="${escapeHtml(user.avatar_url)}" alt="${escapeHtml(user.login)}" class="github-avatar" loading="lazy">
+                <div class="github-profile-info">
+                    <h3 class="github-profile-name">${escapeHtml(user.name || user.login)}</h3>
+                    <span class="github-profile-meta">@${escapeHtml(user.login)} · ${user.public_repos} repositórios públicos</span>
+                </div>
+                <a href="${escapeHtml(user.html_url || profileUrl)}" target="_blank" rel="noopener noreferrer" class="project-link">
+                    Ver perfil <i class="ph ph-arrow-up-right"></i>
+                </a>
+            `;
+        }
+
+        const visible = repos
+            .filter(repo => !repo.fork && !hidden.includes(repo.name.toLowerCase()))
+            .slice(0, maxRepos);
+
+        if (!visible.length) {
+            reposContainer.innerHTML = '<p class="github-status">Nenhum repositório público encontrado.</p>';
+            return;
+        }
+
+        reposContainer.innerHTML = visible.map(repo => {
+            const updated = new Date(repo.pushed_at).toLocaleDateString('pt-BR', { month: 'short', year: 'numeric' });
+            const langColor = GITHUB_LANG_COLORS[repo.language] || 'var(--primary-color)';
+            return `
+                <a href="${escapeHtml(repo.html_url)}" target="_blank" rel="noopener noreferrer" class="repo-card">
+                    <div class="repo-header">
+                        <i class="ph ph-folder-simple"></i>
+                        <span class="repo-name">${escapeHtml(repo.name)}</span>
+                        <i class="ph ph-arrow-up-right repo-arrow"></i>
+                    </div>
+                    <p class="repo-description">${escapeHtml(repo.description || 'Sem descrição.')}</p>
+                    <div class="repo-meta">
+                        ${repo.language ? `<span><span class="repo-lang-dot" style="background:${langColor}"></span>${escapeHtml(repo.language)}</span>` : ''}
+                        ${repo.stargazers_count ? `<span><i class="ph ph-star"></i>${repo.stargazers_count}</span>` : ''}
+                        <span><i class="ph ph-clock"></i>Atualizado em ${escapeHtml(updated)}</span>
+                    </div>
+                </a>
+            `;
+        }).join('');
+    } catch (err) {
+        console.error('Erro ao carregar repositórios do GitHub:', err);
+        if (profileContainer) profileContainer.innerHTML = '';
+        reposContainer.innerHTML = `<p class="github-status">Não foi possível carregar os repositórios agora. <a href="${profileUrl}" target="_blank" rel="noopener noreferrer">Ver no GitHub</a></p>`;
+    }
+}
+
+// A API pública do GitHub permite 60 requisições/hora por visitante,
+// então guardamos a resposta por 1 hora na sessão do navegador.
+async function fetchGithubCached(url) {
+    const key = `gh-cache:${url}`;
+    try {
+        const cached = JSON.parse(sessionStorage.getItem(key));
+        if (cached && Date.now() - cached.time < 3600000) return cached.data;
+    } catch (e) { /* sessionStorage indisponível */ }
+
+    const response = await fetch(url, { headers: { Accept: 'application/vnd.github+json' } });
+    if (!response.ok) throw new Error(`GitHub respondeu ${response.status}`);
+    const data = await response.json();
+
+    try {
+        sessionStorage.setItem(key, JSON.stringify({ time: Date.now(), data }));
+    } catch (e) { /* sessionStorage indisponível */ }
+    return data;
 }
 
 /* ---------------- Funções auxiliares ---------------- */

@@ -284,7 +284,7 @@ a {
     overflow: hidden;
 }
 
-@media screen and (max-width: 767px) {
+@media screen and (max-width: 1023px) {
     .nav-menu {
         position: fixed;
         top: 0;
@@ -823,126 +823,238 @@ a {
     }
 }
 
-/* ================= CONTACT ================= */
-.contact-wrapper {
+/* ================= GITHUB ================= */
+.github-profile {
     display: flex;
-    flex-direction: column;
-    gap: 2rem;
-    margin-bottom: 3rem;
+    align-items: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    max-width: 960px;
+    margin: 0 auto 2rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    box-shadow: var(--depth-shadow);
 }
 
-@media screen and (min-width: 768px) {
-    .contact-wrapper {
-        flex-direction: row;
-        justify-content: center;
-        flex-wrap: wrap;
+.github-profile:empty {
+    display: none;
+}
+
+.github-avatar {
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    border: 2px solid var(--primary-color);
+    object-fit: cover;
+}
+
+.github-profile-info {
+    flex: 1;
+    min-width: 160px;
+}
+
+.github-profile-name {
+    font-size: var(--h3-font-size);
+}
+
+.github-profile-meta {
+    font-size: var(--small-font-size);
+    color: var(--text-color);
+}
+
+.github-repos {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1rem;
+    max-width: 960px;
+    margin: 0 auto;
+}
+
+.repo-card {
+    display: flex;
+    flex-direction: column;
+    gap: 0.75rem;
+    padding: 1.25rem 1.5rem;
+    background: var(--glass-bg);
+    border: 1px solid var(--glass-border);
+    border-radius: 12px;
+    transition: border-color 0.3s ease, transform 0.3s ease;
+}
+
+.repo-card:hover {
+    border-color: var(--primary-color);
+    transform: translateY(-4px);
+}
+
+.repo-header {
+    display: flex;
+    align-items: center;
+    gap: 0.6rem;
+    color: var(--title-color);
+}
+
+.repo-header > i {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+}
+
+.repo-name {
+    font-family: var(--title-font);
+    font-weight: var(--font-semi);
+    font-size: 1.05rem;
+    word-break: break-word;
+}
+
+.repo-arrow {
+    margin-left: auto;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.repo-card:hover .repo-arrow {
+    color: var(--primary-color);
+    transform: translate(2px, -2px);
+}
+
+.repo-description {
+    font-size: var(--small-font-size);
+    line-height: 1.6;
+    flex: 1;
+}
+
+.repo-meta {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem 1.25rem;
+    font-size: 0.8rem;
+}
+
+.repo-meta span {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.35rem;
+}
+
+.repo-lang-dot {
+    width: 10px;
+    height: 10px;
+    border-radius: 50%;
+    background: var(--primary-color);
+}
+
+.github-status {
+    grid-column: 1 / -1;
+    text-align: center;
+    font-size: var(--small-font-size);
+}
+
+.github-status a {
+    color: var(--primary-color);
+}
+
+@media screen and (min-width: 576px) {
+    .github-repos {
+        grid-template-columns: repeat(2, 1fr);
     }
 }
 
-.contact-card {
+/* ================= CONTACT ================= */
+.contact-panel {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 0.75rem;
+    max-width: 760px;
+    margin: 0 auto;
+}
+
+.contact-item {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    padding: 1rem 1.25rem;
     background: var(--glass-bg);
     border: 1px solid var(--glass-border);
-    padding: 2.5rem 1.5rem;
-    border-radius: 16px;
-    text-align: center;
-    box-shadow: var(--depth-shadow);
-    transition: transform 0.4s ease, background-color 0.4s ease, box-shadow 0.4s ease;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-between;
-    width: 100%;
-    max-width: 320px;
-    margin: 0 auto;
-    position: relative;
-    overflow: hidden;
+    border-radius: 12px;
+    transition: border-color 0.3s ease, background-color 0.3s ease;
 }
 
-/* Hover base */
-.contact-card:hover {
-    transform: translateY(-12px);
-    background: var(--primary-color);
-    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
-    border-color: transparent;
+.contact-item:hover {
+    border-color: var(--primary-color);
 }
 
-/* Icon container */
 .contact-icon {
-    width: 65px;
-    height: 65px;
-    background: rgba(255, 255, 255, 0.05);
-    border-radius: 50%;
+    flex-shrink: 0;
+    width: 44px;
+    height: 44px;
     display: flex;
     align-items: center;
     justify-content: center;
-    margin-bottom: 1.5rem;
-    transition: 0.4s ease;
+    border-radius: 10px;
+    background: rgba(77, 168, 218, 0.12);
+    transition: background-color 0.3s ease;
 }
 
 .contact-icon i {
-    font-size: 2.2rem;
+    font-size: 1.4rem;
     color: var(--primary-color);
-    transition: 0.4s ease;
+    transition: color 0.3s ease;
 }
 
-.contact-title {
-    font-size: var(--h3-font-size);
-    margin-bottom: 0.5rem;
-    color: var(--title-color);
-    transition: 0.4s ease;
+.contact-item:hover .contact-icon {
+    background: var(--primary-color);
 }
 
-.contact-data {
-    font-size: var(--normal-font-size);
-    color: var(--text-color);
-    margin-bottom: 2rem;
-    display: block;
-    transition: 0.4s ease;
-}
-
-.contact-btn {
-    display: inline-flex;
-    align-items: center;
-    gap: 0.5rem;
-    font-family: var(--title-font);
-    font-size: var(--small-font-size);
-    font-weight: var(--font-medium);
-    text-transform: uppercase;
-    color: var(--title-color);
-    transition: 0.4s ease;
-    padding-bottom: 2px;
-    border-bottom: 1px solid transparent;
-}
-
-.contact-btn i {
-    font-size: 1.2rem;
-    transition: transform 0.3s ease;
-}
-
-.contact-btn:hover {
-    gap: 1rem;
-}
-
-/* Hover - Inverting colors */
-.contact-card:hover .contact-icon {
-    background: rgba(255, 255, 255, 0.2);
-}
-
-.contact-card:hover .contact-icon i,
-.contact-card:hover .contact-title,
-.contact-card:hover .contact-data,
-.contact-card:hover .contact-btn {
+.contact-item:hover .contact-icon i {
     color: var(--container-color);
 }
 
-.contact-card:hover .contact-btn {
-    border-bottom-color: var(--container-color);
+.contact-text {
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    flex: 1;
+}
+
+.contact-label {
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: var(--text-color);
+}
+
+.contact-data {
+    font-family: var(--title-font);
+    font-weight: var(--font-medium);
+    color: var(--title-color);
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.contact-arrow {
+    flex-shrink: 0;
+    font-size: 1.1rem;
+    color: var(--text-color);
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.contact-item:hover .contact-arrow {
+    color: var(--primary-color);
+    transform: translate(2px, -2px);
+}
+
+@media screen and (min-width: 576px) {
+    .contact-panel {
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 
 .download-resume {
     display: flex;
     justify-content: center;
-    margin-top: 2rem;
+    margin-top: 2.5rem;
 }
 
 .download-btn {
@@ -950,14 +1062,6 @@ a {
     font-size: 1.1rem;
     border-radius: 50px;
 }
-
-.download-resume {
-    display: flex;
-    justify-content: center;
-    margin-top: 3rem;
-}
-
-
 
 /* ================= SCROLL REVEAL ANIMATIONS ================= */
 .reveal {
@@ -1006,14 +1110,7 @@ a {
     .nav {
         height: calc(4rem + 1rem);
     }
-    .nav-toggle, .nav-close, .nav-overlay {
-        display: none;
-    }
-    .nav-list {
-        flex-direction: row;
-        column-gap: 3rem;
-    }
-    
+
     .hero-container {
         grid-template-columns: 1fr 1fr;
         align-items: center;
@@ -1027,6 +1124,13 @@ a {
 }
 
 @media screen and (min-width: 1024px) {
+    .nav-toggle, .nav-close, .nav-overlay {
+        display: none;
+    }
+    .nav-list {
+        flex-direction: row;
+        column-gap: clamp(1.25rem, 2.2vw, 2.5rem);
+    }
     .hero-img {
         width: 350px;
         height: 450px;

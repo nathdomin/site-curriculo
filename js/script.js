@@ -181,10 +181,6 @@ function apply3DTilt(elements, maxTilt = 15, lift = -10, scale = 1.02) {
 }
 
 function initTiltEffects() {
-    // Cards de contato: efeito mais acentuado
-    const tiltCards = document.querySelectorAll('.js-tilt');
-    apply3DTilt(tiltCards, 15, -10, 1.02);
-
     // Foto de perfil: efeito mais sutil
     const tiltPhoto = document.querySelectorAll('.js-tilt-photo');
     apply3DTilt(tiltPhoto, 8, -6, 1.03);
