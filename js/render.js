@@ -92,25 +92,7 @@ function renderCvContent(data) {
     }
 
     // ---- Projetos ----
-    const projectsContainer = document.getElementById('projects-container');
-    if (projectsContainer && Array.isArray(data.projects)) {
-        projectsContainer.innerHTML = data.projects.map(project => `
-            <div class="project-card reveal">
-                ${project.image ? `
-                <div class="project-img-wrapper">
-                    <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title || '')}" class="project-img" loading="lazy">
-                </div>` : ''}
-                <div class="project-body">
-                    <h3 class="project-title">${escapeHtml(project.title || '')}</h3>
-                    ${project.description ? `<p class="project-description">${escapeHtml(project.description)}</p>` : ''}
-                    ${project.link ? `
-                    <a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" class="project-link">
-                        Ver Projeto <i class="ph ph-arrow-up-right"></i>
-                    </a>` : ''}
-                </div>
-            </div>
-        `).join('');
-    }
+    renderProjects(data.projects);
 
     // ---- Contato ----
     if (data.contact) {
@@ -136,6 +118,134 @@ function renderCvContent(data) {
 
     // ---- GitHub (carregado à parte, direto da API do GitHub) ----
     loadGithubRepos(data);
+}
+
+/* ---------------- Projetos ---------------- */
+
+let cvProjects = [];
+
+function renderProjects(projects) {
+    const container = document.getElementById('projects-container');
+    if (!container || !Array.isArray(projects)) return;
+
+    // O projeto marcado como destaque aparece primeiro
+    cvProjects = [...projects].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
+
+    container.innerHTML = cvProjects.map((project, index) => `
+        <article class="project-card reveal${project.featured ? ' project-card--featured' : ''}">
+            ${project.image ? `
+            <div class="project-img-wrapper">
+                ${project.featured ? '<span class="project-badge"><i class="ph ph-star"></i> Destaque</span>' : ''}
+                <img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title || '')}" class="project-img" loading="lazy">
+            </div>` : ''}
+            <div class="project-body">
+                <h3 class="project-title">${escapeHtml(project.title || '')}</h3>
+                ${renderTags(project.tags)}
+                ${project.description ? `
+                <p class="project-description">${escapeHtml(project.description)}</p>
+                <button type="button" class="project-more" data-project="${index}">Ler mais</button>` : ''}
+                ${renderProjectActions(project)}
+            </div>
+        </article>
+    `).join('');
+
+    // Na grade de 2 colunas (tablet), um card que sobraria sozinho ocupa a linha inteira
+    const regularCards = container.querySelectorAll('.project-card:not(.project-card--featured)');
+    if (regularCards.length % 2 === 1) {
+        regularCards[regularCards.length - 1].classList.add('project-card--odd');
+    }
+
+    container.querySelectorAll('.project-more').forEach(btn => {
+        btn.addEventListener('click', () => openProjectModal(cvProjects[Number(btn.dataset.project)]));
+    });
+
+    initProjectsCarousel(container);
+}
+
+function renderTags(tags) {
+    if (!Array.isArray(tags) || !tags.length) return '';
+    return `<ul class="project-tags">${tags.map(tag => `<li>${escapeHtml(tag)}</li>`).join('')}</ul>`;
+}
+
+function renderProjectActions(project) {
+    if (!project.link && !project.repo) return '';
+    return `
+        <div class="project-actions">
+            ${project.link ? `
+            <a href="${escapeHtml(project.link)}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
+                Ver site <i class="ph ph-arrow-up-right"></i>
+            </a>` : ''}
+            ${project.repo ? `
+            <a href="${escapeHtml(project.repo)}" target="_blank" rel="noopener noreferrer" class="project-btn">
+                <i class="ph ph-github-logo"></i> Código
+            </a>` : ''}
+        </div>
+    `;
+}
+
+function openProjectModal(project) {
+    const modal = document.getElementById('project-modal');
+    if (!modal || !project) return;
+
+    modal.querySelector('.project-modal-content').innerHTML = `
+        ${project.image ? `<img src="${escapeHtml(project.image)}" alt="${escapeHtml(project.title || '')}" class="project-modal-img">` : ''}
+        <div class="project-modal-body">
+            <h3 class="project-title">${escapeHtml(project.title || '')}</h3>
+            ${renderTags(project.tags)}
+            <p class="project-modal-description">${escapeHtml(project.description || '')}</p>
+            ${renderProjectActions(project)}
+        </div>
+    `;
+
+    if (typeof modal.showModal === 'function') modal.showModal();
+    else modal.setAttribute('open', '');
+    document.body.classList.add('no-scroll');
+}
+
+function closeProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    if (typeof modal.close === 'function') modal.close();
+    else modal.removeAttribute('open');
+}
+
+function initProjectModal() {
+    const modal = document.getElementById('project-modal');
+    if (!modal) return;
+    modal.querySelector('.project-modal-close').addEventListener('click', closeProjectModal);
+    // Fecha ao clicar fora da caixa (no fundo escuro)
+    modal.addEventListener('click', (e) => {
+        if (e.target === modal) closeProjectModal();
+    });
+    modal.addEventListener('close', () => document.body.classList.remove('no-scroll'));
+}
+
+// No celular os cards viram um carrossel horizontal; os pontinhos indicam a posição
+function initProjectsCarousel(container) {
+    const dots = document.getElementById('projects-dots');
+    if (!dots) return;
+    const cards = [...container.children];
+
+    dots.innerHTML = cards.map((_, i) => `<button type="button" class="projects-dot" aria-label="Ir para o projeto ${i + 1}"></button>`).join('');
+    const dotButtons = [...dots.children];
+
+    dotButtons.forEach((dot, i) => {
+        dot.addEventListener('click', () => {
+            container.scrollTo({ left: cards[i].offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
+        });
+    });
+
+    const updateDots = () => {
+        const center = container.scrollLeft + container.clientWidth / 2;
+        let active = 0;
+        cards.forEach((card, i) => {
+            if (card.offsetLeft - container.offsetLeft <= center) active = i;
+        });
+        dotButtons.forEach((dot, i) => dot.classList.toggle('active', i === active));
+    };
+
+    container.addEventListener('scroll', updateDots, { passive: true });
+    updateDots();
 }
 
 /* ---------------- Repositórios do GitHub ---------------- */
@@ -189,12 +299,18 @@ async function loadGithubRepos(data) {
             `;
         }
 
+        // Repositórios já exibidos em "Meus Projetos" não se repetem aqui
+        const projectRepos = (data.projects || [])
+            .map(project => (project.repo || '').toLowerCase().replace(/\/+$/, ''))
+            .filter(Boolean);
+
         const visible = repos
             .filter(repo => !repo.fork && !hidden.includes(repo.name.toLowerCase()))
+            .filter(repo => !projectRepos.includes(repo.html_url.toLowerCase()))
             .slice(0, maxRepos);
 
         if (!visible.length) {
-            reposContainer.innerHTML = '<p class="github-status">Nenhum repositório público encontrado.</p>';
+            reposContainer.innerHTML = '';
             return;
         }
 
@@ -293,4 +409,7 @@ function escapeHtml(str) {
         .replace(/'/g, '&#039;');
 }
 
-document.addEventListener('DOMContentLoaded', loadCvContent);
+document.addEventListener('DOMContentLoaded', () => {
+    initProjectModal();
+    loadCvContent();
+});

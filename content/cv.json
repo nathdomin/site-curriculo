@@ -106,25 +106,56 @@
       "title": "Currículo em Site",
       "description": "Liderei a evolução técnica de um projeto web via orquestração por IA (Gemini, Claude), aplicando engenharia de prompts para refatorar código, resolver conflitos e criar animações fluidas. Essa experiência comprova minha capacidade de utilizar a IA generativa como motor prático para escalar projetos tecnológicos, entregando código limpo e interfaces premium.",
       "link": "https://curriculonathdomin.netlify.app/",
-      "image": "/img/uploads/captura-de-tela-2026-08-26-203939.png"
+      "image": "/img/uploads/captura-de-tela-2026-08-26-203939.png",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Decap CMS"
+      ],
+      "repo": "https://github.com/nathdomin/site-curriculo",
+      "featured": false
     },
     {
       "title": "Site Institucional - Viva+",
       "link": "https://vivaplus.netlify.app/",
       "description": "Site institucional da Viva+, empresa de bem-estar corporativo focada em saúde, lazer, cultura e integração social. Desenvolvido em HTML, CSS e JavaScript, com apresentação da empresa, setores, equipe e projetos, além de um painel administrativo que permite à equipe atualizar o conteúdo sem precisar programar. Desenvolvido com o apoio de IA (Claude) na escrita do código.",
-      "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png"
+      "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Painel Admin"
+      ],
+      "repo": "https://github.com/nathdomin/vivaplus",
+      "featured": false
     },
     {
       "title": "DigiKof",
       "description": "DigiKof é um app web para digitalização e organização de documentos, feito para substituir arquivos físicos de escritório por um sistema digital simples. Permite criar pastas personalizadas, digitalizar documentos direto pela câmera do celular (com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner de verdade), buscar documentos dentro de cada pasta e acessar tudo com login protegido. Tem interface responsiva, adaptada tanto para uso no computador quanto no celular.",
       "link": "https://digikof.netlify.app/",
-      "image": "/img/uploads/captura-de-tela-2026-09-05-170533.png"
+      "image": "/img/uploads/captura-de-tela-2026-09-05-170533.png",
+      "tags": [
+        "JavaScript",
+        "Processamento de Imagem",
+        "Responsivo"
+      ],
+      "repo": "https://github.com/nathdomin/digikof",
+      "featured": false
     },
     {
       "title": "Agente de IA para Currículos",
       "image": "/img/uploads/captura-de-tela-2026-10-12-182643.png",
       "description": "Agente de IA da Viva+ é um app web de inteligência artificial para recrutamento e triagem de currículos, feito para substituir a análise manual por um sistema automatizado e totalmente imparcial. Permite o upload de documentos em PDF ou DOCX, extrai os dados do candidato e utiliza IA para cruzar o perfil com as vagas disponíveis na empresa (com processamento ético que ignora dados sensíveis e avalia apenas competências reais), salvando todo o histórico estruturado em nuvem. Tem arquitetura resiliente integrada a bancos de dados, adaptada para evitar travamentos durante picos de alta demanda.",
-      "link": "https://agenteia-vivaplus.onrender.com/"
+      "link": "https://agenteia-vivaplus.onrender.com/",
+      "tags": [
+        "Python",
+        "IA Generativa",
+        "PDF/DOCX",
+        "Banco de Dados"
+      ],
+      "repo": "https://github.com/nathdomin/agenteia_vivaplus",
+      "featured": true
     }
   ],
   "hero": {
