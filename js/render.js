@@ -132,7 +132,7 @@ function renderProjects(projects) {
     cvProjects = [...projects].sort((a, b) => Number(!!b.featured) - Number(!!a.featured));
 
     container.innerHTML = cvProjects.map((project, index) => `
-        <article class="project-card reveal${project.featured ? ' project-card--featured' : ''}">
+        <article class="project-card${project.featured ? ' project-card--featured' : ''}">
             ${project.image ? `
             <div class="project-img-wrapper">
                 ${project.featured ? '<span class="project-badge"><i class="ph ph-star"></i> Destaque</span>' : ''}
@@ -299,18 +299,12 @@ async function loadGithubRepos(data) {
             `;
         }
 
-        // Repositórios já exibidos em "Meus Projetos" não se repetem aqui
-        const projectRepos = (data.projects || [])
-            .map(project => (project.repo || '').toLowerCase().replace(/\/+$/, ''))
-            .filter(Boolean);
-
         const visible = repos
             .filter(repo => !repo.fork && !hidden.includes(repo.name.toLowerCase()))
-            .filter(repo => !projectRepos.includes(repo.html_url.toLowerCase()))
             .slice(0, maxRepos);
 
         if (!visible.length) {
-            reposContainer.innerHTML = '';
+            reposContainer.innerHTML = '<p class="github-status">Nenhum repositório público encontrado.</p>';
             return;
         }
 

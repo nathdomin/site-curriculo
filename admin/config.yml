@@ -92,7 +92,7 @@ collections:
               - { label: "Nome do Projeto", name: "title", widget: "string" }
               - { label: "Descrição", name: "description", widget: "text", required: false }
               - { label: "Link do Site - botão Ver site", name: "link", widget: "string", required: false, hint: "Endereço do projeto no ar. Ex: https://meuprojeto.netlify.app" }
-              - { label: "Link do Repositório - botão Código", name: "repo", widget: "string", required: false, hint: "Ex: https://github.com/nathdomin/projeto. Repositórios listados aqui não se repetem na seção GitHub." }
+              - { label: "Link do Repositório - botão Código", name: "repo", widget: "string", required: false, hint: "Ex: https://github.com/nathdomin/projeto." }
               - { label: "Tecnologias / Tags", name: "tags", widget: "list", required: false, hint: "Ex: Python, JavaScript, IA Generativa" }
               - { label: "Projeto em Destaque", name: "featured", widget: "boolean", default: false, required: false, hint: "Aparece primeiro, em tamanho maior. Marque apenas um projeto." }
               - { label: "Foto/Print do Projeto", name: "image", widget: "image", required: false }
