@@ -50,40 +50,8 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape') closeMenu();
 });
 
-/* Remove Menu on Link Click (Mobile) */
-const navLink = document.querySelectorAll('.nav-link');
-function linkAction() {
-    closeMenu();
-}
-navLink.forEach(n => n.addEventListener('click', linkAction));
-
-/* ================= FECHAR MENU AO CLICAR EM UM LINK ================= */
-const navLinks = document.querySelectorAll('.nav-link');
-
-function linkAction() {
-    const navMenu = document.getElementById('nav-menu');
-    const navOverlay = document.getElementById('nav-overlay');
-    const navToggle = document.getElementById('nav-toggle');
-    
-    // Esconde o menu lateral
-    navMenu.classList.remove('show-menu');
-    
-    // Esconde o fundo escuro
-    if (navOverlay) {
-        navOverlay.classList.remove('show-overlay');
-    }
-    
-    // Devolve o scroll natural da página para os efeitos continuarem funcionando
-    document.body.classList.remove('no-scroll');
-    
-    // Atualiza a acessibilidade do botão hambúrguer
-    if (navToggle) {
-        navToggle.setAttribute('aria-expanded', 'false');
-    }
-}
-
-// Adiciona o evento de clique em cada um dos links do menu
-navLinks.forEach(link => link.addEventListener('click', linkAction));
+/* Fecha o menu ao clicar em um link (Mobile) */
+document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
 
 /* ================= CHANGE BACKGROUND HEADER ================= */
 function scrollHeader() {

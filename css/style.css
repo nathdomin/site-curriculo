@@ -996,6 +996,8 @@ a {
     .container {
         margin-left: auto;
         margin-right: auto;
+        padding-left: 1.5rem;
+        padding-right: 1.5rem;
     }
     .section {
         padding: 8rem 0 2rem;
