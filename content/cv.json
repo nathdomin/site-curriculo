@@ -149,7 +149,7 @@
       "featured": false
     },
     {
-      "title": "Agente de IA para Currículos",
+      "title": "VivAI+",
       "image": "/img/uploads/captura-de-tela-2026-10-14-191952.png",
       "description": "Agente de IA da Viva+ é um app web de inteligência artificial para recrutamento e triagem de currículos, feito para substituir a análise manual por um sistema automatizado e totalmente imparcial. Permite o upload de documentos em PDF ou DOCX, extrai os dados do candidato e utiliza IA para cruzar o perfil com as vagas disponíveis na empresa (com processamento ético que ignora dados sensíveis e avalia apenas competências reais), salvando todo o histórico estruturado em nuvem. Tem arquitetura resiliente integrada a bancos de dados, adaptada para evitar travamentos durante picos de alta demanda.",
       "link": "https://agenteia-vivaplus.onrender.com/",
@@ -159,7 +159,7 @@
         "PDF/DOCX",
         "Banco de Dados"
       ],
-      "repo": "https://github.com/nathdomin/agenteia_vivaplus",
+      "repo": "https://github.com/nathdomin/VivAIplus",
       "featured": true
     }
   ],
