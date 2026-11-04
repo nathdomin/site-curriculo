@@ -161,6 +161,20 @@
       ],
       "repo": "https://github.com/nathdomin/VivAIplus",
       "featured": true
+    },
+    {
+      "featured": false,
+      "title": "Adivinhe o Pokémon",
+      "description": "Jogo web de adivinhação com clima de programa de TV: descubra o Pokémon sorteado pela silhueta e pelas dicas. A cada erro surge uma nova dica e a imagem se revela um pouco mais. - Feito como trabalho prático para a matéria Técnicas de programação com IA na Universidade Santa Cecília",
+      "link": " https://nathdomin.github.io/adivinhe-o-pokemon/",
+      "repo": "https://github.com/nathdomin/adivinhe-o-pokemon",
+      "tags": [
+        "HTML",
+        "CSS",
+        "Javascript",
+        "ClaudeCode"
+      ],
+      "image": "/img/uploads/captura-de-tela-2026-11-04-114416.png"
     }
   ],
   "hero": {
