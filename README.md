@@ -21,7 +21,8 @@ O site tem versão em **inglês** (botão PT | EN no topo, ou o link [`?lang=en`
 | Conteúdo (português / inglês) | [content/cv.json](content/cv.json) · [content/cv.en.json](content/cv.en.json) |
 | Contato, GitHub, foto e PDFs (os dois idiomas) | [content/geral.json](content/geral.json) |
 | Textos fixos da interface nos dois idiomas | [js/i18n.js](js/i18n.js) |
-| Fonte do currículo em inglês (gera o PDF) | [tools/resume-en.html](tools/resume-en.html) |
+| Fontes dos currículos em PDF (PT e EN) | [tools/curriculo-pt.html](tools/curriculo-pt.html) · [tools/resume-en.html](tools/resume-en.html) |
+| Gerar os PDFs de novo (Windows, usa o Edge) | `powershell -File tools\gerar-pdfs.ps1` |
 | Montagem da página a partir do JSON + dados do GitHub | [js/render.js](js/render.js) |
 | Digitação do terminal, menu, tema e animações | [js/script.js](js/script.js) |
 | Painel de edição (Decap CMS + Git Gateway) | [admin/](admin/) |

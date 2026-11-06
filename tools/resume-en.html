@@ -1,58 +1,35 @@
 <!DOCTYPE html>
 <!--
   Fonte do currículo em inglês (arquivos/nathan_domingues_resume_en.pdf).
-  Para gerar o PDF de novo depois de editar, no Windows:
-  "C:\Program Files (x86)\Microsoft\Edge\Application\msedge.exe" --headless=new --no-pdf-header-footer --print-to-pdf="arquivos\nathan_domingues_resume_en.pdf" tools\resume-en.html
+  Depois de editar, gere os PDFs de novo com: powershell -File tools\gerar-pdfs.ps1
 -->
 <html lang="en">
 <head>
 <meta charset="UTF-8">
 <title>Nathan Domingues de Almeida - Resume</title>
-<style>
-    @page { size: Letter; margin: 0.75in 0.8in; }
-    * { box-sizing: border-box; margin: 0; padding: 0; }
-    body {
-        font-family: Arial, Helvetica, sans-serif;
-        font-size: 10.5pt;
-        line-height: 1.35;
-        color: #000;
-    }
-    header { text-align: center; margin-bottom: 18pt; }
-    h1 { font-size: 18pt; margin-bottom: 3pt; }
-    header p { font-size: 10pt; }
-    a { color: inherit; text-decoration: none; }
-    h2 {
-        font-size: 12.5pt;
-        text-transform: uppercase;
-        margin: 12pt 0 4pt;
-    }
-    ul { padding-left: 20pt; }
-    li { margin-bottom: 2pt; }
-    .job { margin-top: 6pt; }
-    .job-head { font-weight: bold; }
-    .job-role { font-style: italic; margin-bottom: 4pt; }
-    .job ul { margin-top: 4pt; margin-bottom: 8pt; }
-    section { break-inside: avoid-page; }
-</style>
+<link rel="stylesheet" href="resume.css">
 </head>
 <body>
     <header>
         <h1>Nathan Domingues de Almeida</h1>
         <p>Praia Grande, SP, Brazil | +55 (13) 99136-5365 | nathandomin44@gmail.com</p>
-        <p>LinkedIn: <a href="https://www.linkedin.com/in/nathan-domingues-985606321">https://www.linkedin.com/in/nathan-domingues-985606321</a></p>
-        <p>Portfolio: <a href="https://curriculonathdomin.netlify.app/?lang=en">curriculonathdomin.netlify.app</a> | GitHub: <a href="https://github.com/nathdomin">github.com/nathdomin</a></p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/nathan-domingues-985606321">linkedin.com/in/nathan-domingues-985606321</a></p>
+        <p>Portfolio: <a href="https://curriculonathdomin.netlify.app/?lang=en">curriculonathdomin.netlify.app/?lang=en</a> | GitHub: <a href="https://github.com/nathdomin">github.com/nathdomin</a></p>
     </header>
 
     <section>
         <h2>Professional Summary</h2>
-        <p>Artificial Intelligence student with corporate experience in administrative routines and ticket management (ServiceNow). Passionate about automation and software development, with hands-on experience building web applications and API integrations using Python, JavaScript, SQL and cloud tools. Seeking an IT opportunity to apply my problem-solving and programming skills to real-world projects.</p>
+        <p>Artificial Intelligence student at Universidade Santa Cecília (Brazil), with corporate experience in administrative routines and ticket management (ServiceNow). I build web and AI applications with Python, TypeScript and JavaScript: an AI agent for resume screening, a 2D platformer that runs in the browser and a full-stack meeting room booking system with React and PostgreSQL. I work with AI-assisted development (Claude Code, Gemini) from prototype to deploy. Seeking an IT opportunity to apply my problem-solving and programming skills to real-world projects.</p>
     </section>
 
     <section>
         <h2>Technical and Soft Skills</h2>
         <ul>
-            <li><strong>Hard Skills:</strong> Python, JavaScript, SQL, HTML5, CSS; Prompt Engineering, AI Agents, Vector Databases; REST API integration (ViaCEP, Gemini API), FastAPI; Cloud/Deploy (GitHub, Supabase, Render, Backblaze B2); ServiceNow, FFmpeg, yt-dlp.</li>
-            <li><strong>Soft Skills:</strong> Effective Communication, Proactivity, Problem Solving, Organization and Time Management, Teamwork, Adaptability.</li>
+            <li><strong>Languages:</strong> Python, TypeScript, JavaScript, SQL, HTML5, CSS.</li>
+            <li><strong>Web:</strong> React, Tailwind CSS, Node.js, FastAPI, Phaser 3, Vite; REST API integration (ViaCEP, Gemini API, PokeAPI).</li>
+            <li><strong>AI:</strong> Generative AI, AI Agents, Prompt Engineering, Vector Databases, Gemini API, Claude Code.</li>
+            <li><strong>Data, cloud and tools:</strong> PostgreSQL, Supabase, Git, GitHub, Netlify, Render, Backblaze B2, ServiceNow, Microsoft Office, FFmpeg, yt-dlp.</li>
+            <li><strong>Soft skills:</strong> Effective communication, Proactivity, Problem solving, Organization and time management, Teamwork, Adaptability.</li>
         </ul>
     </section>
 
@@ -77,19 +54,23 @@
     </section>
 
     <section>
-        <h2>Featured Projects</h2>
+        <h2>Projects</h2>
         <ul>
-            <li><strong>AI Resume Agent (Viva+):</strong> Developed an AI web app for automated, unbiased recruitment, with file upload (PDF/DOCX), data extraction and ethical profile matching, backed by cloud infrastructure and a database resilient to demand spikes.</li>
-            <li><strong>DigiKof:</strong> Built a responsive web app for document digitization and management, implementing image processing, a folder system, internal search and protected login.</li>
-            <li><strong>Corporate Website and CMS (Viva+):</strong> Developed a corporate website in HTML, CSS and JavaScript with AI assistance (Claude), integrating an admin panel so non-technical teams can update the content.</li>
-            <li><strong>Interactive Portfolio:</strong> Used prompt engineering and the orchestration of generative AI tools (Gemini, Claude) to refactor code, build smooth animations and deliver a clean, polished interface.</li>
+            <li><strong>VivAI+ (AI resume agent):</strong> Python web app that takes resumes in PDF or DOCX, extracts the candidate's data and uses the Gemini API to match the profile against Viva+'s open positions, ignoring sensitive data and evaluating skills only. History stored in a cloud database, with an architecture resilient to usage spikes. <a class="project-link" href="https://agenteia-vivaplus.onrender.com">agenteia-vivaplus.onrender.com</a></li>
+            <li><strong>Sankofa: Paths of Resistance:</strong> 2D browser platformer about the history of Black resistance in Brazil, built with Phaser 3, strict TypeScript and Vite. Every sprite, background and song is generated in code (Web Audio API), with touch controls and a custom tool that checks that every level can be completed. <a class="project-link" href="https://nathdomin.github.io/sankofa">nathdomin.github.io/sankofa</a></li>
+            <li><strong>MeetKof:</strong> full-stack meeting room booking system with a calendar (monthly, weekly and daily views), time conflicts blocked in the database and in the API, an admin panel and an audit log. React 19, TypeScript, Tailwind, Node.js with Fastify, PostgreSQL on Supabase and tests with Vitest. <a class="project-link" href="https://github.com/nathdomin/reserva-salas">github.com/nathdomin/reserva-salas</a></li>
+            <li><strong>Digitalize:</strong> responsive web app to digitize and organize office documents, with phone-camera scanning and image processing, folders, internal search and protected login. <a class="project-link" href="https://digital-ize.netlify.app">digital-ize.netlify.app</a></li>
+            <li><strong>Guess the Pokémon:</strong> web guessing game that uses the PokeAPI and reveals the Pokémon a bit more with each hint. Hands-on assignment for the Programming Techniques with AI course (Unisanta). <a class="project-link" href="https://nathdomin.github.io/adivinhe-o-pokemon">nathdomin.github.io/adivinhe-o-pokemon</a></li>
+            <li><strong>Viva+ corporate website:</strong> company website in HTML, CSS and JavaScript with an admin panel so non-technical teams can update the content. <a class="project-link" href="https://vivaplus.netlify.app">vivaplus.netlify.app</a></li>
+            <li><strong>Bilingual portfolio:</strong> plain HTML, CSS and JavaScript site with a terminal theme, Portuguese and English versions, content editable through Decap CMS and live data from the GitHub API. <a class="project-link" href="https://curriculonathdomin.netlify.app">curriculonathdomin.netlify.app</a></li>
         </ul>
     </section>
 
     <section>
         <h2>Education</h2>
         <ul>
-            <li><strong>Technology Degree (Tecnólogo) in Artificial Intelligence</strong> – Universidade Santa Cecília | <em>Expected: July 2028</em></li>
+            <li><strong>Technology Degree (Tecnólogo) in Artificial Intelligence</strong> – Universidade Santa Cecília | August 2026 – <em>Expected: July 2028</em></li>
+            <li><strong>High School Diploma</strong> – Colégio Adventista de Santos | 2024</li>
         </ul>
     </section>
 
@@ -97,9 +78,11 @@
         <h2>Courses and Extracurriculars</h2>
         <ul>
             <li><strong>IT Infrastructure Management</strong> – FIAP Nano Courses (In progress)</li>
-            <li><strong>Computer Assembly, Maintenance and Optimization</strong> – Kingston Maker (September 2026)</li>
-            <li><strong>Ethics in the Age of AI</strong> – Fundação Bradesco (September 2026)</li>
             <li><strong>Vector Databases Bootcamp</strong> – Oracle Academy AI Student Labs (October 2026)</li>
+            <li><strong>Building Apps Efficiently with AI</strong> – Unisanta (October 2026)</li>
+            <li><strong>Arduino and Programming: Turning Code into Motion</strong> – Unisanta (October 2026)</li>
+            <li><strong>Ethics in the Age of AI</strong> – Fundação Bradesco (September 2026)</li>
+            <li><strong>Computer Assembly, Maintenance and Optimization</strong> – Kingston Maker (September 2026)</li>
             <li><strong>IT Fundamentals: Hardware and Software</strong> – Fundação Bradesco (February 2026)</li>
             <li><strong>Build a Simple Website Using HTML, CSS and JavaScript</strong> – Fundação Bradesco (February 2026)</li>
             <li><strong>Internet Basics</strong> – IBM SkillsBuild (January 2025)</li>

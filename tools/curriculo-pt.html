@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<!--
+  Fonte do currículo em português (arquivos/curriculo_nathan_domingues.pdf).
+  Depois de editar, gere os PDFs de novo com: powershell -File tools\gerar-pdfs.ps1
+-->
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<title>Nathan Domingues de Almeida - Currículo</title>
+<link rel="stylesheet" href="resume.css">
+</head>
+<body>
+    <header>
+        <h1>Nathan Domingues de Almeida</h1>
+        <p>Praia Grande, SP | (13) 99136-5365 | nathandomin44@gmail.com</p>
+        <p>LinkedIn: <a href="https://www.linkedin.com/in/nathan-domingues-985606321">linkedin.com/in/nathan-domingues-985606321</a></p>
+        <p>Portfólio: <a href="https://curriculonathdomin.netlify.app">curriculonathdomin.netlify.app</a> | GitHub: <a href="https://github.com/nathdomin">github.com/nathdomin</a></p>
+    </header>
+
+    <section>
+        <h2>Resumo profissional</h2>
+        <p>Estudante de Inteligência Artificial na Universidade Santa Cecília, com vivência corporativa em rotinas administrativas e gestão de chamados (ServiceNow). Desenvolvo aplicações web e de IA com Python, TypeScript e JavaScript: um agente de IA para triagem de currículos, um jogo de plataforma 2D para navegador e um sistema full-stack de reserva de salas com React e PostgreSQL. Trabalho com desenvolvimento assistido por IA (Claude Code, Gemini) do protótipo ao deploy. Busco uma oportunidade em TI para aplicar minha capacidade de resolução de problemas e minhas habilidades em programação em projetos reais.</p>
+    </section>
+
+    <section>
+        <h2>Habilidades técnicas e comportamentais</h2>
+        <ul>
+            <li><strong>Linguagens:</strong> Python, TypeScript, JavaScript, SQL, HTML5, CSS.</li>
+            <li><strong>Web:</strong> React, Tailwind CSS, Node.js, FastAPI, Phaser 3, Vite; integração de APIs REST (ViaCEP, Gemini API, PokeAPI).</li>
+            <li><strong>IA:</strong> IA Generativa, Agentes de IA, Prompt Engineering, Bancos de Dados Vetoriais, Gemini API, Claude Code.</li>
+            <li><strong>Dados, nuvem e ferramentas:</strong> PostgreSQL, Supabase, Git, GitHub, Netlify, Render, Backblaze B2, ServiceNow, Pacote Office, FFmpeg, yt-dlp.</li>
+            <li><strong>Soft skills:</strong> Comunicação eficaz, Proatividade, Resolução de problemas, Organização e gestão do tempo, Trabalho em equipe, Adaptabilidade.</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Experiência profissional</h2>
+        <div class="job">
+            <p class="job-head">Coca-Cola FEMSA | Santos - SP</p>
+            <p class="job-role">Jovem Aprendiz RH CSC | Janeiro de 2026 – Atual</p>
+            <ul>
+                <li>Gerencio e soluciono chamados corporativos na plataforma ServiceNow, prestando suporte administrativo e garantindo o cumprimento dos prazos de atendimento (SLAs) e a satisfação do cliente interno.</li>
+                <li>Otimizo processos operacionais por meio da organização e digitalização de documentos, além da manutenção e atualização das planilhas corporativas do Centro de Serviços Compartilhados.</li>
+            </ul>
+        </div>
+        <div class="job">
+            <p class="job-head">Express Courier | Praia Grande - SP</p>
+            <p class="job-role">Auxiliar de Escritório | Março de 2025 – Agosto de 2025</p>
+            <ul>
+                <li>Coordenei o fluxo logístico e a triagem de equipamentos (máquinas PagSeguro), prestando suporte operacional direto aos técnicos de campo.</li>
+                <li>Administrei rotinas de backoffice e gestão de agendas, organizando o fluxo de documentos físicos e digitais e auxiliando o setor financeiro na conferência de notas fiscais.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section>
+        <h2>Projetos</h2>
+        <ul>
+            <li><strong>VivAI+ (agente de IA para currículos):</strong> app web em Python que recebe currículos em PDF ou DOCX, extrai os dados do candidato e usa a Gemini API para cruzar o perfil com as vagas da Viva+, ignorando dados sensíveis e avaliando só competências. Histórico em banco de dados na nuvem, com arquitetura resiliente a picos de uso. <a class="project-link" href="https://agenteia-vivaplus.onrender.com">agenteia-vivaplus.onrender.com</a></li>
+            <li><strong>Sankofa: Caminhos da Resistência:</strong> jogo de plataforma 2D para navegador sobre a história da resistência negra no Brasil, em Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código (Web Audio API), com controles de toque e uma ferramenta própria que verifica se cada fase pode ser completada. <a class="project-link" href="https://nathdomin.github.io/sankofa">nathdomin.github.io/sankofa</a></li>
+            <li><strong>MeetKof:</strong> sistema full-stack de reserva de salas de reunião, com calendário (visões mensal, semanal e diária), bloqueio de conflitos de horário no banco e na API, painel administrativo e histórico de alterações. React 19, TypeScript, Tailwind, Node.js com Fastify, PostgreSQL no Supabase e testes com Vitest. <a class="project-link" href="https://github.com/nathdomin/reserva-salas">github.com/nathdomin/reserva-salas</a></li>
+            <li><strong>Digitalize:</strong> app web responsivo para digitalizar e organizar documentos de escritório, com scanner pela câmera do celular e processamento de imagem, pastas, busca interna e login protegido. <a class="project-link" href="https://digital-ize.netlify.app">digital-ize.netlify.app</a></li>
+            <li><strong>Adivinhe o Pokémon:</strong> jogo web de adivinhação que consome a PokeAPI e revela o Pokémon aos poucos, a cada dica. Trabalho prático da matéria Técnicas de Programação com IA (Unisanta). <a class="project-link" href="https://nathdomin.github.io/adivinhe-o-pokemon">nathdomin.github.io/adivinhe-o-pokemon</a></li>
+            <li><strong>Site institucional Viva+:</strong> site corporativo em HTML, CSS e JavaScript com painel administrativo para que equipes não técnicas atualizem o conteúdo. <a class="project-link" href="https://vivaplus.netlify.app">vivaplus.netlify.app</a></li>
+            <li><strong>Portfólio bilíngue:</strong> site em HTML, CSS e JavaScript puros com tema de terminal, versões em português e inglês, conteúdo editável por Decap CMS e dados ao vivo da API do GitHub. <a class="project-link" href="https://curriculonathdomin.netlify.app">curriculonathdomin.netlify.app</a></li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Formação</h2>
+        <ul>
+            <li><strong>Tecnólogo em Inteligência Artificial</strong> – Universidade Santa Cecília | Agosto de 2026 – <em>Previsão: Julho de 2028</em></li>
+            <li><strong>Ensino Médio Completo</strong> – Colégio Adventista de Santos | 2024</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Cursos e extracurriculares</h2>
+        <ul>
+            <li><strong>Gestão de Infraestrutura de TI</strong> – Nano Courses FIAP (Em andamento)</li>
+            <li><strong>Bootcamp de Bancos de Dados Vetoriais</strong> – Oracle Academy AI Student Labs (Outubro 2026)</li>
+            <li><strong>Desenvolvendo apps com IA eficientemente</strong> – Unisanta (Outubro 2026)</li>
+            <li><strong>Arduino e Programação: Como Transformar Códigos em Movimentos</strong> – Unisanta (Outubro 2026)</li>
+            <li><strong>Ética na Era da IA</strong> – Fundação Bradesco (Setembro 2026)</li>
+            <li><strong>Montagem, Manutenção e Otimização de Computadores</strong> – Kingston Maker (Setembro 2026)</li>
+            <li><strong>Fundamentos do TI: Hardware e Software</strong> – Fundação Bradesco (Fevereiro 2026)</li>
+            <li><strong>Crie um site simples usando HTML, CSS e JavaScript</strong> – Fundação Bradesco (Fevereiro 2026)</li>
+            <li><strong>Noções Básicas da Internet</strong> – IBM SkillsBuild (Janeiro 2025)</li>
+        </ul>
+    </section>
+
+    <section>
+        <h2>Idiomas</h2>
+        <ul>
+            <li><strong>Português:</strong> nativo</li>
+            <li><strong>Inglês:</strong> intermediário</li>
+        </ul>
+    </section>
+</body>
+</html>
