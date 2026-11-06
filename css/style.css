@@ -1464,7 +1464,6 @@ button { font: inherit; color: inherit; }
 /* ================= 07 CONTATO ================= */
 .contact-window {
     max-width: 820px;
-    margin-inline: auto;
 }
 
 .contact-list {
@@ -1529,7 +1528,6 @@ button { font: inherit; color: inherit; }
 .download-resume {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
     gap: 0.75rem;
     margin-top: 2rem;
 }
