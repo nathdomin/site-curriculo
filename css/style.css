@@ -593,6 +593,47 @@ button { font: inherit; color: inherit; }
     caret-color: var(--accent);
 }
 
+/* Saída do "help": tabela comando | descrição; a descrição quebra alinhada na própria coluna */
+.t-help {
+    display: grid;
+    grid-template-columns: max-content minmax(0, 1fr);
+    gap: 0.15rem 2ch;
+    margin: 0.1rem 0 0.6rem;
+}
+
+.t-help-title {
+    grid-column: 1 / -1;
+    margin-bottom: 0.2rem;
+    color: var(--text-muted);
+}
+
+.t-help-cmd,
+.t-help-section {
+    padding: 0;
+    border: 0;
+    background: none;
+    font: inherit;
+    text-align: left;
+    cursor: pointer;
+}
+
+.t-help-cmd { color: var(--accent); }
+span.t-help-cmd { cursor: default; }
+.t-help-section { color: var(--blue); }
+
+button.t-help-cmd:hover,
+.t-help-section:hover {
+    text-decoration: underline;
+}
+
+.t-help-desc { color: var(--text-muted); }
+
+.t-help-sections {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0 1.5ch;
+}
+
 /* O foco no campo aparece na borda da janela */
 .terminal:focus-within {
     border-color: var(--accent);

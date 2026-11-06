@@ -21,7 +21,7 @@
     ];
 
     const COMMANDS = {
-        help: { aliases: ['ajuda', '?'], run: () => write(t('term.help')) },
+        help: { aliases: ['ajuda', '?'], run: showHelp },
         whoami: { run: whoami },
         ls: { aliases: ['dir'], run: () => write(t('term.ls')) },
         cd: { run: (args) => changeDirectory(args[0]) },
@@ -75,8 +75,11 @@
         last.classList.add('is-shown');
 
         input.addEventListener('keydown', onKey);
-        // Clicar no terminal (sem estar selecionando texto) coloca o foco no campo
-        body.addEventListener('click', () => {
+        body.addEventListener('click', (e) => {
+            // Itens clicáveis do help rodam o comando direto (bom no celular, onde digitar é chato)
+            const shortcut = e.target.closest('[data-run]');
+            if (shortcut) return run(shortcut.dataset.run);
+            // Clicar no resto do terminal (sem estar selecionando texto) coloca o foco no campo
             if (!String(window.getSelection())) input.focus({ preventScroll: true });
         });
     }
@@ -119,6 +122,29 @@
     }
 
     /* ---------------- Comandos ---------------- */
+
+    // Tabela de duas colunas (comando | descrição); comandos e seções são clicáveis
+    function showHelp() {
+        const otherLang = currentLang === 'en' ? 'pt' : 'en';
+        const button = (cmd, label = cmd, className = 't-help-cmd') =>
+            `<button type="button" class="${className}" data-run="${escapeHtml(cmd)}">${escapeHtml(label)}</button>`;
+
+        const sections = SECTIONS.map(s => button(sectionName(s), sectionName(s), 't-help-section')).join('');
+        const rows = [
+            [`<span class="t-help-cmd">${escapeHtml(t('term.help.section'))}</span>`, `<span class="t-help-sections">${sections}</span>`],
+            [button('whoami'), escapeHtml(t('term.help.whoami'))],
+            [button('ls'), escapeHtml(t('term.help.ls'))],
+            [button('cv'), escapeHtml(t('term.help.cv'))],
+            [button(`lang ${otherLang}`), escapeHtml(t('term.help.lang'))],
+            [button('theme'), escapeHtml(t('term.help.theme'))],
+            [button('clear'), escapeHtml(t('term.help.clear'))]
+        ];
+
+        addLine(`
+            <span class="t-help-title">${escapeHtml(t('term.help.title'))}</span>
+            ${rows.map(([cmd, desc]) => `${cmd}<span class="t-help-desc">${desc}</span>`).join('')}
+        `, 't-help', 'div');
+    }
 
     function whoami() {
         const name = document.getElementById('hero-title')?.textContent.trim() || 'Nathan Domingues';
@@ -189,8 +215,8 @@
         addLine(escapeHtml(text), 't-out');
     }
 
-    function addLine(html, className) {
-        const line = document.createElement('p');
+    function addLine(html, className, tag = 'p') {
+        const line = document.createElement(tag);
         line.className = className;
         line.innerHTML = html;
         output.append(line);

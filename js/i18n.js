@@ -31,15 +31,14 @@ const I18N_STRINGS = {
 
         'term.hint': '# digite help para ver os comandos',
         'term.inputLabel': 'Digite um comando do terminal',
-        'term.help': 'comandos disponíveis:\n' +
-            '  sobre · projetos · stack · experiencia\n' +
-            '  formacao · github · contato   ir para a seção\n' +
-            '  whoami     quem sou eu\n' +
-            '  ls         listar as seções\n' +
-            '  cv         baixar meu currículo em PDF\n' +
-            '  lang en    ver o site em inglês\n' +
-            '  theme      alternar tema claro/escuro\n' +
-            '  clear      limpar o terminal',
+        'term.help.title': 'comandos disponíveis:',
+        'term.help.section': '<seção>',
+        'term.help.whoami': 'quem sou eu',
+        'term.help.ls': 'listar as seções',
+        'term.help.cv': 'baixar meu currículo em PDF',
+        'term.help.lang': 'ver o site em inglês',
+        'term.help.theme': 'alternar tema claro/escuro',
+        'term.help.clear': 'limpar o terminal',
         'term.ls': 'sobre/  projetos/  stack/  experiencia/  formacao/  github/  contato/',
         'term.goto': 'abrindo {section}/ ...',
         'term.cv': 'baixando currículo em português.pdf ...',
@@ -162,15 +161,14 @@ const I18N_STRINGS = {
 
         'term.hint': '# type help to see the commands',
         'term.inputLabel': 'Type a terminal command',
-        'term.help': 'available commands:\n' +
-            '  about · projects · stack · experience\n' +
-            '  education · github · contact   go to section\n' +
-            '  whoami     who I am\n' +
-            '  ls         list the sections\n' +
-            '  cv         download my resume (PDF)\n' +
-            '  lang pt    see the site in Portuguese\n' +
-            '  theme      toggle light/dark theme\n' +
-            '  clear      clear the terminal',
+        'term.help.title': 'available commands:',
+        'term.help.section': '<section>',
+        'term.help.whoami': 'who I am',
+        'term.help.ls': 'list the sections',
+        'term.help.cv': 'download my resume (PDF)',
+        'term.help.lang': 'see the site in Portuguese',
+        'term.help.theme': 'toggle light/dark theme',
+        'term.help.clear': 'clear the terminal',
         'term.ls': 'about/  projects/  stack/  experience/  education/  github/  contact/',
         'term.goto': 'opening {section}/ ...',
         'term.cv': 'downloading resume in English.pdf ...',
