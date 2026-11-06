@@ -206,7 +206,7 @@
         "category": "IA"
       },
       {
-        "name": "Gemini API",
+        "name": "Gemini",
         "icon": "ph-brain",
         "category": "IA"
       },
@@ -259,6 +259,18 @@
         "name": "Pacote Office",
         "icon": "ph-microsoft-excel-logo",
         "category": "Ferramentas"
+      },
+      {
+        "category": "Ferramentas",
+        "name": "APIs REST"
+      },
+      {
+        "category": "IA",
+        "name": "ChatGPT Codex"
+      },
+      {
+        "category": "IA",
+        "name": "LLMs"
       }
     ],
     "behavioral": [
