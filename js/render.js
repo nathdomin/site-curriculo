@@ -93,7 +93,10 @@ function renderHero(hero, contact) {
     }
 
     const heroImg = document.getElementById('hero-img');
-    if (heroImg && hero.photo) heroImg.src = hero.photo;
+    if (heroImg && hero.photo) {
+        heroImg.dataset.fallback = hero.photo;
+        heroImg.src = optimizedImage(hero.photo, 720);
+    }
 
     const githubLink = document.getElementById('hero-github-link');
     if (githubLink && contact && contact.github_url) githubLink.href = contact.github_url;
@@ -102,7 +105,8 @@ function renderHero(hero, contact) {
     const body = document.getElementById('terminal-body');
     if (body && Array.isArray(hero.terminal_lines)) {
         body.querySelectorAll('[data-extra]').forEach(el => el.remove());
-        const last = body.querySelector('.t-last');
+        // Entram antes do histórico do terminal interativo (js/terminal.js), se já existir
+        const last = body.querySelector('.t-history') || body.querySelector('.t-last');
         if (!last) return;
         const html = hero.terminal_lines
             .filter(line => line && line.cmd)
@@ -194,9 +198,10 @@ function renderProjects(projects) {
 
 function renderProjectMedia(project) {
     if (project.image) {
+        const width = project.featured ? 1240 : 800;
         return `
             <div class="project-img-wrapper">
-                <img src="${escapeHtml(project.image)}" alt="${escapeHtml(t('projects.imgAlt'))} ${escapeHtml(project.title || '')}" class="project-img" loading="lazy">
+                ${renderImage(project.image, width, `${t('projects.imgAlt')} ${project.title || ''}`, 'project-img', 'loading="lazy"')}
             </div>`;
     }
     // Sem imagem: mostra um "terminal" com o nome do projeto e as tecnologias
@@ -239,7 +244,7 @@ function openProjectModal(project) {
     if (!modal || !project) return;
 
     modal.querySelector('.project-modal-content').innerHTML = `
-        ${project.image ? `<img src="${escapeHtml(project.image)}" alt="${escapeHtml(t('projects.imgAlt'))} ${escapeHtml(project.title || '')}" class="project-modal-img">` : ''}
+        ${project.image ? renderImage(project.image, 1280, `${t('projects.imgAlt')} ${project.title || ''}`, 'project-modal-img') : ''}
         <div class="project-modal-body">
             <h3 class="project-title">${escapeHtml(project.title || '')}</h3>
             ${renderTags(project.tags)}
@@ -692,6 +697,35 @@ async function fetchJsonCached(url) {
     } catch (e) { /* sessionStorage indisponível ou cheio */ }
     return data;
 }
+
+/* ---------------- Imagens otimizadas ---------------- */
+
+// No ar, as imagens passam pelo Image CDN da Netlify: redimensiona e entrega em WebP/AVIF
+// (a foto de perfil cai de ~960 KB para ~25 KB). No servidor local usa o arquivo original.
+const IMAGE_CDN_ENABLED = !/^(localhost|127\.0\.0\.1|\[::1\])$/.test(window.location.hostname)
+    && window.location.protocol !== 'file:';
+
+function optimizedImage(src, width) {
+    if (!IMAGE_CDN_ENABLED || !src || /^https?:/i.test(src) || /\.svg$/i.test(src)) return src;
+    return `/.netlify/images?url=${encodeURIComponent(src)}&w=${width}`;
+}
+
+// <img> com versão 2x para telas de alta densidade e volta para o original se o CDN falhar
+function renderImage(src, width, alt, className, extra = '') {
+    const srcset = IMAGE_CDN_ENABLED
+        ? ` srcset="${escapeHtml(optimizedImage(src, width))} 1x, ${escapeHtml(optimizedImage(src, width * 2))} 2x"`
+        : '';
+    return `<img src="${escapeHtml(optimizedImage(src, width))}"${srcset} data-fallback="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="${className}" decoding="async" ${extra}>`;
+}
+
+// Se uma imagem otimizada não carregar, troca pelo arquivo original (uma vez só)
+document.addEventListener('error', (e) => {
+    const img = e.target;
+    if (!(img instanceof HTMLImageElement) || !img.dataset.fallback || img.dataset.fellBack) return;
+    img.dataset.fellBack = 'true';
+    img.removeAttribute('srcset');
+    img.src = img.dataset.fallback;
+}, true);
 
 /* ---------------- Funções auxiliares ---------------- */
 

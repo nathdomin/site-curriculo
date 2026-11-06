@@ -7,14 +7,40 @@
     <meta id="page-description" name="description" content="Portfólio de Nathan Domingues, estudante de Inteligência Artificial que desenvolve agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.">
     <meta name="theme-color" content="#0b0f14">
 
+    <!-- Versões por idioma (o js/i18n.js ajusta canonical/og ao trocar de idioma) -->
+    <link rel="canonical" id="link-canonical" href="https://curriculonathdomin.netlify.app/">
+    <link rel="alternate" hreflang="pt-BR" href="https://curriculonathdomin.netlify.app/">
+    <link rel="alternate" hreflang="en" href="https://curriculonathdomin.netlify.app/?lang=en">
+    <link rel="alternate" hreflang="x-default" href="https://curriculonathdomin.netlify.app/">
+
     <!-- Preview ao compartilhar o link (LinkedIn, WhatsApp, etc.) -->
     <meta property="og:type" content="website">
-    <meta property="og:locale" content="pt_BR">
-    <meta property="og:url" content="https://curriculonathdomin.netlify.app/">
+    <meta property="og:locale" id="meta-og-locale" content="pt_BR">
+    <meta property="og:locale:alternate" id="meta-og-locale-alt" content="en_US">
+    <meta property="og:url" id="meta-og-url" content="https://curriculonathdomin.netlify.app/">
     <meta property="og:title" content="Nathan Domingues | Dev · IA & Web">
     <meta property="og:description" content="Agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.">
     <meta property="og:image" content="https://curriculonathdomin.netlify.app/img/og.png">
     <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Dados estruturados para o Google (quem é a pessoa do site) -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Nathan Domingues de Almeida",
+        "alternateName": "Nathan Domingues",
+        "url": "https://curriculonathdomin.netlify.app/",
+        "image": "https://curriculonathdomin.netlify.app/img/uploads/1787783254138.png",
+        "jobTitle": "Desenvolvedor em formação · IA & Web",
+        "email": "mailto:nathandomin44@gmail.com",
+        "address": { "@type": "PostalAddress", "addressLocality": "Praia Grande", "addressRegion": "SP", "addressCountry": "BR" },
+        "alumniOf": { "@type": "CollegeOrUniversity", "name": "Universidade Santa Cecília" },
+        "knowsAbout": ["Python", "TypeScript", "JavaScript", "React", "Node.js", "SQL", "Inteligência Artificial", "IA Generativa"],
+        "knowsLanguage": ["pt-BR", "en"],
+        "sameAs": ["https://github.com/nathdomin", "https://www.linkedin.com/in/nathan-domingues-985606321/"]
+    }
+    </script>
 
     <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar" claro/escuro) -->
     <script>
@@ -123,7 +149,8 @@
                         <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
                         <span class="window-title" data-i18n="hero.photoTitle">~/fotos/nathan.png</span>
                     </div>
-                    <img src="/img/uploads/1787783254138.png" alt="Foto de Nathan Domingues" data-i18n-attr="alt:hero.photoAlt" class="hero-img" id="hero-img" width="360" height="450">
+                    <!-- Foto pelo Image CDN da Netlify (~25 KB); se falhar (ex.: servidor local), usa o PNG original -->
+                    <img src="/.netlify/images?url=%2Fimg%2Fuploads%2F1787783254138.png&amp;w=720" data-fallback="/img/uploads/1787783254138.png" onerror="this.onerror=null;this.src=this.dataset.fallback" alt="Foto de Nathan Domingues" data-i18n-attr="alt:hero.photoAlt" class="hero-img" id="hero-img" width="360" height="450" fetchpriority="high">
                 </figure>
             </div>
         </section>
@@ -270,46 +297,84 @@
                     <p class="section-comment" data-i18n="contact.comment">// vamos construir algo juntos</p>
                 </header>
 
-                <div class="window contact-window reveal">
-                    <div class="window-bar">
-                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
-                        <span class="window-title" data-i18n="contact.window">nathan@dev: ~/contato</span>
-                    </div>
-                    <div class="contact-list">
-                        <a href="mailto:nathandomin44@gmail.com" class="contact-item" id="contact-email-link">
-                            <span class="contact-cmd"><span class="t-prompt">$</span> mail</span>
-                            <i class="ph ph-envelope-simple contact-icon" aria-hidden="true"></i>
-                            <span class="contact-data" id="contact-email-text">nathandomin44@gmail.com</span>
-                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://www.linkedin.com/in/nathan-domingues-985606321/" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin-link">
-                            <span class="contact-cmd"><span class="t-prompt">$</span> linkedin</span>
-                            <i class="ph ph-linkedin-logo contact-icon" aria-hidden="true"></i>
-                            <span class="contact-data" id="contact-linkedin-text">Nathan Domingues</span>
-                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://wa.me/5513991365365" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-whatsapp-link">
-                            <span class="contact-cmd"><span class="t-prompt">$</span> whatsapp</span>
-                            <i class="ph ph-whatsapp-logo contact-icon" aria-hidden="true"></i>
-                            <span class="contact-data" id="contact-whatsapp-text">+55 13 99136-5365</span>
-                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
-                        </a>
-                        <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-github-link">
-                            <span class="contact-cmd"><span class="t-prompt">$</span> github</span>
-                            <i class="ph ph-github-logo contact-icon" aria-hidden="true"></i>
-                            <span class="contact-data" id="contact-github-text">nathdomin</span>
-                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
-                        </a>
-                    </div>
-                </div>
+                <div class="contact-grid">
+                    <div class="contact-side">
+                        <div class="window contact-window reveal">
+                            <div class="window-bar">
+                                <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                                <span class="window-title" data-i18n="contact.window">nathan@dev: ~/contato</span>
+                            </div>
+                            <div class="contact-list">
+                                <a href="mailto:nathandomin44@gmail.com" class="contact-item" id="contact-email-link">
+                                    <span class="contact-cmd"><span class="t-prompt">$</span> mail</span>
+                                    <i class="ph ph-envelope-simple contact-icon" aria-hidden="true"></i>
+                                    <span class="contact-data" id="contact-email-text">nathandomin44@gmail.com</span>
+                                    <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://www.linkedin.com/in/nathan-domingues-985606321/" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin-link">
+                                    <span class="contact-cmd"><span class="t-prompt">$</span> linkedin</span>
+                                    <i class="ph ph-linkedin-logo contact-icon" aria-hidden="true"></i>
+                                    <span class="contact-data" id="contact-linkedin-text">Nathan Domingues</span>
+                                    <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://wa.me/5513991365365" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-whatsapp-link">
+                                    <span class="contact-cmd"><span class="t-prompt">$</span> whatsapp</span>
+                                    <i class="ph ph-whatsapp-logo contact-icon" aria-hidden="true"></i>
+                                    <span class="contact-data" id="contact-whatsapp-text">+55 13 99136-5365</span>
+                                    <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                                </a>
+                                <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-github-link">
+                                    <span class="contact-cmd"><span class="t-prompt">$</span> github</span>
+                                    <i class="ph ph-github-logo contact-icon" aria-hidden="true"></i>
+                                    <span class="contact-data" id="contact-github-text">nathdomin</span>
+                                    <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                                </a>
+                            </div>
+                        </div>
 
-                <div class="download-resume reveal">
-                    <a href="/arquivos/curriculo_nathan_domingues.pdf" download class="button" id="cv-download-link">
-                        <i class="ph ph-download-simple"></i> <span data-i18n="contact.cv">currículo em português.pdf</span>
-                    </a>
-                    <a href="/arquivos/nathan_domingues_resume_en.pdf" download class="button button--ghost" id="cv-download-other" hreflang="en">
-                        <i class="ph ph-download-simple"></i> <span data-i18n="contact.cvOther">currículo em inglês.pdf</span>
-                    </a>
+                        <div class="download-resume reveal">
+                            <a href="/arquivos/curriculo_nathan_domingues.pdf" download class="button" id="cv-download-link">
+                                <i class="ph ph-download-simple"></i> <span data-i18n="contact.cv">currículo em português.pdf</span>
+                            </a>
+                            <a href="/arquivos/nathan_domingues_resume_en.pdf" download class="button button--ghost" id="cv-download-other" hreflang="en">
+                                <i class="ph ph-download-simple"></i> <span data-i18n="contact.cvOther">currículo em inglês.pdf</span>
+                            </a>
+                        </div>
+                    </div>
+
+                    <!-- Formulário de contato: recebido pelo Netlify Forms (detectado no deploy) -->
+                    <form class="window contact-form reveal-delay" id="contact-form" name="contato" method="POST" data-netlify="true" netlify-honeypot="bot-field">
+                        <div class="window-bar">
+                            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="window-title" data-i18n="form.window">~/contato $ ./nova-mensagem.sh</span>
+                        </div>
+                        <div class="contact-form-body">
+                            <input type="hidden" name="form-name" value="contato">
+                            <p class="form-honeypot" hidden>
+                                <label>Não preencha este campo: <input name="bot-field" tabindex="-1" autocomplete="off"></label>
+                            </p>
+
+                            <label class="form-field">
+                                <span class="form-label"><span class="t-prompt">$</span> <span data-i18n="form.name">nome</span></span>
+                                <input type="text" name="nome" required maxlength="100" autocomplete="name" placeholder="seu nome" data-i18n-attr="placeholder:form.namePh">
+                            </label>
+                            <label class="form-field">
+                                <span class="form-label"><span class="t-prompt">$</span> <span data-i18n="form.email">email</span></span>
+                                <input type="email" name="email" required maxlength="150" autocomplete="email" placeholder="voce@empresa.com" data-i18n-attr="placeholder:form.emailPh">
+                            </label>
+                            <label class="form-field">
+                                <span class="form-label"><span class="t-prompt">$</span> <span data-i18n="form.message">mensagem</span></span>
+                                <textarea name="mensagem" required maxlength="3000" rows="4" placeholder="Olá, Nathan! ..." data-i18n-attr="placeholder:form.messagePh"></textarea>
+                            </label>
+
+                            <div class="form-actions">
+                                <button type="submit" class="button" id="contact-submit">
+                                    <i class="ph ph-paper-plane-right"></i> <span data-i18n="form.send">enviar mensagem</span>
+                                </button>
+                                <p class="form-status" id="form-status" role="status" aria-live="polite"></p>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </section>
@@ -334,6 +399,7 @@
     <script src="js/i18n.js"></script>
     <script src="js/render.js"></script>
     <script src="js/script.js"></script>
+    <script src="js/terminal.js"></script>
 
     <!-- Netlify Identity só é carregado quando o link de convite/recuperação do CMS é aberto -->
     <script>

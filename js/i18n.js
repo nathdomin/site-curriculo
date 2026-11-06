@@ -28,6 +28,29 @@ const I18N_STRINGS = {
 
         'hero.roleCmd': 'cat cargo.txt',
         'hero.photoTitle': '~/fotos/nathan.png',
+
+        'term.hint': '# digite help para ver os comandos',
+        'term.inputLabel': 'Digite um comando do terminal',
+        'term.help': 'comandos disponíveis:\n' +
+            '  sobre · projetos · stack · experiencia\n' +
+            '  formacao · github · contato   ir para a seção\n' +
+            '  whoami     quem sou eu\n' +
+            '  ls         listar as seções\n' +
+            '  cv         baixar meu currículo em PDF\n' +
+            '  lang en    ver o site em inglês\n' +
+            '  theme      alternar tema claro/escuro\n' +
+            '  clear      limpar o terminal',
+        'term.ls': 'sobre/  projetos/  stack/  experiencia/  formacao/  github/  contato/',
+        'term.goto': 'abrindo {section}/ ...',
+        'term.cv': 'baixando currículo em português.pdf ...',
+        'term.langUsage': 'uso: lang pt | lang en',
+        'term.langSame': 'o site já está em português',
+        'term.langTo.en': 'switching to English...',
+        'term.langTo.pt': 'mudando para português...',
+        'term.themeUsage': 'uso: theme light | theme dark',
+        'term.themeSet': 'tema: {theme}',
+        'term.notFound': 'comando não encontrado: {cmd}. digite help',
+        'term.sudo': 'nathan não está no arquivo sudoers. este incidente será reportado. 😉',
         'hero.photoAlt': 'Foto de Nathan Domingues',
 
         'about.tab': 'sobre.md',
@@ -100,6 +123,18 @@ const I18N_STRINGS = {
         'contact.cv': 'currículo em português.pdf',
         'contact.cvOther': 'currículo em inglês.pdf',
 
+        'form.window': '~/contato $ ./nova-mensagem.sh',
+        'form.name': 'nome',
+        'form.email': 'email',
+        'form.message': 'mensagem',
+        'form.namePh': 'seu nome',
+        'form.emailPh': 'voce@empresa.com',
+        'form.messagePh': 'Olá, Nathan! ...',
+        'form.send': 'enviar mensagem',
+        'form.sending': 'enviando...',
+        'form.sent': '✓ mensagem enviada! respondo em breve.',
+        'form.error': '✗ não foi possível enviar agora. tente pelo e-mail ao lado.',
+
         'footer.built': 'feito com HTML, CSS & JavaScript puros',
         'footer.source': 'ver código'
     },
@@ -124,6 +159,29 @@ const I18N_STRINGS = {
 
         'hero.roleCmd': 'cat role.txt',
         'hero.photoTitle': '~/photos/nathan.png',
+
+        'term.hint': '# type help to see the commands',
+        'term.inputLabel': 'Type a terminal command',
+        'term.help': 'available commands:\n' +
+            '  about · projects · stack · experience\n' +
+            '  education · github · contact   go to section\n' +
+            '  whoami     who I am\n' +
+            '  ls         list the sections\n' +
+            '  cv         download my resume (PDF)\n' +
+            '  lang pt    see the site in Portuguese\n' +
+            '  theme      toggle light/dark theme\n' +
+            '  clear      clear the terminal',
+        'term.ls': 'about/  projects/  stack/  experience/  education/  github/  contact/',
+        'term.goto': 'opening {section}/ ...',
+        'term.cv': 'downloading resume in English.pdf ...',
+        'term.langUsage': 'usage: lang pt | lang en',
+        'term.langSame': 'the site is already in English',
+        'term.langTo.en': 'switching to English...',
+        'term.langTo.pt': 'mudando para português...',
+        'term.themeUsage': 'usage: theme light | theme dark',
+        'term.themeSet': 'theme: {theme}',
+        'term.notFound': 'command not found: {cmd}. type help',
+        'term.sudo': 'nathan is not in the sudoers file. This incident will be reported. 😉',
         'hero.photoAlt': 'Photo of Nathan Domingues',
 
         'about.tab': 'about.md',
@@ -196,6 +254,18 @@ const I18N_STRINGS = {
         'contact.cv': 'resume in English.pdf',
         'contact.cvOther': 'resume in Portuguese.pdf',
 
+        'form.window': '~/contact $ ./new-message.sh',
+        'form.name': 'name',
+        'form.email': 'email',
+        'form.message': 'message',
+        'form.namePh': 'your name',
+        'form.emailPh': 'you@company.com',
+        'form.messagePh': 'Hi Nathan! ...',
+        'form.send': 'send message',
+        'form.sending': 'sending...',
+        'form.sent': "✓ message sent! I'll get back to you soon.",
+        'form.error': '✗ could not send right now. please use the email beside.',
+
         'footer.built': 'built with plain HTML, CSS & JavaScript',
         'footer.source': 'view source'
     }
@@ -232,8 +302,25 @@ function getLocale() {
     return I18N_LOCALE[currentLang] || 'pt-BR';
 }
 
+const SITE_URL = 'https://curriculonathdomin.netlify.app/';
+
+// canonical e Open Graph apontam para a versão do idioma atual
+function updateLanguageMeta() {
+    const isEn = currentLang === 'en';
+    const url = isEn ? `${SITE_URL}?lang=en` : SITE_URL;
+    const set = (id, attr, value) => {
+        const el = document.getElementById(id);
+        if (el) el.setAttribute(attr, value);
+    };
+    set('link-canonical', 'href', url);
+    set('meta-og-url', 'content', url);
+    set('meta-og-locale', 'content', isEn ? 'en_US' : 'pt_BR');
+    set('meta-og-locale-alt', 'content', isEn ? 'pt_BR' : 'en_US');
+}
+
 function applyStaticStrings() {
     document.documentElement.lang = currentLang === 'en' ? 'en' : 'pt-BR';
+    updateLanguageMeta();
 
     document.querySelectorAll('[data-i18n]').forEach(el => {
         el.textContent = t(el.dataset.i18n);

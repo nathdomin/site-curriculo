@@ -24,7 +24,9 @@ O site tem versão em **inglês** (botão PT | EN no topo, ou o link [`?lang=en`
 | Fontes dos currículos em PDF (PT e EN) | [tools/curriculo-pt.html](tools/curriculo-pt.html) · [tools/resume-en.html](tools/resume-en.html) |
 | Gerar os PDFs de novo (Windows, usa o Edge) | `powershell -File tools\gerar-pdfs.ps1` |
 | Montagem da página a partir do JSON + dados do GitHub | [js/render.js](js/render.js) |
-| Digitação do terminal, menu, tema e animações | [js/script.js](js/script.js) |
+| Digitação do terminal, menu, tema, animações e formulário | [js/script.js](js/script.js) |
+| Terminal interativo do topo (digite `help`) | [js/terminal.js](js/terminal.js) |
+| Página de erro 404 | [404.html](404.html) |
 | Painel de edição (Decap CMS + Git Gateway) | [admin/](admin/) |
 
 Fontes externas: Google Fonts (JetBrains Mono e Inter), [Phosphor Icons](https://phosphoricons.com) e [Devicon](https://devicon.dev). O calendário de contribuições vem da API pública [github-contributions-api](https://github.com/grubersjoe/github-contributions-api).

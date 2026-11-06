@@ -102,8 +102,12 @@ function initTerminal() {
     body.dataset.typed = 'true';
 
     const children = [...body.children];
+    // Avisa o js/terminal.js que o terminal pode receber comandos
+    const ready = () => document.dispatchEvent(new CustomEvent('terminal:ready'));
+
     if (prefersReducedMotion) {
         children.forEach(el => el.classList.add('is-shown'));
+        ready();
         return;
     }
 
@@ -135,6 +139,7 @@ function initTerminal() {
             caret.remove();
         }
         body.classList.remove('is-typing');
+        ready();
     })();
 }
 
@@ -222,6 +227,44 @@ document.addEventListener('cv:relocalized', () => {
     if (terminal) [...terminal.children].forEach(el => el.classList.add('is-shown'));
     scrollActive();
 });
+
+/* ================= FORMULÁRIO DE CONTATO (Netlify Forms) =================
+   Envia sem sair da página. Sem JS, o envio normal cai na página de
+   confirmação padrão da Netlify. */
+const contactForm = document.getElementById('contact-form');
+
+if (contactForm) {
+    const submitButton = document.getElementById('contact-submit');
+    const formStatus = document.getElementById('form-status');
+
+    const setFormStatus = (key, state) => {
+        formStatus.textContent = key ? t(key) : '';
+        formStatus.classList.toggle('is-sent', state === 'sent');
+        formStatus.classList.toggle('is-error', state === 'error');
+    };
+
+    contactForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        submitButton.disabled = true;
+        setFormStatus('form.sending');
+
+        try {
+            const response = await fetch('/', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                body: new URLSearchParams(new FormData(contactForm)).toString()
+            });
+            if (!response.ok) throw new Error(`Formulário respondeu ${response.status}`);
+            contactForm.reset();
+            setFormStatus('form.sent', 'sent');
+        } catch (err) {
+            console.error('Erro ao enviar o formulário:', err);
+            setFormStatus('form.error', 'error');
+        } finally {
+            submitButton.disabled = false;
+        }
+    });
+}
 
 const footerYear = document.getElementById('footer-year');
 if (footerYear) footerYear.textContent = new Date().getFullYear();

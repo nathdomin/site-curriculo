@@ -549,6 +549,55 @@ button { font: inherit; color: inherit; }
     color: var(--orange);
 }
 
+/* Terminal interativo (js/terminal.js) */
+.t-history > * + * { margin-top: 0.15rem; }
+
+.t-last {
+    display: flex;
+    align-items: center;
+    gap: 1ch;
+}
+
+.t-field {
+    position: relative;
+    flex: 1;
+    min-width: 0;
+    display: flex;
+    align-items: center;
+}
+
+/* Cursor piscando no início do campo, só enquanto ele está vazio e sem foco */
+.t-field .cursor {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    pointer-events: none;
+    display: none;
+}
+
+.t-input:placeholder-shown:not(:focus) + .cursor {
+    display: inline-block;
+}
+
+.t-input {
+    flex: 1;
+    width: 100%;
+    min-width: 0;
+    padding: 0;
+    border: 0;
+    outline: none;
+    background: transparent;
+    font: inherit;
+    color: var(--title);
+    caret-color: var(--accent);
+}
+
+/* O foco no campo aparece na borda da janela */
+.terminal:focus-within {
+    border-color: var(--accent);
+}
+
 /* Enquanto o efeito de digitação roda, só aparece o que já foi "digitado" */
 @media (prefers-reduced-motion: no-preference) {
     .js .terminal-body.is-typing > :not(.is-shown) {
@@ -1525,11 +1574,100 @@ button { font: inherit; color: inherit; }
     }
 }
 
+/* Contatos + formulário: lado a lado no computador, empilhados no celular */
+.contact-grid {
+    display: grid;
+    gap: 1.25rem;
+    align-items: start;
+}
+
+@media screen and (min-width: 1024px) {
+    .contact-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+}
+
+.contact-form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    padding: 1.25rem 1.4rem 1.4rem;
+}
+
+.form-field {
+    display: flex;
+    flex-direction: column;
+    gap: 0.4rem;
+}
+
+.form-label {
+    font-family: var(--mono);
+    font-size: 0.85rem;
+    color: var(--title);
+}
+
+.form-field input,
+.form-field textarea {
+    width: 100%;
+    padding: 0.65rem 0.8rem;
+    background: var(--surface-2);
+    border: 1px solid var(--border);
+    border-radius: var(--radius-sm);
+    font-family: var(--mono);
+    font-size: 0.88rem;
+    color: var(--title);
+    transition: border-color 0.2s ease;
+}
+
+.form-field textarea {
+    resize: vertical;
+    min-height: 6.5rem;
+    line-height: 1.6;
+}
+
+.form-field input::placeholder,
+.form-field textarea::placeholder {
+    color: var(--comment);
+}
+
+.form-field input:focus,
+.form-field textarea:focus {
+    outline: none;
+    border-color: var(--accent);
+}
+
+.form-actions {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 0.75rem 1rem;
+}
+
+.form-actions .button:disabled {
+    opacity: 0.6;
+    cursor: wait;
+    transform: none;
+}
+
+.form-status {
+    font-family: var(--mono);
+    font-size: 0.82rem;
+    color: var(--text-muted);
+}
+
+.form-status.is-sent { color: var(--accent); }
+.form-status.is-error { color: #f85149; }
+:root[data-theme="light"] .form-status.is-error { color: #cf222e; }
+
 .download-resume {
     display: flex;
     flex-wrap: wrap;
     gap: 0.75rem;
-    margin-top: 2rem;
+    margin-top: 1.25rem;
+}
+
+/* Quando quebram em duas linhas, os botões ocupam a largura da coluna por igual */
+.download-resume .button {
+    flex: 1 1 auto;
+    justify-content: center;
 }
 
 /* ================= FOOTER ================= */

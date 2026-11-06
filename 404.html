@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex">
+    <title>404 | Nathan Domingues</title>
+    <meta name="theme-color" content="#0b0f14">
+
+    <!-- Mesmo tema da página principal, aplicado antes de desenhar -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = null;
+            try { theme = localStorage.getItem('theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            root.setAttribute('data-theme', theme);
+        })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="/css/style.css">
+    <style>
+        .not-found {
+            min-height: 100vh;
+            min-height: 100svh;
+            display: flex;
+            align-items: center;
+            padding: 3rem 0;
+        }
+        .not-found .window { max-width: 680px; }
+        .not-found .logo { display: inline-block; margin-bottom: 1.5rem; }
+        .not-found .t-error { color: #f85149; font-size: 1rem; }
+        :root[data-theme="light"] .not-found .t-error { color: #cf222e; }
+        .not-found .t-dirs a { color: var(--blue); margin-right: 1.25rem; }
+        .not-found .t-dirs a:hover { color: var(--accent); text-decoration: underline; }
+        .not-found .hero-actions { margin-top: 2rem; }
+    </style>
+</head>
+<body>
+    <main class="not-found">
+        <div class="container">
+            <a href="/" class="logo"><span class="logo-user">nathan</span><span class="logo-at">@</span><span class="logo-host">dev</span><span class="logo-path">:~$</span><span class="cursor" aria-hidden="true"></span></a>
+
+            <div class="window terminal">
+                <div class="window-bar">
+                    <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                    <span class="window-title">nathan@dev: ~</span>
+                </div>
+                <div class="terminal-body">
+                    <p class="t-comment" data-text="comment"># erro 404</p>
+                    <p class="t-line"><span class="t-prompt">~ $</span> <span class="t-cmd">cd <span id="requested-path">/</span></span></p>
+                    <h1 class="t-out t-error" data-text="error">bash: cd: arquivo ou diretório não encontrado</h1>
+                    <p class="t-line"><span class="t-prompt">~ $</span> <span class="t-cmd">ls ~</span></p>
+                    <!-- Sem espaços entre as tags: .t-out preserva espaços em branco -->
+                    <p class="t-out t-dirs"><a href="/#sobre" data-text="dirAbout">sobre/</a><a href="/#projetos" data-text="dirProjects">projetos/</a><a href="/#stack">stack/</a><a href="/#contato" data-text="dirContact">contato/</a></p>
+                    <p class="t-line"><span class="t-prompt">~ $</span> <span class="cursor" aria-hidden="true"></span></p>
+                </div>
+            </div>
+
+            <div class="hero-actions">
+                <a href="/" class="button" id="home-link"><i class="ph ph-house"></i> <span data-text="home">voltar ao início</span></a>
+                <a href="/#projetos" class="button button--ghost" id="projects-link"><i class="ph ph-code"></i> <span data-text="projects">ver projetos</span></a>
+            </div>
+        </div>
+    </main>
+
+    <script>
+        (function () {
+            var texts = {
+                en: {
+                    comment: '# error 404',
+                    error: 'bash: cd: no such file or directory',
+                    dirAbout: 'about/',
+                    dirProjects: 'projects/',
+                    dirContact: 'contact/',
+                    home: 'back to home',
+                    projects: 'view projects'
+                }
+            };
+
+            // Mesmo idioma escolhido no site (ou o do navegador)
+            var lang = null;
+            try { lang = localStorage.getItem('lang'); } catch (e) {}
+            if (lang !== 'pt' && lang !== 'en') {
+                lang = (navigator.language || 'pt').toLowerCase().indexOf('pt') === 0 ? 'pt' : 'en';
+            }
+
+            var path = window.location.pathname;
+            try { path = decodeURI(path); } catch (e) { /* URL malformada: mostra como veio */ }
+            document.getElementById('requested-path').textContent = path;
+
+            if (lang === 'en') {
+                document.documentElement.lang = 'en';
+                document.title = '404 | Nathan Domingues';
+                document.querySelectorAll('[data-text]').forEach(function (el) {
+                    var value = texts.en[el.getAttribute('data-text')];
+                    if (value) el.textContent = value;
+                });
+                document.querySelectorAll('a[href^="/"]').forEach(function (a) {
+                    var hash = a.getAttribute('href').split('#')[1];
+                    a.setAttribute('href', '/?lang=en' + (hash ? '#' + hash : ''));
+                });
+            }
+        })();
+    </script>
+</body>
+</html>
