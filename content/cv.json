@@ -24,7 +24,7 @@
     "info_boxes": [
       {
         "title": "local",
-        "subtitle": "Santos - SP"
+        "subtitle": "Praia Grande - SP"
       },
       {
         "title": "curso",
@@ -270,6 +270,12 @@
       "Proatividade"
     ],
     "courses": [
+      {
+        "date": "Em andamento",
+        "sort_date": "2026-11",
+        "title": "Gestão de Infraestrutura de TI",
+        "institution": "Nano Courses FIAP"
+      },
       {
         "date": "Outubro 2026",
         "sort_date": "2026-10",

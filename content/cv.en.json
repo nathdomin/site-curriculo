@@ -24,7 +24,7 @@
     "info_boxes": [
       {
         "title": "location",
-        "subtitle": "Santos - SP, Brazil"
+        "subtitle": "Praia Grande - SP, Brazil"
       },
       {
         "title": "degree",
@@ -270,6 +270,12 @@
       "Proactivity"
     ],
     "courses": [
+      {
+        "date": "In progress",
+        "sort_date": "2026-11",
+        "title": "IT Infrastructure Management",
+        "institution": "FIAP Nano Courses"
+      },
       {
         "date": "October 2026",
         "sort_date": "2026-10",
