@@ -97,8 +97,8 @@ const I18N_STRINGS = {
         'contact.title': 'Contato',
         'contact.comment': '// vamos construir algo juntos',
         'contact.window': 'nathan@dev: ~/contato',
-        'contact.cv': 'baixar currículo.pdf',
-        'contact.cvOther': 'english resume.pdf',
+        'contact.cv': 'currículo em português.pdf',
+        'contact.cvOther': 'currículo em inglês.pdf',
 
         'footer.built': 'feito com HTML, CSS & JavaScript puros',
         'footer.source': 'ver código'
@@ -193,8 +193,8 @@ const I18N_STRINGS = {
         'contact.title': 'Contact',
         'contact.comment': "// let's build something together",
         'contact.window': 'nathan@dev: ~/contact',
-        'contact.cv': 'download resume.pdf',
-        'contact.cvOther': 'currículo em português.pdf',
+        'contact.cv': 'resume in English.pdf',
+        'contact.cvOther': 'resume in Portuguese.pdf',
 
         'footer.built': 'built with plain HTML, CSS & JavaScript',
         'footer.source': 'view source'

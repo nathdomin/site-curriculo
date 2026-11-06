@@ -455,13 +455,24 @@ function renderContact(contact) {
     // Currículo no idioma atual em destaque; o do outro idioma ao lado
     const pdfs = { pt: contact.cv_pdf, en: contact.cv_pdf_en };
     const otherLang = currentLang === 'en' ? 'pt' : 'en';
-    setHref('cv-download-link', pdfs[currentLang] || pdfs.pt);
-    setHref('cv-download-other', pdfs[otherLang]);
-    const other = document.getElementById('cv-download-other');
-    if (other) {
-        other.hidden = !pdfs[otherLang];
-        other.setAttribute('hreflang', otherLang === 'en' ? 'en' : 'pt-BR');
-    }
+    setCvLink('cv-download-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
+    setCvLink('cv-download-other', otherLang, pdfs);
+}
+
+// Nome do arquivo baixado, igual para quem baixa pelo site em qualquer idioma
+const CV_DOWNLOAD_NAMES = {
+    pt: 'Nathan_Domingues_Curriculo_PT.pdf',
+    en: 'Nathan_Domingues_Resume_EN.pdf'
+};
+
+function setCvLink(elementId, lang, pdfs) {
+    const link = document.getElementById(elementId);
+    if (!link) return;
+    link.hidden = !pdfs[lang];
+    if (!pdfs[lang]) return;
+    link.setAttribute('href', pdfs[lang]);
+    link.setAttribute('download', CV_DOWNLOAD_NAMES[lang]);
+    link.setAttribute('hreflang', lang === 'en' ? 'en' : 'pt-BR');
 }
 
 /* ---------------- GitHub ---------------- */
