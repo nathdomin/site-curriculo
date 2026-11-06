@@ -20,7 +20,7 @@
     "cta_text": "Ver projetos"
   },
   "about": {
-    "description": "Sou estudante de **Inteligência Artificial** na Universidade Santa Cecília e desenvolvo projetos web e de IA com **Python**, **TypeScript** e **JavaScript**: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.\n\nTrabalho com **desenvolvimento assistido por IA** (Claude Code, Gemini) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.\n\nHoje também sou Jovem Aprendiz no CSC de RH da **Coca-Cola FEMSA**. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar.",
+    "description": "Sou estudante de **Inteligência Artificial** na Universidade Santa Cecília e desenvolvo projetos web e de IA com **Python**, **TypeScript** e **JavaScript**: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.\n\nTrabalho com **desenvolvimento assistido por IA** (Claude Code, Gemini, Codex) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.\n\nHoje também sou Jovem Aprendiz no CSC de RH da **Coca-Cola FEMSA**. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar.",
     "info_boxes": [
       {
         "title": "local",
