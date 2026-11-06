@@ -20,7 +20,7 @@
     "cta_text": "View projects"
   },
   "about": {
-    "description": "I'm an **Artificial Intelligence** student at Universidade Santa Cecília (Brazil), and I build web and AI projects with **Python**, **TypeScript** and **JavaScript**: an agent that reads resumes and matches them to job openings, a platformer that runs in the browser, and a meeting room booking system with React and PostgreSQL.\n\nI work with **AI-assisted development** (Claude Code, Gemini) from prototype to deploy, using prompt engineering to plan, write, test and review code. Everything I build is public on GitHub.\n\nI'm also an HR Apprentice at the Shared Services Center of **Coca-Cola FEMSA**. That high-volume routine (ServiceNow tickets, spreadsheets, documents) is where many of my ideas come from: repetitive processes that can be automated.",
+    "description": "I'm an **Artificial Intelligence** student at Universidade Santa Cecília (Brazil), and I build web and AI projects with **Python**, **TypeScript** and **JavaScript**: an agent that reads resumes and matches them to job openings, a platformer that runs in the browser, and a meeting room booking system with React and PostgreSQL.\n\nI work with **AI-assisted development** (Claude Code, Codex, Gemini) from prototype to deploy, using prompt engineering to plan, write, test and review code. Everything I build is public on GitHub.\n\nI'm also an HR Apprentice at the Shared Services Center of **Coca-Cola FEMSA**. That high-volume routine (ServiceNow tickets, spreadsheets, documents) is where many of my ideas come from: repetitive processes that can be automated.",
     "info_boxes": [
       {
         "title": "location",
