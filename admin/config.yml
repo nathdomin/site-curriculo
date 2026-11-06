@@ -1,120 +1,201 @@
+# =====================================================================
+# Painel de edição do site (Decap CMS) — acesse em /admin
+#
+# O conteúdo fica em três arquivos:
+#   content/cv.json     -> textos em português
+#   content/cv.en.json  -> textos em inglês (mesmos campos)
+#   content/geral.json  -> contato, GitHub, foto e PDFs (valem para os dois idiomas)
+# =====================================================================
+
 backend:
   name: git-gateway
   branch: main
+  commit_messages:
+    update: "Atualiza {{collection}} “{{slug}}” pelo painel"
+    uploadMedia: "Envia arquivo “{{path}}” pelo painel"
+    deleteMedia: "Remove arquivo “{{path}}” pelo painel"
 
-# Onde as imagens enviadas pelo painel serão salvas
+# Interface do painel em português
+locale: "pt"
+
+site_url: "https://curriculonathdomin.netlify.app"
+display_url: "https://curriculonathdomin.netlify.app"
+logo_url: "/img/favicon.svg"
+show_preview_links: false
+
+# Onde as imagens enviadas pelo painel são salvas
 media_folder: "img/uploads"
 public_folder: "/img/uploads"
 
 collections:
-  - name: "curriculo"
-    label: "Currículo"
+  - name: "site"
+    label: "Conteúdo do site"
+    description: "Escolha o idioma que quer editar. Contato, GitHub, foto e PDFs ficam em “Geral” e valem para os dois idiomas."
+    editor:
+      preview: false
     files:
+      # ---------------------------------------------------------------
+      # PORTUGUÊS
+      # ---------------------------------------------------------------
       - file: "content/cv.json"
-        label: "Dados do Currículo"
+        label: "🇧🇷 Textos em português"
         name: "cv"
-        fields:
-          - { label: "Título da Aba do Navegador", name: "meta_title", widget: "string" }
-          - { label: "Descrição (SEO)", name: "meta_description", widget: "text" }
-
-          - label: "Topo (Hero)"
+        # Os mesmos campos são reaproveitados na versão em inglês (*cv_fields)
+        fields: &cv_fields
+          - label: "Topo (terminal)"
             name: "hero"
             widget: "object"
+            collapsed: true
+            summary: "{{fields.name_line1}} {{fields.name_line2}} · {{fields.profession}}"
             fields:
-              - { label: "Texto de Saudação", name: "subtitle", widget: "string" }
-              - { label: "Nome - Linha 1", name: "name_line1", widget: "string" }
-              - { label: "Nome - Linha 2", name: "name_line2", widget: "string" }
-              - { label: "Profissão / Área", name: "profession", widget: "string" }
-              - { label: "Descrição Curta", name: "description", widget: "text" }
-              - { label: "Texto do Botão", name: "cta_text", widget: "string" }
-              - { label: "Foto de Perfil", name: "photo", widget: "image" }
+              - { label: "Saudação", name: "subtitle", widget: "string", hint: "Aparece como comentário na primeira linha do terminal. Ex: olá, eu sou" }
+              - { label: "Nome", name: "name_line1", widget: "string" }
+              - { label: "Sobrenome", name: "name_line2", widget: "string" }
+              - { label: "Cargo / área", name: "profession", widget: "string", hint: "Resultado do comando “cat cargo.txt”. Ex: Dev em formação · IA & Web" }
+              - label: "Comandos extras do terminal"
+                name: "terminal_lines"
+                widget: "list"
+                required: false
+                collapsed: true
+                summary: "$ {{fields.cmd}}"
+                hint: "Aparecem sendo digitados depois do nome e do cargo."
+                fields:
+                  - { label: "Comando", name: "cmd", widget: "string", hint: "Ex: ls stack/" }
+                  - { label: "Resultado", name: "output", widget: "string", required: false, hint: "Ex: python/  typescript/  javascript/" }
+              - { label: "Frase abaixo do terminal", name: "description", widget: "text" }
+              - { label: "Texto do botão verde", name: "cta_text", widget: "string", hint: "O botão leva para a seção Projetos." }
 
-          - label: "Sobre Mim"
+          - label: "01 · Sobre"
             name: "about"
             widget: "object"
+            collapsed: true
             fields:
-              - { label: "Texto Sobre Mim", name: "description", widget: "text", hint: "Deixe uma linha em branco para separar parágrafos. Coloque **entre asteriscos** as palavras que devem ficar em destaque." }
-              - label: "Caixas de Destaque"
+              - { label: "Texto", name: "description", widget: "text", hint: "Deixe uma linha em branco para separar parágrafos. Coloque **entre asteriscos duplos** o que deve ficar em destaque." }
+              - label: "Bloco de código (perfil.ts)"
                 name: "info_boxes"
                 widget: "list"
-                summary: "{{title}} - {{subtitle}}"
+                collapsed: true
+                summary: "{{fields.title}}: {{fields.subtitle}}"
+                hint: "Cada item vira uma linha do objeto “const nathan = { ... }”."
                 fields:
-                  - { label: "Ícone (nome Phosphor Icons)", name: "icon", widget: "string", hint: "Ex: ph-map-pin, ph-briefcase, ph-robot. Veja nomes em phosphoricons.com" }
-                  - { label: "Título", name: "title", widget: "string" }
-                  - { label: "Subtítulo", name: "subtitle", widget: "string" }
+                  - { label: "Chave", name: "title", widget: "string", hint: "Uma palavra só. Ex: local, curso, foco, idiomas" }
+                  - { label: "Valor", name: "subtitle", widget: "string", hint: "Ex: Santos - SP" }
 
-          - label: "Experiência Profissional"
-            name: "experience"
-            widget: "list"
-            summary: "{{title}} - {{company}}"
-            fields:
-              - { label: "Período", name: "date", widget: "string" }
-              - { label: "Cargo", name: "title", widget: "string" }
-              - { label: "Empresa | Cidade", name: "company", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-
-          - label: "Formação Acadêmica"
-            name: "education"
-            widget: "list"
-            summary: "{{title}} - {{company}}"
-            fields:
-              - { label: "Período", name: "date", widget: "string" }
-              - { label: "Curso / Etapa", name: "title", widget: "string" }
-              - { label: "Instituição | Cidade", name: "company", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text" }
-
-          - label: "Competências"
-            name: "skills"
-            widget: "object"
-            fields:
-              - label: "Comportamentais"
-                name: "behavioral"
-                widget: "list"
-                allow_add: true
-              - label: "Técnicas & Ferramentas"
-                name: "technical"
-                widget: "list"
-                allow_add: true
-              - label: "Cursos Extras"
-                name: "courses"
-                widget: "list"
-                summary: "{{title}}"
-                fields:
-                  - { label: "Período", name: "date", widget: "string" }
-                  - { label: "Nome do Curso", name: "title", widget: "string" }
-                  - { label: "Instituição", name: "institution", widget: "string" }
-
-          - label: "Projetos"
+          - label: "02 · Projetos"
             name: "projects"
             widget: "list"
-            summary: "{{title}}"
+            collapsed: true
+            summary: "{{fields.title}}"
+            hint: "Arraste para mudar a ordem. O projeto marcado como destaque sempre aparece primeiro. Link, repositório e imagem precisam ser iguais nos dois idiomas."
             fields:
-              - { label: "Nome do Projeto", name: "title", widget: "string" }
-              - { label: "Descrição", name: "description", widget: "text", required: false }
-              - { label: "Link do Site - botão Ver site", name: "link", widget: "string", required: false, hint: "Endereço do projeto no ar. Ex: https://meuprojeto.netlify.app" }
-              - { label: "Link do Repositório - botão Código", name: "repo", widget: "string", required: false, hint: "Ex: https://github.com/nathdomin/projeto." }
-              - { label: "Tecnologias / Tags", name: "tags", widget: "list", required: false, hint: "Ex: Python, JavaScript, IA Generativa" }
-              - { label: "Projeto em Destaque", name: "featured", widget: "boolean", default: false, required: false, hint: "Aparece primeiro, em tamanho maior. Marque apenas um projeto." }
-              - { label: "Foto/Print do Projeto", name: "image", widget: "image", required: false }
+              - { label: "Nome do projeto", name: "title", widget: "string" }
+              - { label: "Destaque", name: "featured", widget: "boolean", default: false, required: false, hint: "Aparece primeiro e maior. Marque só um projeto." }
+              - { label: "Descrição", name: "description", widget: "text", required: false, hint: "O card mostra as primeiras linhas; o texto completo abre no “ler mais”." }
+              - { label: "Tecnologias / tags", name: "tags", widget: "list", required: false, hint: "Separe por vírgula. Ex: Python, Gemini API, React" }
+              - { label: "Link do site no ar (botão “ver no ar”)", name: "link", widget: "string", required: false, hint: "Deixe vazio se o projeto não estiver publicado. Ex: https://meuprojeto.netlify.app" }
+              - { label: "Link do repositório (botão “código”)", name: "repo", widget: "string", required: false, hint: "Ex: https://github.com/nathdomin/projeto" }
+              - { label: "Print do projeto", name: "image", widget: "image", required: false, choose_url: false, hint: "Formato paisagem (16:9). Sem imagem, o card mostra um terminal com as tecnologias." }
 
-          - label: "Repositórios do GitHub"
-            name: "github"
+          - label: "03 · Stack e soft skills"
+            name: "skills"
             widget: "object"
-            hint: "Os repositórios públicos são carregados automaticamente do GitHub."
+            collapsed: true
             fields:
-              - { label: "Usuário do GitHub", name: "username", widget: "string" }
-              - { label: "Quantidade máxima de repositórios", name: "max_repos", widget: "number", value_type: "int", min: 1, max: 30, default: 6 }
-              - { label: "Repositórios a ocultar", name: "hidden_repos", widget: "list", required: false, hint: "Nome exato do repositório. Ex: site-curriculo" }
+              - label: "Tecnologias"
+                name: "stack"
+                widget: "list"
+                collapsed: true
+                summary: "{{fields.category}} · {{fields.name}}"
+                fields:
+                  - { label: "Nome", name: "name", widget: "string", hint: "Ex: Python" }
+                  - label: "Grupo"
+                    name: "category"
+                    widget: "select"
+                    options:
+                      - { label: "Linguagens", value: "Linguagens" }
+                      - { label: "Web", value: "Web" }
+                      - { label: "IA", value: "IA" }
+                      - { label: "Ferramentas", value: "Ferramentas" }
+                    default: "Ferramentas"
+                    hint: "O nome do grupo é traduzido automaticamente na versão em inglês."
+                  - { label: "Ícone", name: "icon", widget: "string", required: false, hint: "Devicon (ex: devicon-python-plain, veja devicon.dev) ou Phosphor (ex: ph-database, veja phosphoricons.com). Vazio = ícone de código." }
+              - { label: "Soft skills", name: "behavioral", widget: "list", hint: "Separe por vírgula." }
+              - label: "Cursos e certificados (seção 05)"
+                name: "courses"
+                widget: "list"
+                collapsed: true
+                summary: "{{fields.date}} · {{fields.title}}"
+                hint: "O site ordena do mais recente para o mais antigo."
+                fields:
+                  - { label: "Data exibida", name: "date", widget: "string", hint: "Ex: Outubro 2026" }
+                  - { label: "Data para ordenar", name: "sort_date", widget: "string", required: false, pattern: ["^\\d{4}-\\d{2}$", "Use o formato AAAA-MM, ex: 2026-10"], hint: "Formato AAAA-MM. Se ficar vazio, o site tenta ler mês e ano da data exibida." }
+                  - { label: "Nome do curso", name: "title", widget: "string" }
+                  - { label: "Instituição", name: "institution", widget: "string" }
 
-          - label: "Contato"
+          - label: "04 · Experiência"
+            name: "experience"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}} · {{fields.company}}"
+            hint: "Do mais recente para o mais antigo."
+            fields:
+              - { label: "Período", name: "date", widget: "string", hint: "Ex: JANEIRO DE 2026 - ATUAL. Com “ATUAL” (ou “PRESENT” em inglês) o item ganha a marca de emprego atual." }
+              - { label: "Cargo", name: "title", widget: "string" }
+              - { label: "Empresa | cidade", name: "company", widget: "string", hint: "Ex: Coca-Cola FEMSA | Santos - SP" }
+              - { label: "Descrição", name: "description", widget: "text" }
+
+          - label: "05 · Formação"
+            name: "education"
+            widget: "list"
+            collapsed: true
+            summary: "{{fields.title}} · {{fields.company}}"
+            fields:
+              - { label: "Período", name: "date", widget: "string", hint: "Ex: AGOSTO DE 2026 - JULHO DE 2028" }
+              - { label: "Curso / etapa", name: "title", widget: "string" }
+              - { label: "Instituição | cidade", name: "company", widget: "string" }
+              - { label: "Descrição", name: "description", widget: "text" }
+
+          - { label: "SEO: título da aba", name: "meta_title", widget: "string", hint: "Aparece na aba do navegador e no Google." }
+          - { label: "SEO: descrição para o Google", name: "meta_description", widget: "text", hint: "Uma ou duas frases sobre você." }
+
+      # ---------------------------------------------------------------
+      # INGLÊS
+      # ---------------------------------------------------------------
+      - file: "content/cv.en.json"
+        label: "🇺🇸 Textos em inglês"
+        name: "cv_en"
+        description: "Versão em inglês (botão PT | EN no site ou link ?lang=en). Mesmos campos da versão em português: escreva os textos em inglês."
+        fields: *cv_fields
+
+      # ---------------------------------------------------------------
+      # GERAL (os dois idiomas)
+      # ---------------------------------------------------------------
+      - file: "content/geral.json"
+        label: "⚙️ Geral: contato, GitHub, foto e PDFs"
+        name: "geral"
+        description: "Vale para as versões em português e em inglês."
+        fields:
+          - { label: "Foto de perfil", name: "photo", widget: "image", choose_url: false, hint: "Formato retrato (4:5)." }
+
+          - label: "Contato e currículos"
             name: "contact"
             widget: "object"
             fields:
-              - { label: "Email", name: "email", widget: "string" }
-              - { label: "LinkedIn - Texto Exibido", name: "linkedin_label", widget: "string" }
-              - { label: "LinkedIn - Link do Perfil", name: "linkedin_url", widget: "string" }
-              - { label: "WhatsApp - Texto Exibido", name: "whatsapp_label", widget: "string" }
-              - { label: "WhatsApp - Link (wa.me/55...)", name: "whatsapp_url", widget: "string" }
-              - { label: "GitHub - Texto Exibido", name: "github_label", widget: "string" }
-              - { label: "GitHub - Link do Perfil", name: "github_url", widget: "string" }
-              - { label: "Arquivo PDF do Currículo", name: "cv_pdf", widget: "file", media_folder: "/arquivos", public_folder: "/arquivos" }
+              - { label: "E-mail", name: "email", widget: "string" }
+              - { label: "LinkedIn: texto exibido", name: "linkedin_label", widget: "string" }
+              - { label: "LinkedIn: link do perfil", name: "linkedin_url", widget: "string" }
+              - { label: "WhatsApp: texto exibido", name: "whatsapp_label", widget: "string", hint: "Ex: +55 13 99136-5365" }
+              - { label: "WhatsApp: link", name: "whatsapp_url", widget: "string", hint: "Formato https://wa.me/55DDDNUMERO, só números. Ex: https://wa.me/5513991365365" }
+              - { label: "GitHub: texto exibido", name: "github_label", widget: "string" }
+              - { label: "GitHub: link do perfil", name: "github_url", widget: "string" }
+              - { label: "Currículo em PDF (português)", name: "cv_pdf", widget: "file", choose_url: false, media_folder: "/arquivos", public_folder: "/arquivos" }
+              - { label: "Currículo em PDF (inglês)", name: "cv_pdf_en", widget: "file", required: false, choose_url: false, media_folder: "/arquivos", public_folder: "/arquivos", hint: "Aparece como segundo botão de download." }
+
+          - label: "Seção GitHub"
+            name: "github"
+            widget: "object"
+            hint: "Repositórios, linguagens e contribuições são carregados automaticamente do GitHub."
+            fields:
+              - { label: "Usuário do GitHub", name: "username", widget: "string" }
+              - { label: "Quantos repositórios mostrar", name: "max_repos", widget: "number", value_type: "int", min: 1, max: 30, default: 6, hint: "Múltiplos de 3 ficam melhores no computador." }
+              - { label: "Repositórios a esconder", name: "hidden_repos", widget: "list", required: false, hint: "Nome exato do repositório, separados por vírgula. Ex: nathdomin" }

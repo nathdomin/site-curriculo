@@ -1,0 +1,351 @@
+{
+  "meta_title": "Nathan Domingues | Developer · AI & Web",
+  "meta_description": "Portfolio of Nathan Domingues, an Artificial Intelligence student who builds AI agents, web games and full-stack applications with Python and TypeScript.",
+  "hero": {
+    "subtitle": "hi, I'm",
+    "name_line1": "Nathan",
+    "name_line2": "Domingues",
+    "profession": "Developer in training · AI & Web",
+    "description": "I build AI agents, games that run in the browser and full-stack applications with Python and TypeScript. AI student at Unisanta and HR Apprentice at Coca-Cola FEMSA.",
+    "terminal_lines": [
+      {
+        "cmd": "ls stack/",
+        "output": "python/  typescript/  javascript/  react/  sql/"
+      },
+      {
+        "cmd": "cat focus.txt",
+        "output": "AI agents · web games · full-stack apps"
+      }
+    ],
+    "cta_text": "View projects"
+  },
+  "about": {
+    "description": "I'm an **Artificial Intelligence** student at Universidade Santa Cecília (Brazil), and I build web and AI projects with **Python**, **TypeScript** and **JavaScript**: an agent that reads resumes and matches them to job openings, a platformer that runs in the browser, and a meeting room booking system with React and PostgreSQL.\n\nI work with **AI-assisted development** (Claude Code, Gemini) from prototype to deploy, using prompt engineering to plan, write, test and review code. Everything I build is public on GitHub.\n\nI'm also an HR Apprentice at the Shared Services Center of **Coca-Cola FEMSA**. That high-volume routine (ServiceNow tickets, spreadsheets, documents) is where many of my ideas come from: repetitive processes that can be automated.",
+    "info_boxes": [
+      {
+        "title": "location",
+        "subtitle": "Santos - SP, Brazil"
+      },
+      {
+        "title": "degree",
+        "subtitle": "AI Technology Degree · Unisanta"
+      },
+      {
+        "title": "focus",
+        "subtitle": "Applied AI & web development"
+      },
+      {
+        "title": "currently",
+        "subtitle": "HR Apprentice · Coca-Cola FEMSA"
+      },
+      {
+        "title": "languages",
+        "subtitle": "Portuguese (native), English (intermediate)"
+      }
+    ]
+  },
+  "projects": [
+    {
+      "title": "VivAI+",
+      "description": "AI agent for resume screening. It takes PDF or DOCX files, extracts the candidate's data and uses the Gemini API to match the profile against Viva+'s open positions. The analysis ignores sensitive data and evaluates skills only, and the history is stored in a cloud database. The architecture was designed not to crash during usage spikes.",
+      "link": "https://agenteia-vivaplus.onrender.com/",
+      "repo": "https://github.com/nathdomin/VivAIplus",
+      "image": "/img/uploads/captura-de-tela-2026-10-14-191952.png",
+      "tags": [
+        "Python",
+        "Gemini API",
+        "Generative AI",
+        "PDF/DOCX",
+        "Database"
+      ],
+      "featured": true
+    },
+    {
+      "title": "Sankofa: Paths of Resistance",
+      "description": "2D platformer that runs in the browser, about the history of Black resistance in Brazil, made for Black Awareness Month (November). Phaser 3 with strict TypeScript and Vite. Every sprite, background and song is generated in code, with no image or audio files: textures come from text-based pixel grids and the sound is synthesized with the Web Audio API. It features coyote time, jump buffering, capoeira moves in a state machine, touch controls and a custom tool that simulates the jumps to check that every level can be completed.",
+      "link": "https://nathdomin.github.io/sankofa/",
+      "repo": "https://github.com/nathdomin/sankofa",
+      "image": "/img/uploads/sankofa-fase1.png",
+      "tags": [
+        "TypeScript",
+        "Phaser 3",
+        "Vite",
+        "Web Audio API",
+        "Game Dev"
+      ],
+      "featured": false
+    },
+    {
+      "title": "MeetKof",
+      "description": "Internal meeting room booking system. Calendar with monthly, weekly and daily views, bookings without time conflicts (enforced in the database and in the API), an admin panel for rooms and users, configurable booking rules and an audit log of who changed what. Frontend in React 19 with TypeScript, Tailwind and TanStack Query; backend in Node.js with Fastify and PostgreSQL on Supabase; tests with Vitest.",
+      "link": "",
+      "repo": "https://github.com/nathdomin/reserva-salas",
+      "image": "",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Supabase"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Digitalize",
+      "description": "Web app to digitize and organize office documents. Create folders, scan with the phone camera using image processing that fixes the lighting and gives the result a real-scanner look, search inside folders and protect access with a login. Responsive interface for desktop and mobile.",
+      "link": "https://digital-ize.netlify.app/",
+      "repo": "https://github.com/nathdomin/digitalize",
+      "image": "/img/uploads/captura-de-tela-2026-10-15-035935.png",
+      "tags": [
+        "JavaScript",
+        "Image Processing",
+        "Responsive"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Guess the Pokémon",
+      "description": "Guessing game with a TV game show vibe: find out the randomly drawn Pokémon from its silhouette and hints. It uses the PokeAPI, and each wrong guess unlocks a new hint and reveals a bit more of the image. Built as a hands-on assignment for the Programming Techniques with AI course at Universidade Santa Cecília. The game itself is in Portuguese.",
+      "link": "https://nathdomin.github.io/adivinhe-o-pokemon/",
+      "repo": "https://github.com/nathdomin/adivinhe-o-pokemon",
+      "image": "/img/uploads/captura-de-tela-2026-11-04-114416.png",
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "PokeAPI",
+        "Claude Code"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Viva+ Corporate Website",
+      "description": "Website for Viva+, a corporate wellness company (health, leisure, culture and team integration). It presents the company, its departments, team and projects, and includes an admin panel so the team can update the content without coding. The website is in Portuguese.",
+      "link": "https://vivaplus.netlify.app/",
+      "repo": "https://github.com/nathdomin/vivaplus",
+      "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Admin Panel"
+      ],
+      "featured": false
+    },
+    {
+      "title": "This portfolio",
+      "description": "The site you are looking at. Plain HTML, CSS and JavaScript, no framework: all the content lives in JSON files (one per language) editable through a Decap CMS panel, the repositories and the contribution chart come live from the GitHub API, and it deploys automatically to Netlify on every push.",
+      "link": "https://curriculonathdomin.netlify.app/?lang=en",
+      "repo": "https://github.com/nathdomin/site-curriculo",
+      "image": "/img/uploads/portfolio-terminal.png",
+      "tags": [
+        "HTML",
+        "CSS",
+        "JavaScript",
+        "Decap CMS",
+        "GitHub API"
+      ],
+      "featured": false
+    }
+  ],
+  "skills": {
+    "stack": [
+      {
+        "name": "Python",
+        "icon": "devicon-python-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "devicon-typescript-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "devicon-javascript-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "SQL",
+        "icon": "ph-database",
+        "category": "Linguagens"
+      },
+      {
+        "name": "HTML",
+        "icon": "devicon-html5-plain",
+        "category": "Web"
+      },
+      {
+        "name": "CSS",
+        "icon": "devicon-css3-plain",
+        "category": "Web"
+      },
+      {
+        "name": "React",
+        "icon": "devicon-react-original",
+        "category": "Web"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "devicon-tailwindcss-original",
+        "category": "Web"
+      },
+      {
+        "name": "Node.js",
+        "icon": "devicon-nodejs-plain",
+        "category": "Web"
+      },
+      {
+        "name": "Phaser 3",
+        "icon": "ph-game-controller",
+        "category": "Web"
+      },
+      {
+        "name": "Generative AI",
+        "icon": "ph-sparkle",
+        "category": "IA"
+      },
+      {
+        "name": "Gemini API",
+        "icon": "ph-brain",
+        "category": "IA"
+      },
+      {
+        "name": "Prompt Engineering",
+        "icon": "ph-chat-teardrop-text",
+        "category": "IA"
+      },
+      {
+        "name": "Claude Code",
+        "icon": "ph-terminal-window",
+        "category": "IA"
+      },
+      {
+        "name": "Git",
+        "icon": "devicon-git-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "GitHub",
+        "icon": "devicon-github-original",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Vite",
+        "icon": "devicon-vitejs-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "devicon-postgresql-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Supabase",
+        "icon": "devicon-supabase-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Netlify",
+        "icon": "devicon-netlify-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "ServiceNow",
+        "icon": "ph-ticket",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Microsoft Office",
+        "icon": "ph-microsoft-excel-logo",
+        "category": "Ferramentas"
+      }
+    ],
+    "behavioral": [
+      "Communication",
+      "Discipline",
+      "Flexibility",
+      "Agility",
+      "Teamwork",
+      "Proactivity"
+    ],
+    "courses": [
+      {
+        "date": "October 2026",
+        "sort_date": "2026-10",
+        "title": "Oracle Academy AI Student Labs",
+        "institution": "Oracle"
+      },
+      {
+        "date": "October 2026",
+        "sort_date": "2026-10",
+        "title": "Building Apps Efficiently with AI",
+        "institution": "Unisanta"
+      },
+      {
+        "date": "October 2026",
+        "sort_date": "2026-10",
+        "title": "Arduino and Programming: Turning Code into Motion",
+        "institution": "Unisanta"
+      },
+      {
+        "date": "September 2026",
+        "sort_date": "2026-09",
+        "title": "Ethics in the Age of AI",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "September 2026",
+        "sort_date": "2026-09",
+        "title": "Computer Assembly, Maintenance and Optimization",
+        "institution": "Kingston Maker"
+      },
+      {
+        "date": "February 2026",
+        "sort_date": "2026-02",
+        "title": "IT Fundamentals: Hardware and Software",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "February 2026",
+        "sort_date": "2026-02",
+        "title": "Build a Simple Website Using HTML, CSS and JavaScript",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "January 2025",
+        "sort_date": "2025-01",
+        "title": "Internet Basics",
+        "institution": "IBM SkillsBuild"
+      }
+    ]
+  },
+  "experience": [
+    {
+      "date": "JANUARY 2026 - PRESENT",
+      "title": "HR Apprentice, Shared Services Center",
+      "company": "Coca-Cola FEMSA | Santos - SP",
+      "description": "Support for the Human Resources Shared Services Center: handling and resolving tickets on ServiceNow, updating corporate spreadsheets, organizing and digitizing documents and supporting the team's high-volume administrative routines."
+    },
+    {
+      "date": "MARCH 2025 - AUGUST 2025",
+      "title": "Office Assistant",
+      "company": "Express Courier | Praia Grande - SP",
+      "description": "Back-office routines: managing schedules, spreadsheets and the flow of physical and digital documents. Control, sorting and reverse logistics of equipment (PagSeguro card machines), support for field technicians and invoice verification for the finance team."
+    }
+  ],
+  "education": [
+    {
+      "date": "AUGUST 2026 - JULY 2028",
+      "title": "Technology Degree in Artificial Intelligence",
+      "company": "Universidade Santa Cecília | Santos - SP",
+      "description": "Undergraduate program in progress, focused on building efficient and innovative AI solutions for business."
+    },
+    {
+      "date": "JANUARY 2024 - DECEMBER 2024",
+      "title": "High School Diploma",
+      "company": "Colégio Adventista de Santos | Santos - SP",
+      "description": "General education that laid the foundation for the Artificial Intelligence degree."
+    }
+  ]
+}

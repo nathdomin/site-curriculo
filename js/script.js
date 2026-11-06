@@ -1,4 +1,6 @@
-/* ================= SHOW MENU (HAMBÚRGUER MOBILE) ================= */
+const prefersReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+/* ================= MENU MOBILE ================= */
 const navMenu = document.getElementById('nav-menu');
 const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
@@ -18,192 +20,208 @@ function closeMenu() {
     if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
 }
 
-/* Show Menu */
-if (navToggle) {
-    navToggle.addEventListener('click', openMenu);
-    navToggle.addEventListener('keydown', (e) => {
+function onActivate(el, handler) {
+    if (!el) return;
+    el.addEventListener('click', handler);
+    el.addEventListener('keydown', (e) => {
         if (e.key === 'Enter' || e.key === ' ') {
             e.preventDefault();
-            openMenu();
+            handler();
         }
     });
 }
 
-/* Hide Menu */
-if (navClose) {
-    navClose.addEventListener('click', closeMenu);
-    navClose.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            closeMenu();
-        }
-    });
-}
+onActivate(navToggle, openMenu);
+onActivate(navClose, closeMenu);
+if (navOverlay) navOverlay.addEventListener('click', closeMenu);
 
-/* Hide Menu on Overlay Click (Mobile) */
-if (navOverlay) {
-    navOverlay.addEventListener('click', closeMenu);
-}
-
-/* Hide Menu on Escape Key */
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape') closeMenu();
+    if (e.key === 'Escape' && navMenu.classList.contains('show-menu')) closeMenu();
 });
 
-/* Fecha o menu ao clicar em um link (Mobile) */
 document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
 
-/* ================= CHANGE BACKGROUND HEADER ================= */
+/* ================= HEADER COM FUNDO AO ROLAR ================= */
+const header = document.getElementById('header');
+
 function scrollHeader() {
-    const header = document.getElementById('header') || document.querySelector('.header');
-    // When the scroll is greater than 50 viewport height, add the scroll-header class
-    if (this.scrollY >= 50) header.classList.add('scroll-header');
-    else header.classList.remove('scroll-header');
+    header.classList.toggle('scroll-header', window.scrollY >= 50);
 }
-window.addEventListener('scroll', scrollHeader);
 
-
-/* ================= SCROLL SECTIONS ACTIVE LINK ================= */
+/* ================= LINK ATIVO CONFORME A SEÇÃO ================= */
 const sections = document.querySelectorAll('section[id]');
 
 function scrollActive() {
-    const scrollY = window.pageYOffset;
-
-    sections.forEach(current => {
-        const sectionHeight = current.offsetHeight;
-        const sectionTop = current.offsetTop - 58;
-        const sectionId = current.getAttribute('id');
-        const sectionsClass = document.querySelector('.nav-menu a[href*=' + sectionId + ']');
-
-        if (sectionsClass) {
-            if (scrollY > sectionTop && scrollY <= sectionTop + sectionHeight) {
-                sectionsClass.classList.add('active-link');
-            } else {
-                sectionsClass.classList.remove('active-link');
-            }
-        }
+    const scrollY = window.scrollY;
+    sections.forEach(section => {
+        const top = section.offsetTop - 90;
+        const link = document.querySelector(`.nav-menu a[href="#${section.id}"]`);
+        if (!link) return;
+        link.classList.toggle('active-link', scrollY > top && scrollY <= top + section.offsetHeight);
     });
 }
-window.addEventListener('scroll', scrollActive);
 
+let scrollTicking = false;
+window.addEventListener('scroll', () => {
+    if (scrollTicking) return;
+    scrollTicking = true;
+    requestAnimationFrame(() => {
+        scrollHeader();
+        scrollActive();
+        scrollTicking = false;
+    });
+}, { passive: true });
+scrollHeader();
 
-/* ================= SCROLL REVEAL ANIMATION (Intersection Observer) =================
-   Executado via initRevealAnimations(), chamado depois que o conteúdo dinâmico
-   (experiência, formação, skills, etc.) já foi inserido no DOM por js/render.js.
-*/
-function initRevealAnimations() {
-    const revealElements = document.querySelectorAll('.reveal, .reveal-delay');
-
-    const revealOptions = {
-        threshold: 0.1, // trigger when 10% of element is visible
-        rootMargin: "0px 0px -50px 0px"
-    };
-
-    const revealOnScroll = new IntersectionObserver(function(entries, observer) {
+/* ================= ANIMAÇÃO DE ENTRADA (Intersection Observer) =================
+   Pode ser chamado sempre que entrar conteúdo novo no DOM: observa só os
+   elementos que ainda não apareceram (observar o mesmo elemento duas vezes não tem efeito). */
+const revealObserver = (!prefersReducedMotion && 'IntersectionObserver' in window)
+    ? new IntersectionObserver((entries, observer) => {
         entries.forEach(entry => {
-            if (!entry.isIntersecting) {
-                return;
-            } else {
-                entry.target.classList.add('active');
-                observer.unobserve(entry.target);
-            }
+            if (!entry.isIntersecting) return;
+            entry.target.classList.add('active');
+            observer.unobserve(entry.target);
         });
-    }, revealOptions);
+    }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' })
+    : null;
 
-    revealElements.forEach(el => {
-        revealOnScroll.observe(el);
+function revealPending({ instant = false } = {}) {
+    document.querySelectorAll('.reveal:not(.active), .reveal-delay:not(.active)').forEach(el => {
+        if (instant || !revealObserver) el.classList.add('active');
+        else revealObserver.observe(el);
     });
 }
 
-/* ================= DARK LIGHT THEME ================= */
-const themeButton = document.getElementById('theme-button');
-const lightTheme = 'light-theme';
-const iconTheme = 'ph-sun';
+/* ================= TERMINAL DO TOPO (efeito de digitação) =================
+   Mostra os elementos do terminal em ordem; nas linhas de comando, digita
+   o comando letra por letra. Com movimento reduzido, mostra tudo de uma vez. */
+function initTerminal() {
+    const body = document.getElementById('terminal-body');
+    if (!body || body.dataset.typed) return;
+    body.dataset.typed = 'true';
 
-// Previously selected topic (if user selected)
-const selectedTheme = localStorage.getItem('selected-theme');
-const selectedIcon = localStorage.getItem('selected-icon');
+    const children = [...body.children];
+    if (prefersReducedMotion) {
+        children.forEach(el => el.classList.add('is-shown'));
+        return;
+    }
 
-// We obtain the current theme that the interface has by validating the light-theme class
-const getCurrentTheme = () => document.body.classList.contains(lightTheme) ? 'light' : 'dark';
-const getCurrentIcon = () => themeButton.classList.contains(iconTheme) ? 'ph-moon' : 'ph-sun';
+    body.classList.add('is-typing');
+    const wait = (ms) => new Promise(resolve => setTimeout(resolve, ms));
 
-// We validate if the user previously chose a topic
-if (selectedTheme) {
-  // If the validation is fulfilled, we ask what the issue was to know if we activated or deactivated the light
-  document.body.classList[selectedTheme === 'light' ? 'add' : 'remove'](lightTheme);
-  themeButton.classList[selectedIcon === 'ph-moon' ? 'add' : 'remove'](iconTheme);
+    (async () => {
+        for (const el of children) {
+            const cmd = el.querySelector('.t-cmd');
+            if (!cmd) {
+                el.classList.add('is-shown');
+                await wait(el.classList.contains('t-comment') ? 250 : 120);
+                continue;
+            }
+
+            const text = cmd.textContent;
+            cmd.textContent = '';
+            const caret = document.createElement('span');
+            caret.className = 'cursor';
+            caret.setAttribute('aria-hidden', 'true');
+            cmd.after(caret);
+            el.classList.add('is-shown');
+
+            for (const ch of text) {
+                cmd.textContent += ch;
+                await wait(45 + Math.random() * 55);
+            }
+            await wait(260);
+            caret.remove();
+        }
+        body.classList.remove('is-typing');
+    })();
 }
 
-// Activate / deactivate the theme manually with the button
+/* ================= TEMA CLARO / ESCURO =================
+   O tema inicial é aplicado por um script no <head> (sem "piscar"). */
+const themeButton = document.getElementById('theme-button');
+const root = document.documentElement;
+const themeColorMeta = document.querySelector('meta[name="theme-color"]');
+
+function applyTheme(theme) {
+    root.setAttribute('data-theme', theme);
+    if (themeButton) {
+        themeButton.setAttribute('aria-label', t(theme === 'dark' ? 'theme.toLight' : 'theme.toDark'));
+    }
+    if (themeColorMeta) themeColorMeta.setAttribute('content', theme === 'dark' ? '#0b0f14' : '#f6f8fa');
+}
+
+applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
+
 if (themeButton) {
     themeButton.addEventListener('click', () => {
-        // Add or remove the light / icon theme
-        document.body.classList.toggle(lightTheme);
-        themeButton.classList.toggle(iconTheme);
-        // We save the theme and the current icon that the user chose
-        localStorage.setItem('selected-theme', getCurrentTheme());
-        localStorage.setItem('selected-icon', getCurrentIcon());
+        const next = root.getAttribute('data-theme') === 'light' ? 'dark' : 'light';
+        applyTheme(next);
+        try {
+            localStorage.setItem('theme', next);
+            localStorage.removeItem('selected-theme');
+            localStorage.removeItem('selected-icon');
+        } catch (e) { /* armazenamento indisponível */ }
     });
 }
 
-/* ================= 3D TILT EFFECT (JAVASCRIPT) ================= */
-function apply3DTilt(elements, maxTilt = 15, lift = -10, scale = 1.02) {
+/* ================= EFEITO 3D NA FOTO ================= */
+function apply3DTilt(elements, maxTilt = 8, lift = -6, scale = 1.02) {
     elements.forEach(el => {
         el.addEventListener('mousemove', (e) => {
-            // Prevent default CSS hover transform conflict by relying purely on JS for movement
             const rect = el.getBoundingClientRect();
-            const x = e.clientX - rect.left;
-            const y = e.clientY - rect.top;
-
-            const centerX = rect.width / 2;
-            const centerY = rect.height / 2;
-
-            // Calculate rotation limits
-            const rotateX = ((y - centerY) / centerY) * -maxTilt;
-            const rotateY = ((x - centerX) / centerX) * maxTilt;
-
-            // Apply 3D transform inline
+            const rotateX = ((e.clientY - rect.top - rect.height / 2) / (rect.height / 2)) * -maxTilt;
+            const rotateY = ((e.clientX - rect.left - rect.width / 2) / (rect.width / 2)) * maxTilt;
             el.style.transform = `perspective(1000px) rotateX(${rotateX}deg) rotateY(${rotateY}deg) translateY(${lift}px) scale(${scale})`;
-            el.style.transition = 'transform 0.1s ease-out'; // Fast response while moving
+            el.style.transition = 'transform 0.1s ease-out';
         });
 
         el.addEventListener('mouseleave', () => {
-            // Smoothly return to original state
-            el.style.transform = `perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)`;
+            el.style.transform = 'perspective(1000px) rotateX(0deg) rotateY(0deg) translateY(0) scale(1)';
             el.style.transition = 'transform 0.6s cubic-bezier(0.23, 1, 0.32, 1)';
-        });
-
-        el.addEventListener('mouseenter', () => {
-            el.style.transition = 'transform 0.1s ease-out';
         });
     });
 }
 
 function initTiltEffects() {
-    // Foto de perfil: efeito mais sutil
-    const tiltPhoto = document.querySelectorAll('.js-tilt-photo');
-    apply3DTilt(tiltPhoto, 8, -6, 1.03);
+    if (prefersReducedMotion || !window.matchMedia('(hover: hover)').matches) return;
+    apply3DTilt(document.querySelectorAll('.js-tilt-photo'), 6, -4, 1.02);
 }
 
-/* ================= INICIALIZAÇÃO APÓS RENDER DO CONTEÚDO =================
-   js/render.js dispara "cv:rendered" assim que content/cv.json é carregado
-   e injetado no DOM (mesmo em caso de falha no fetch, para não travar o site).
-*/
-document.addEventListener('cv:rendered', () => {
-    initRevealAnimations();
-    initTiltEffects();
+/* ================= INICIALIZAÇÃO =================
+   js/render.js dispara "cv:rendered" depois de montar a página (mesmo se o
+   conteúdo não carregar) e "cv:relocalized" depois de uma troca de idioma. */
+let pageInitDone = false;
+
+function initPage() {
+    if (!pageInitDone) {
+        pageInitDone = true;
+        initTerminal();
+        initTiltEffects();
+    }
+    revealPending();
+    scrollActive();
+}
+
+document.addEventListener('cv:rendered', initPage);
+
+// Segurança: se o evento demorar ou nunca disparar, inicializa mesmo assim
+// (o "cv:rendered" que chegar depois só revela o conteúdo novo)
+window.addEventListener('load', () => setTimeout(initPage, 1500));
+
+// Troca de idioma: o rótulo do botão de tema muda de língua...
+document.addEventListener('lang:change', () => {
+    applyTheme(root.getAttribute('data-theme') === 'light' ? 'light' : 'dark');
 });
 
-// Segurança: caso o evento nunca dispare por algum motivo, inicializa mesmo assim
-window.addEventListener('load', () => {
-    setTimeout(() => {
-        if (!window.__cvInitDone) {
-            window.__cvInitDone = true;
-            initRevealAnimations();
-            initTiltEffects();
-        }
-    }, 1500);
+// ...e o conteúdo montado de novo aparece direto, sem animação de entrada
+document.addEventListener('cv:relocalized', () => {
+    revealPending({ instant: true });
+    const terminal = document.getElementById('terminal-body');
+    if (terminal) [...terminal.children].forEach(el => el.classList.add('is-shown'));
+    scrollActive();
 });
 
-document.addEventListener('cv:rendered', () => { window.__cvInitDone = true; });
+const footerYear = document.getElementById('footer-year');
+if (footerYear) footerYear.textContent = new Date().getFullYear();

@@ -1,145 +1,128 @@
 {
-  "contact": {
-    "email": "nathandomin44@gmail.com",
-    "linkedin_label": "Nathan Domingues",
-    "linkedin_url": "https://www.linkedin.com/in/nathan-domingues-985606321/?skipRedirect=true",
-    "whatsapp_label": "+55 13 99136-5365",
-    "whatsapp_url": "https://wa.me/5513991365365",
-    "github_label": "nathdomin",
-    "github_url": "https://github.com/nathdomin",
-    "cv_pdf": "/arquivos/curriculo_nathan_domingues.pdf"
-  },
-  "skills": {
-    "behavioral": [
-      "Boa Comunicação",
-      "Disciplina para seguir orientações",
-      "Flexibilidade",
-      "Agilidade",
-      "Trabalho em Equipe e Proatividade"
-    ],
-    "technical": [
-      "Pacote Office Avançado",
-      "Facilidade com recursos tecnológicos",
-      "Python",
-      "Desenvolvimento Assistido por IA",
-      "Inglês - Intermediário"
-    ],
-    "courses": [
+  "meta_title": "Nathan Domingues | Dev · IA & Web",
+  "meta_description": "Portfólio de Nathan Domingues, estudante de Inteligência Artificial que desenvolve agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.",
+  "hero": {
+    "subtitle": "olá, eu sou",
+    "name_line1": "Nathan",
+    "name_line2": "Domingues",
+    "profession": "Dev em formação · IA & Web",
+    "description": "Construo agentes de IA, jogos que rodam no navegador e aplicações full-stack com Python e TypeScript. Estudante de IA na Unisanta e Jovem Aprendiz de RH na Coca-Cola FEMSA.",
+    "terminal_lines": [
       {
-        "date": "Setembro 2026",
-        "title": "Ética na Era da IA",
-        "institution": "Fundação Bradesco"
+        "cmd": "ls stack/",
+        "output": "python/  typescript/  javascript/  react/  sql/"
       },
       {
-        "date": "Setembro 2026",
-        "title": "Montagem, Manutenção e Otimização de Computadores",
-        "institution": "Kingston Maker"
-      },
-      {
-        "date": "Fevereiro 2026",
-        "title": "Fundamentos do TI: Hardware e Software",
-        "institution": "Fundação Bradesco"
-      },
-      {
-        "date": "Fevereiro 2026",
-        "title": "Crie um site simples usando HTML, CSS e Javascript",
-        "institution": "Fundação Bradesco"
-      },
-      {
-        "date": "Janeiro 2025",
-        "title": "Noções Básicas da Internet",
-        "institution": "IBM Skill Build"
-      },
-      {
-        "date": "Outubro 2026",
-        "title": "Oracle Academy AI Student Labs.",
-        "institution": "Oracle"
-      },
-      {
-        "date": "Outubro 2026",
-        "title": "Desenvolvendo apps com IA eficientemente.",
-        "institution": "Unisanta"
-      },
-      {
-        "date": "Outubro 2026",
-        "title": "Arduino e Programação: Como Transformar Códigos em Movimentos.",
-        "institution": "Unisanta"
+        "cmd": "cat foco.txt",
+        "output": "agentes de IA · jogos web · apps full-stack"
       }
-    ]
+    ],
+    "cta_text": "Ver projetos"
   },
-  "meta_description": "Currículo online de Nathan Domingues, Aprendiz de RH na Coca-Cola FEMSA e estudante de Inteligência Artificial.",
-  "github": {
-    "username": "nathdomin",
-    "max_repos": 6,
-    "hidden_repos": []
-  },
-  "education": [
-    {
-      "date": "AGOSTO DE 2026 - JULHO DE 2028",
-      "title": "Ensino Superior - Tecnólogo em Inteligência Artificial",
-      "company": "Universidade Santa Cecília | Santos - SP",
-      "description": "Cursando Tecnologia em Inteligência Artificial, focado no desenvolvimento de soluções eficientes e inovadoras para negócios."
-    },
-    {
-      "date": "JANEIRO DE 2024 - DEZEMBRO DE 2024",
-      "title": "Ensino Médio Completo",
-      "company": "Colégio Adventista de Santos | Santos - SP",
-      "description": "Ensino médio concluído, com formação geral que serviu de base para a graduação em Inteligência Artificial."
-    }
-  ],
-  "experience": [
-    {
-      "date": "JANEIRO DE 2026 - ATUAL",
-      "title": "Jovem Aprendiz RH CSC",
-      "company": "Coca-Cola FEMSA | Santos - SP",
-      "description": "Atuação no atendimento ao cliente para esclarecimento de dúvidas e garantia de satisfação, aliada ao suporte administrativo à equipe. Responsável pela organização e digitalização de documentos, atualização de planilhas corporativas, além do uso do Service Now para resolução de chamados relacionados a RH."
-    },
-    {
-      "date": "MARÇO DE 2025 - AGOSTO DE 2025",
-      "title": "Auxiliar de Escritório",
-      "company": "Express Courier | Praia Grande - SP",
-      "description": "Atuação em rotinas de backoffice e suporte administrativo, sendo responsável pela gestão de agendas corporativas, planilhas e organização do fluxo completo de documentos físicos e digitais. Atuei diretamente no controle, triagem e logística reversa de equipamentos, com experiência prática no manuseio de máquinas de cartão (PagSeguro). Suporte e auxílio direto aos técnicos de campo e apoio ao setor financeiro por meio da conferência de notas fiscais."
-    }
-  ],
   "about": {
-    "description": "Com atuação prática no CSC da **Coca-Cola FEMSA**, apoio diariamente o setor de Recursos Humanos na gestão de benefícios, conferência fiscal, cadastros e rotinas administrativas de alto volume.\nComo estudante de Inteligência Artificial (Universidade Santa Cecília), dedico meus estudos à aplicação prática de **Python**, **Engenharia de Prompts para LLMs**, Prototipagem Rápida com IA e desenvolvimento de software.\n\nBusco aplicar o aprendizado acadêmico e as ferramentas de **IA Generativa** para transformar tarefas operacionais em processos mais ágeis e inteligentes, contribuindo diretamente para a eficiência e inovação do ecossistema de negócios.",
+    "description": "Sou estudante de **Inteligência Artificial** na Universidade Santa Cecília e desenvolvo projetos web e de IA com **Python**, **TypeScript** e **JavaScript**: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.\n\nTrabalho com **desenvolvimento assistido por IA** (Claude Code, Gemini) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.\n\nHoje também sou Jovem Aprendiz no CSC de RH da **Coca-Cola FEMSA**. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar.",
     "info_boxes": [
       {
-        "icon": "ph-map-pin",
-        "title": "Localização",
+        "title": "local",
         "subtitle": "Santos - SP"
       },
       {
-        "icon": "ph-briefcase",
-        "title": "Atuação",
-        "subtitle": "Jovem Aprendiz RH - CSC"
+        "title": "curso",
+        "subtitle": "Tecnólogo em IA · Unisanta"
       },
       {
-        "icon": "ph-robot",
-        "title": "Acadêmico",
-        "subtitle": "Inteligência Artificial"
+        "title": "foco",
+        "subtitle": "IA aplicada & desenvolvimento web"
+      },
+      {
+        "title": "atualmente",
+        "subtitle": "Jovem Aprendiz RH · Coca-Cola FEMSA"
+      },
+      {
+        "title": "idiomas",
+        "subtitle": "Português, Inglês (intermediário)"
       }
     ]
   },
   "projects": [
     {
-      "title": "Currículo em Site",
-      "description": "Liderei a evolução técnica de um projeto web via orquestração por IA (Gemini, Claude), aplicando engenharia de prompts para refatorar código, resolver conflitos e criar animações fluidas. Essa experiência comprova minha capacidade de utilizar a IA generativa como motor prático para escalar projetos tecnológicos, entregando código limpo e interfaces premium.",
-      "link": "https://curriculonathdomin.netlify.app/",
-      "image": "/img/uploads/captura-de-tela-2026-08-26-203939.png",
+      "title": "VivAI+",
+      "description": "Agente de IA para triagem de currículos. Recebe arquivos PDF ou DOCX, extrai os dados do candidato e usa a Gemini API para cruzar o perfil com as vagas abertas da Viva+. A análise ignora dados sensíveis e avalia só competências, e o histórico fica salvo em banco de dados na nuvem. A arquitetura foi pensada para não travar em picos de uso.",
+      "link": "https://agenteia-vivaplus.onrender.com/",
+      "repo": "https://github.com/nathdomin/VivAIplus",
+      "image": "/img/uploads/captura-de-tela-2026-10-14-191952.png",
       "tags": [
-        "HTML",
-        "CSS",
-        "JavaScript",
-        "Decap CMS"
+        "Python",
+        "Gemini API",
+        "IA Generativa",
+        "PDF/DOCX",
+        "Banco de Dados"
       ],
-      "repo": "https://github.com/nathdomin/site-curriculo",
+      "featured": true
+    },
+    {
+      "title": "Sankofa: Caminhos da Resistência",
+      "description": "Jogo de plataforma 2D no navegador sobre a história da resistência negra no Brasil, feito para o Novembro Negro. Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código, sem nenhum arquivo de imagem ou áudio: as texturas saem de grades de pixel em texto e o som é sintetizado com a Web Audio API. Tem coyote time, jump buffer, golpes de capoeira em máquina de estados, controles de toque e uma ferramenta própria que simula os pulos para checar se cada fase é completável.",
+      "link": "https://nathdomin.github.io/sankofa/",
+      "repo": "https://github.com/nathdomin/sankofa",
+      "image": "/img/uploads/sankofa-fase1.png",
+      "tags": [
+        "TypeScript",
+        "Phaser 3",
+        "Vite",
+        "Web Audio API",
+        "Game Dev"
+      ],
       "featured": false
     },
     {
-      "title": "Site Institucional - Viva+",
+      "title": "MeetKof",
+      "description": "Sistema interno de reserva de salas de reunião. Calendário com visões mensal, semanal e diária, reservas sem conflito de horário (bloqueado no banco e na API), painel de administração de salas e usuários, configurações de regras e histórico de quem alterou o quê. Frontend em React 19 com TypeScript, Tailwind e TanStack Query; backend em Node.js com Fastify e PostgreSQL no Supabase; testes com Vitest.",
+      "link": "",
+      "repo": "https://github.com/nathdomin/reserva-salas",
+      "image": "",
+      "tags": [
+        "TypeScript",
+        "React",
+        "Node.js",
+        "PostgreSQL",
+        "Supabase"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Digitalize",
+      "description": "App web para digitalizar e organizar documentos de escritório. Cria pastas, digitaliza pela câmera do celular com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner, busca dentro das pastas e protege o acesso com login. Interface responsiva para computador e celular.",
+      "link": "https://digital-ize.netlify.app/",
+      "repo": "https://github.com/nathdomin/digitalize",
+      "image": "/img/uploads/captura-de-tela-2026-10-15-035935.png",
+      "tags": [
+        "JavaScript",
+        "Processamento de Imagem",
+        "Responsivo"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Adivinhe o Pokémon",
+      "description": "Jogo web de adivinhação com clima de programa de TV: descubra o Pokémon sorteado pela silhueta e pelas dicas. Consome a PokeAPI, e a cada erro surge uma nova dica e a imagem se revela um pouco mais. Trabalho prático da matéria Técnicas de Programação com IA, na Universidade Santa Cecília.",
+      "link": "https://nathdomin.github.io/adivinhe-o-pokemon/",
+      "repo": "https://github.com/nathdomin/adivinhe-o-pokemon",
+      "image": "/img/uploads/captura-de-tela-2026-11-04-114416.png",
+      "tags": [
+        "JavaScript",
+        "HTML",
+        "CSS",
+        "PokeAPI",
+        "Claude Code"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Site Institucional Viva+",
+      "description": "Site da Viva+, empresa de bem-estar corporativo (saúde, lazer, cultura e integração). Apresenta a empresa, setores, equipe e projetos, e tem um painel administrativo para a equipe atualizar o conteúdo sem programar.",
       "link": "https://vivaplus.netlify.app/",
-      "description": "Site institucional da Viva+, empresa de bem-estar corporativo focada em saúde, lazer, cultura e integração social. Desenvolvido em HTML, CSS e JavaScript, com apresentação da empresa, setores, equipe e projetos, além de um painel administrativo que permite à equipe atualizar o conteúdo sem precisar programar. Desenvolvido com o apoio de IA (Claude) na escrita do código.",
+      "repo": "https://github.com/nathdomin/vivaplus",
       "image": "/img/uploads/captura-de-tela-2026-08-26-204111.png",
       "tags": [
         "HTML",
@@ -147,61 +130,222 @@
         "JavaScript",
         "Painel Admin"
       ],
-      "repo": "https://github.com/nathdomin/vivaplus",
       "featured": false
     },
     {
-      "title": "Digitalize",
-      "description": "Digitalize é um app web para digitalização e organização de documentos, feito para substituir arquivos físicos de escritório por um sistema digital simples. Permite criar pastas personalizadas, digitalizar documentos direto pela câmera do celular (com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner de verdade), buscar documentos dentro de cada pasta e acessar tudo com login protegido. Tem interface responsiva, adaptada tanto para uso no computador quanto no celular.",
-      "link": "https://digital-ize.netlify.app/",
-      "image": "/img/uploads/captura-de-tela-2026-10-15-035935.png",
-      "tags": [
-        "JavaScript",
-        "Processamento de Imagem",
-        "Responsivo"
-      ],
-      "repo": "https://github.com/nathdomin/digitalize",
-      "featured": false
-    },
-    {
-      "title": "VivAI+",
-      "image": "/img/uploads/captura-de-tela-2026-10-14-191952.png",
-      "description": "Agente de IA da Viva+ é um app web de inteligência artificial para recrutamento e triagem de currículos, feito para substituir a análise manual por um sistema automatizado e totalmente imparcial. Permite o upload de documentos em PDF ou DOCX, extrai os dados do candidato e utiliza IA (Gemini API) para cruzar o perfil com as vagas disponíveis na empresa (com processamento ético que ignora dados sensíveis e avalia apenas competências reais), salvando todo o histórico estruturado em nuvem. Tem arquitetura resiliente integrada a bancos de dados, adaptada para evitar travamentos durante picos de alta demanda.",
-      "link": "https://agenteia-vivaplus.onrender.com/",
-      "tags": [
-        "Python",
-        "IA Generativa",
-        "PDF/DOCX",
-        "Banco de Dados",
-        "API"
-      ],
-      "repo": "https://github.com/nathdomin/VivAIplus",
-      "featured": true
-    },
-    {
-      "featured": false,
-      "title": "Adivinhe o Pokémon",
-      "description": "Jogo web de adivinhação com clima de programa de TV: descubra o Pokémon sorteado pela silhueta e pelas dicas. Utilizando a API do PokeAPI, A cada erro surge uma nova dica e a imagem se revela um pouco mais. - Feito como trabalho prático para a matéria Técnicas de programação com IA na Universidade Santa Cecília",
-      "link": " https://nathdomin.github.io/adivinhe-o-pokemon/",
-      "repo": "https://github.com/nathdomin/adivinhe-o-pokemon",
+      "title": "Este portfólio",
+      "description": "O site que você está vendo. HTML, CSS e JavaScript puros, sem framework: todo o conteúdo fica em um único JSON editável por um painel Decap CMS, os repositórios e o gráfico de contribuições vêm ao vivo da API do GitHub, e o deploy é automático na Netlify a cada push.",
+      "link": "https://curriculonathdomin.netlify.app/",
+      "repo": "https://github.com/nathdomin/site-curriculo",
+      "image": "/img/uploads/portfolio-terminal.png",
       "tags": [
         "HTML",
         "CSS",
-        "Javascript",
-        "ClaudeCode",
-        "APIs"
+        "JavaScript",
+        "Decap CMS",
+        "GitHub API"
       ],
-      "image": "/img/uploads/captura-de-tela-2026-11-04-114416.png"
+      "featured": false
     }
   ],
-  "hero": {
-    "subtitle": "Olá, eu sou",
-    "name_line1": "Nathan",
-    "name_line2": "Domingues",
-    "profession": "Inteligência Artificial e Tecnologia",
-    "description": "Estudante de IA | RH CSC na Coca-Cola FEMSA | Python, Prompt Engineering & Desenvolvimento Assistido por IA",
-    "cta_text": "Vamos Conversar",
-    "photo": "/img/uploads/1787783254138.png"
+  "skills": {
+    "stack": [
+      {
+        "name": "Python",
+        "icon": "devicon-python-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "TypeScript",
+        "icon": "devicon-typescript-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "JavaScript",
+        "icon": "devicon-javascript-plain",
+        "category": "Linguagens"
+      },
+      {
+        "name": "SQL",
+        "icon": "ph-database",
+        "category": "Linguagens"
+      },
+      {
+        "name": "HTML",
+        "icon": "devicon-html5-plain",
+        "category": "Web"
+      },
+      {
+        "name": "CSS",
+        "icon": "devicon-css3-plain",
+        "category": "Web"
+      },
+      {
+        "name": "React",
+        "icon": "devicon-react-original",
+        "category": "Web"
+      },
+      {
+        "name": "Tailwind CSS",
+        "icon": "devicon-tailwindcss-original",
+        "category": "Web"
+      },
+      {
+        "name": "Node.js",
+        "icon": "devicon-nodejs-plain",
+        "category": "Web"
+      },
+      {
+        "name": "Phaser 3",
+        "icon": "ph-game-controller",
+        "category": "Web"
+      },
+      {
+        "name": "IA Generativa",
+        "icon": "ph-sparkle",
+        "category": "IA"
+      },
+      {
+        "name": "Gemini API",
+        "icon": "ph-brain",
+        "category": "IA"
+      },
+      {
+        "name": "Prompt Engineering",
+        "icon": "ph-chat-teardrop-text",
+        "category": "IA"
+      },
+      {
+        "name": "Claude Code",
+        "icon": "ph-terminal-window",
+        "category": "IA"
+      },
+      {
+        "name": "Git",
+        "icon": "devicon-git-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "GitHub",
+        "icon": "devicon-github-original",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Vite",
+        "icon": "devicon-vitejs-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "PostgreSQL",
+        "icon": "devicon-postgresql-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Supabase",
+        "icon": "devicon-supabase-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Netlify",
+        "icon": "devicon-netlify-plain",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "ServiceNow",
+        "icon": "ph-ticket",
+        "category": "Ferramentas"
+      },
+      {
+        "name": "Pacote Office",
+        "icon": "ph-microsoft-excel-logo",
+        "category": "Ferramentas"
+      }
+    ],
+    "behavioral": [
+      "Comunicação",
+      "Disciplina",
+      "Flexibilidade",
+      "Agilidade",
+      "Trabalho em equipe",
+      "Proatividade"
+    ],
+    "courses": [
+      {
+        "date": "Outubro 2026",
+        "sort_date": "2026-10",
+        "title": "Oracle Academy AI Student Labs",
+        "institution": "Oracle"
+      },
+      {
+        "date": "Outubro 2026",
+        "sort_date": "2026-10",
+        "title": "Desenvolvendo apps com IA eficientemente",
+        "institution": "Unisanta"
+      },
+      {
+        "date": "Outubro 2026",
+        "sort_date": "2026-10",
+        "title": "Arduino e Programação: Como Transformar Códigos em Movimentos",
+        "institution": "Unisanta"
+      },
+      {
+        "date": "Setembro 2026",
+        "sort_date": "2026-09",
+        "title": "Ética na Era da IA",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "Setembro 2026",
+        "sort_date": "2026-09",
+        "title": "Montagem, Manutenção e Otimização de Computadores",
+        "institution": "Kingston Maker"
+      },
+      {
+        "date": "Fevereiro 2026",
+        "sort_date": "2026-02",
+        "title": "Fundamentos do TI: Hardware e Software",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "Fevereiro 2026",
+        "sort_date": "2026-02",
+        "title": "Crie um site simples usando HTML, CSS e JavaScript",
+        "institution": "Fundação Bradesco"
+      },
+      {
+        "date": "Janeiro 2025",
+        "sort_date": "2025-01",
+        "title": "Noções Básicas da Internet",
+        "institution": "IBM SkillsBuild"
+      }
+    ]
   },
-  "meta_title": "Nathan Domingues | Currículo"
+  "experience": [
+    {
+      "date": "JANEIRO DE 2026 - ATUAL",
+      "title": "Jovem Aprendiz RH CSC",
+      "company": "Coca-Cola FEMSA | Santos - SP",
+      "description": "Suporte ao CSC de Recursos Humanos: atendimento e resolução de chamados no ServiceNow, atualização de planilhas corporativas, organização e digitalização de documentos e apoio às rotinas administrativas de alto volume da equipe."
+    },
+    {
+      "date": "MARÇO DE 2025 - AGOSTO DE 2025",
+      "title": "Auxiliar de Escritório",
+      "company": "Express Courier | Praia Grande - SP",
+      "description": "Rotinas de backoffice: gestão de agendas, planilhas e do fluxo de documentos físicos e digitais. Controle, triagem e logística reversa de equipamentos (máquinas de cartão PagSeguro), suporte aos técnicos de campo e conferência de notas fiscais para o financeiro."
+    }
+  ],
+  "education": [
+    {
+      "date": "AGOSTO DE 2026 - JULHO DE 2028",
+      "title": "Tecnólogo em Inteligência Artificial",
+      "company": "Universidade Santa Cecília | Santos - SP",
+      "description": "Graduação em andamento, focada no desenvolvimento de soluções de IA eficientes e inovadoras para negócios."
+    },
+    {
+      "date": "JANEIRO DE 2024 - DEZEMBRO DE 2024",
+      "title": "Ensino Médio Completo",
+      "company": "Colégio Adventista de Santos | Santos - SP",
+      "description": "Formação geral que serviu de base para a graduação em Inteligência Artificial."
+    }
+  ]
 }

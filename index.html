@@ -3,47 +3,80 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title id="page-title">Nathan Domingues | Currículo</title>
-    <meta id="page-description" name="description" content="Currículo online de Nathan Domingues, Aprendiz de RH na Coca-Cola FEMSA e estudante de Inteligência Artificial.">
-    <!-- Netlify Identity Widget (necessário para login do Decap CMS) -->
-    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
-    <!-- Google Fonts -->
+    <title>Nathan Domingues | Dev · IA &amp; Web</title>
+    <meta id="page-description" name="description" content="Portfólio de Nathan Domingues, estudante de Inteligência Artificial que desenvolve agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.">
+    <meta name="theme-color" content="#0b0f14">
+
+    <!-- Preview ao compartilhar o link (LinkedIn, WhatsApp, etc.) -->
+    <meta property="og:type" content="website">
+    <meta property="og:locale" content="pt_BR">
+    <meta property="og:url" content="https://curriculonathdomin.netlify.app/">
+    <meta property="og:title" content="Nathan Domingues | Dev · IA & Web">
+    <meta property="og:description" content="Agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.">
+    <meta property="og:image" content="https://curriculonathdomin.netlify.app/img/og.png">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <!-- Aplica o tema salvo antes de desenhar a página (evita "piscar" claro/escuro) -->
+    <script>
+        (function () {
+            var root = document.documentElement;
+            var theme = null;
+            try { theme = localStorage.getItem('theme') || localStorage.getItem('selected-theme'); } catch (e) {}
+            if (theme !== 'light' && theme !== 'dark') {
+                theme = window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches ? 'light' : 'dark';
+            }
+            root.setAttribute('data-theme', theme);
+            root.classList.add('js');
+        })();
+    </script>
+
+    <link rel="icon" type="image/svg+xml" href="/img/favicon.svg">
+    <link rel="alternate icon" type="image/jpeg" href="/img/nd2.jpg">
+
+    <!-- Fontes -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/nd2.jpg">
-    <!-- Custom CSS -->
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500;700&display=swap" rel="stylesheet">
+
+    <!-- Ícones: Phosphor (interface) e Devicon (tecnologias) -->
+    <link rel="stylesheet" href="https://unpkg.com/@phosphor-icons/web@2.1.1/src/regular/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/devicon@2.16.0/devicon.min.css">
+
     <link rel="stylesheet" href="css/style.css">
-    <!-- Phosphor Icons (para ícones modernos) -->
-    <script src="https://unpkg.com/@phosphor-icons/web"></script>
 </head>
 <body>
-    <div class="blob-bg"></div>
-    <div class="blob-bg blob-2"></div>
+    <a href="#main" class="skip-link" data-i18n="skip">Pular para o conteúdo</a>
 
-    <header class="header">
-        <nav class="nav container">
-            <a href="#" class="logo">ND<span>.</span></a>
-            
-            <div class="nav-menu" id="nav-menu">
+    <header class="header" id="header">
+        <nav class="nav container" aria-label="Navegação principal" data-i18n-attr="aria-label:nav.label">
+            <a href="#home" class="logo" aria-label="Início" data-i18n-attr="aria-label:nav.home">
+                <span class="logo-user">nathan</span><span class="logo-at">@</span><span class="logo-host">dev</span><span class="logo-path">:~$</span><span class="cursor" aria-hidden="true"></span>
+            </a>
+
+            <div class="nav-menu" id="nav-menu" data-label="~/navegacao" data-i18n-attr="data-label:nav.path">
                 <ul class="nav-list">
-                    <li class="nav-item"><a href="#home" class="nav-link active">Home</a></li>
-                    <li class="nav-item"><a href="#sobre" class="nav-link">Sobre</a></li>
-                    <li class="nav-item"><a href="#experiencia" class="nav-link">Experiência</a></li>
-                    <li class="nav-item"><a href="#formacao" class="nav-link">Formação</a></li>
-                    <li class="nav-item"><a href="#habilidades" class="nav-link">Competências</a></li>
-                    <li class="nav-item"><a href="#projetos" class="nav-link">Projetos</a></li>
-                    <li class="nav-item"><a href="#github" class="nav-link">GitHub</a></li>
-                    <li class="nav-item"><a href="#contato" class="nav-link">Contato</a></li>
+                    <li><a href="#sobre" class="nav-link"><span class="nav-num">01</span><span data-i18n="nav.about">sobre</span></a></li>
+                    <li><a href="#projetos" class="nav-link"><span class="nav-num">02</span><span data-i18n="nav.projects">projetos</span></a></li>
+                    <li><a href="#stack" class="nav-link"><span class="nav-num">03</span><span data-i18n="nav.stack">stack</span></a></li>
+                    <li><a href="#experiencia" class="nav-link"><span class="nav-num">04</span><span data-i18n="nav.experience">experiência</span></a></li>
+                    <li><a href="#formacao" class="nav-link"><span class="nav-num">05</span><span data-i18n="nav.education">formação</span></a></li>
+                    <li><a href="#github" class="nav-link"><span class="nav-num">06</span><span data-i18n="nav.github">github</span></a></li>
+                    <li><a href="#contato" class="nav-link"><span class="nav-num">07</span><span data-i18n="nav.contact">contato</span></a></li>
                 </ul>
-                <div class="nav-close" id="nav-close" role="button" aria-label="Fechar menu" tabindex="0"></div>
+                <div class="nav-close" id="nav-close" role="button" aria-label="Fechar menu" data-i18n-attr="aria-label:nav.close" tabindex="0"></div>
             </div>
 
             <div class="nav-overlay" id="nav-overlay"></div>
 
             <div class="nav-btns">
-                <i class="ph ph-moon change-theme" id="theme-button"></i>
-                <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Abrir menu" aria-expanded="false" tabindex="0">
+                <button type="button" class="lang-toggle" id="lang-button" aria-label="Switch to English">
+                    <span data-lang="pt" class="is-active">PT</span><span class="lang-sep" aria-hidden="true">|</span><span data-lang="en">EN</span>
+                </button>
+                <button type="button" class="theme-toggle" id="theme-button" aria-label="Alternar tema claro/escuro">
+                    <i class="ph ph-sun icon-sun" aria-hidden="true"></i>
+                    <i class="ph ph-moon icon-moon" aria-hidden="true"></i>
+                </button>
+                <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Abrir menu" data-i18n-attr="aria-label:nav.open" aria-expanded="false" tabindex="0">
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
                     <span class="nav-toggle-bar"></span>
@@ -52,238 +85,269 @@
         </nav>
     </header>
 
-    <main class="main">
-        <!-- HERO SECTION -->
-        <section class="hero section" id="home">
-            <div class="container hero-container grid">
-                <div class="hero-data reveal">
-                    <span class="hero-subtitle" id="hero-subtitle">Olá, eu sou</span>
-                    <h1 class="hero-title" id="hero-title">Nathan<br>Domingues</h1>
-                    <h3 class="hero-profession" id="hero-profession">Inteligência Artificial e Tecnologia</h3>
+    <main class="main" id="main">
+        <!-- ============ HERO ============ -->
+        <section class="hero" id="home">
+            <div class="container hero-container">
+                <div class="hero-main">
+                    <div class="window terminal">
+                        <div class="window-bar">
+                            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="window-title">nathan@dev: ~</span>
+                        </div>
+                        <div class="terminal-body" id="terminal-body">
+                            <p class="t-comment" id="hero-subtitle"># olá, eu sou</p>
+                            <p class="t-line"><span class="t-prompt">~ $</span> <span class="t-cmd">whoami</span></p>
+                            <h1 class="hero-title t-out" id="hero-title">Nathan Domingues</h1>
+                            <p class="t-line"><span class="t-prompt">~ $</span> <span class="t-cmd" data-i18n="hero.roleCmd">cat cargo.txt</span></p>
+                            <p class="t-out hero-profession" id="hero-profession">Dev em formação · IA &amp; Web</p>
+                            <!-- Linhas extras vêm de hero.terminal_lines (content/cv.json) -->
+                            <p class="t-line" data-extra><span class="t-prompt">~ $</span> <span class="t-cmd">ls stack/</span></p>
+                            <p class="t-out" data-extra>python/  typescript/  javascript/  react/  sql/</p>
+                            <p class="t-line t-last"><span class="t-prompt">~ $</span> <span class="cursor" aria-hidden="true"></span></p>
+                        </div>
+                    </div>
+
                     <p class="hero-description" id="hero-description">
-                        Estudante de IA | RH CSC na Coca-Cola FEMSA | Python, Prompt Engineering &amp; Desenvolvimento Assistido por IA
+                        Construo agentes de IA, jogos que rodam no navegador e aplicações full-stack com Python e TypeScript. Estudante de IA na Unisanta e Jovem Aprendiz de RH na Coca-Cola FEMSA.
                     </p>
-                    <a href="#contato" class="button"><span id="hero-cta-text">Vamos Conversar</span> <i class="ph ph-arrow-right"></i></a>
+
+                    <div class="hero-actions">
+                        <a href="#projetos" class="button"><i class="ph ph-code"></i> <span id="hero-cta-text">Ver projetos</span></a>
+                        <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="button button--ghost" id="hero-github-link"><i class="ph ph-github-logo"></i> GitHub <i class="ph ph-arrow-up-right"></i></a>
+                    </div>
                 </div>
-                
-                <div class="hero-img-container reveal-delay js-tilt-photo">
-                    <!-- Foto do usuário -->
-                    <img src="/img/uploads/1787783254138.png" alt="Nathan Domingues" class="hero-img" id="hero-img">
-                </div>
+
+                <figure class="window hero-photo js-tilt-photo">
+                    <div class="window-bar">
+                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="window-title" data-i18n="hero.photoTitle">~/fotos/nathan.png</span>
+                    </div>
+                    <img src="/img/uploads/1787783254138.png" alt="Foto de Nathan Domingues" data-i18n-attr="alt:hero.photoAlt" class="hero-img" id="hero-img" width="360" height="450">
+                </figure>
             </div>
         </section>
 
-        <!-- SOBRE MIM -->
-        <section class="about section" id="sobre">
+        <!-- ============ 01 SOBRE ============ -->
+        <section class="section" id="sobre">
             <div class="container">
-                <h2 class="section-title reveal">Sobre Mim</h2>
-                <span class="section-subtitle reveal">Minha Essência</span>
-                
-                <div class="about-container grid">
-                    <div class="about-data reveal">
-                        <p class="about-description" id="about-description">
-                            Com atuação prática no CSC da Coca-Cola FEMSA, apoio diariamente o setor de Recursos Humanos na gestão de benefícios, conferência fiscal, cadastros e rotinas administrativas de alto volume.
-                            Como estudante de Inteligência Artificial (Universidade Santa Cecília), dedico meus estudos à aplicação prática de Python, Engenharia de Prompts para LLMs, Prototipagem Rápida com IA e desenvolvimento de software.
-                            <br><br>
-                            Busco aplicar o aprendizado acadêmico e as ferramentas de IA Generativa para transformar tarefas operacionais em processos mais ágeis e inteligentes, contribuindo diretamente para a eficiência e inovação do ecossistema de negócios.
-                        </p>
-                        
-                        <div class="about-info" id="about-info-container">
-                            <div class="info-box">
-                                <span class="info-icon"><i class="ph ph-map-pin"></i></span>
-                                <div class="info-text">
-                                    <h3 class="info-title">Localização</h3>
-                                    <span class="info-subtitle">Santos - SP</span>
-                                </div>
-                            </div>
-                            <div class="info-box">
-                                <span class="info-icon"><i class="ph ph-briefcase"></i></span>
-                                <div class="info-text">
-                                    <h3 class="info-title">Atuação</h3>
-                                    <span class="info-subtitle">Jovem Aprendiz RH - CSC</span>
-                                </div>
-                            </div>
-                            <div class="info-box">
-                                <span class="info-icon"><i class="ph ph-robot"></i></span>
-                                <div class="info-text">
-                                    <h3 class="info-title">Acadêmico</h3>
-                                    <span class="info-subtitle">Inteligência Artificial</span>
-                                </div>
-                            </div>
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-file-text"></i> <span data-i18n="about.tab">sobre.md</span></span>
+                    <h2 class="section-title"><span class="section-num">01.</span> <span data-i18n="about.title">Sobre mim</span></h2>
+                    <p class="section-comment" data-i18n="about.comment">// quem sou e o que construo</p>
+                </header>
+
+                <div class="about-grid">
+                    <div class="about-description reveal" id="about-description">
+                        <p>Sou estudante de <strong class="highlight">Inteligência Artificial</strong> na Universidade Santa Cecília e desenvolvo projetos web e de IA com Python, TypeScript e JavaScript.</p>
+                    </div>
+
+                    <div class="window code-window reveal-delay">
+                        <div class="window-bar">
+                            <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                            <span class="window-title" data-i18n="about.file">perfil.ts</span>
                         </div>
+                        <pre class="code"><code id="about-info-container"></code></pre>
                     </div>
                 </div>
             </div>
         </section>
 
-        <!-- EXPERIÊNCIA -->
-        <section class="experience section" id="experiencia">
+        <!-- ============ 02 PROJETOS ============ -->
+        <section class="section" id="projetos">
             <div class="container">
-                <h2 class="section-title reveal">Experiência Profissional</h2>
-                <span class="section-subtitle reveal">Minha Trajetória no Mercado</span>
-                
-                <div class="experience-container" id="experience-container">
-                    <!-- Itens preenchidos dinamicamente via js/render.js a partir de content/cv.json -->
-                </div>
-            </div>
-        </section>
-
-        <!-- FORMAÇÃO -->
-        <section class="education section" id="formacao">
-            <div class="container">
-                <h2 class="section-title reveal">Formação Acadêmica</h2>
-                <span class="section-subtitle reveal">Minha Base Educacional</span>
-                
-                <div class="experience-container" id="education-container">
-                    <!-- Itens preenchidos dinamicamente via js/render.js a partir de content/cv.json -->
-                </div>
-            </div>
-        </section>
-
-        <!-- COMPETÊNCIAS E CURSOS -->
-        <section class="skills section" id="habilidades">
-            <div class="container">
-                <h2 class="section-title reveal">Competências & Cursos</h2>
-                <span class="section-subtitle reveal">Hard Skills, Soft Skills e Certificações</span>
-                
-                <div class="skills-container grid">
-                    <div class="skills-card reveal">
-                        <div class="skills-header">
-                            <i class="ph ph-chat-circle-text"></i>
-                            <h3>Comportamentais</h3>
-                        </div>
-                        <ul class="skills-list" id="skills-behavioral">
-                            <!-- Preenchido dinamicamente -->
-                        </ul>
-                    </div>
-
-                    <div class="skills-card reveal-delay">
-                        <div class="skills-header">
-                            <i class="ph ph-wrench"></i>
-                            <h3>Técnicas & Ferramentas</h3>
-                        </div>
-                        <ul class="skills-list" id="skills-technical">
-                            <!-- Preenchido dinamicamente -->
-                        </ul>
-                    </div>
-
-                    <div class="skills-card reveal" style="grid-column: 1 / -1; margin-top: 1.5rem;">
-                        <div class="skills-header">
-                            <i class="ph ph-certificate"></i>
-                            <h3>Cursos Extras</h3>
-                        </div>
-                        <div class="courses-list" id="courses-container">
-                            <!-- Preenchido dinamicamente -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- PROJETOS -->
-        <section class="projects section" id="projetos">
-            <div class="container">
-                <h2 class="section-title reveal">Meus Projetos</h2>
-                <span class="section-subtitle reveal">O que já construí</span>
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-file-code"></i> <span data-i18n="projects.tab">projetos.ts</span></span>
+                    <h2 class="section-title"><span class="section-num">02.</span> <span data-i18n="projects.title">Projetos</span></h2>
+                    <p class="section-comment" data-i18n="projects.comment">// o que já coloquei no ar</p>
+                </header>
 
                 <div class="projects-container reveal" id="projects-container">
-                    <!-- Itens preenchidos dinamicamente via js/render.js a partir de content/cv.json -->
+                    <!-- Preenchido via js/render.js a partir de content/cv.json -->
                 </div>
                 <div class="projects-dots" id="projects-dots"></div>
             </div>
         </section>
 
-        <!-- GITHUB -->
-        <section class="github section" id="github">
+        <!-- ============ 03 STACK ============ -->
+        <section class="section" id="stack">
             <div class="container">
-                <h2 class="section-title reveal">Repositórios no GitHub</h2>
-                <span class="section-subtitle reveal">Código aberto e atualizado</span>
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-brackets-curly"></i> <span data-i18n="stack.tab">stack.json</span></span>
+                    <h2 class="section-title"><span class="section-num">03.</span> <span data-i18n="stack.title">Stack</span></h2>
+                    <p class="section-comment" data-i18n="stack.comment">// linguagens, ferramentas e o que uso no dia a dia</p>
+                </header>
 
-                <div class="github-profile reveal" id="github-profile">
-                    <!-- Preenchido dinamicamente via API do GitHub (js/render.js) -->
+                <div class="stack-grid reveal" id="stack-container">
+                    <!-- Preenchido via js/render.js -->
                 </div>
 
-                <div class="github-repos" id="github-repos">
-                    <p class="github-status">Carregando repositórios...</p>
+                <div class="soft-skills reveal" id="soft-skills"></div>
+            </div>
+        </section>
+
+        <!-- ============ 04 EXPERIÊNCIA ============ -->
+        <section class="section" id="experiencia">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-git-commit"></i> <span data-i18n="exp.tab">experiencia.log</span></span>
+                    <h2 class="section-title"><span class="section-num">04.</span> <span data-i18n="exp.title">Experiência</span></h2>
+                    <p class="section-comment" data-i18n="exp.comment">// $ git log --carreira</p>
+                </header>
+
+                <div class="log" id="experience-container">
+                    <!-- Preenchido via js/render.js -->
                 </div>
             </div>
         </section>
 
-        <!-- CONTATO -->
-        <section class="contact section" id="contato">
+        <!-- ============ 05 FORMAÇÃO & CURSOS ============ -->
+        <section class="section" id="formacao">
             <div class="container">
-                <h2 class="section-title reveal">Contato</h2>
-                <span class="section-subtitle reveal">Vamos construir algo incrível juntos</span>
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-graduation-cap"></i> <span data-i18n="edu.tab">formacao.md</span></span>
+                    <h2 class="section-title"><span class="section-num">05.</span> <span data-i18n="edu.title">Formação &amp; cursos</span></h2>
+                    <p class="section-comment" data-i18n="edu.comment">// base acadêmica e certificações</p>
+                </header>
 
-                <div class="contact-panel reveal">
-                    <a href="mailto:nathandomin44@gmail.com" class="contact-item" id="contact-email-link">
-                        <span class="contact-icon"><i class="ph ph-envelope-simple"></i></span>
-                        <span class="contact-text">
-                            <span class="contact-label">Email</span>
+                <div class="log" id="education-container">
+                    <!-- Preenchido via js/render.js -->
+                </div>
+
+                <div class="window courses-window reveal">
+                    <div class="window-bar">
+                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="window-title" data-i18n="edu.courses">~/certificados $ ls -l</span>
+                    </div>
+                    <ul class="course-list" id="courses-container">
+                        <!-- Preenchido via js/render.js -->
+                    </ul>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 06 GITHUB ============ -->
+        <section class="section" id="github">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-terminal"></i> <span data-i18n="gh.tab">github.sh</span></span>
+                    <h2 class="section-title"><span class="section-num">06.</span> <span data-i18n="gh.title">GitHub</span></h2>
+                    <p class="section-comment" data-i18n="gh.comment">// dados ao vivo da API do GitHub</p>
+                </header>
+
+                <div class="github-profile" id="github-profile">
+                    <!-- Preenchido via API do GitHub (js/render.js) -->
+                </div>
+
+                <div class="window github-activity" id="github-activity" hidden>
+                    <div class="window-bar">
+                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="window-title" id="contrib-title" data-i18n="gh.contribTitle">contribuições no último ano</span>
+                    </div>
+                    <div class="github-activity-body">
+                        <div class="contrib-scroll" id="contrib-scroll">
+                            <div class="contrib-grid" id="contrib-grid" role="img" aria-label="Gráfico de contribuições no GitHub" data-i18n-attr="aria-label:gh.contribGrid"></div>
+                        </div>
+                        <div class="contrib-legend" id="contrib-legend" hidden>
+                            <span data-i18n="gh.less">menos</span><i data-level="0"></i><i data-level="1"></i><i data-level="2"></i><i data-level="3"></i><i data-level="4"></i><span data-i18n="gh.more">mais</span>
+                        </div>
+                        <div class="lang-stats" id="lang-stats"></div>
+                    </div>
+                </div>
+
+                <div class="github-repos" id="github-repos">
+                    <p class="github-status" data-i18n="gh.loading">Carregando repositórios...</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- ============ 07 CONTATO ============ -->
+        <section class="section" id="contato">
+            <div class="container">
+                <header class="section-head reveal">
+                    <span class="section-tab"><i class="ph ph-paper-plane-tilt"></i> <span data-i18n="contact.tab">contato.sh</span></span>
+                    <h2 class="section-title"><span class="section-num">07.</span> <span data-i18n="contact.title">Contato</span></h2>
+                    <p class="section-comment" data-i18n="contact.comment">// vamos construir algo juntos</p>
+                </header>
+
+                <div class="window contact-window reveal">
+                    <div class="window-bar">
+                        <span class="window-dots" aria-hidden="true"><i></i><i></i><i></i></span>
+                        <span class="window-title" data-i18n="contact.window">nathan@dev: ~/contato</span>
+                    </div>
+                    <div class="contact-list">
+                        <a href="mailto:nathandomin44@gmail.com" class="contact-item" id="contact-email-link">
+                            <span class="contact-cmd"><span class="t-prompt">$</span> mail</span>
+                            <i class="ph ph-envelope-simple contact-icon" aria-hidden="true"></i>
                             <span class="contact-data" id="contact-email-text">nathandomin44@gmail.com</span>
-                        </span>
-                        <i class="ph ph-arrow-up-right contact-arrow"></i>
-                    </a>
-
-                    <a href="https://www.linkedin.com/in/nathan-domingues-985606321/?skipRedirect=true" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin-link">
-                        <span class="contact-icon"><i class="ph ph-linkedin-logo"></i></span>
-                        <span class="contact-text">
-                            <span class="contact-label">LinkedIn</span>
+                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://www.linkedin.com/in/nathan-domingues-985606321/" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-linkedin-link">
+                            <span class="contact-cmd"><span class="t-prompt">$</span> linkedin</span>
+                            <i class="ph ph-linkedin-logo contact-icon" aria-hidden="true"></i>
                             <span class="contact-data" id="contact-linkedin-text">Nathan Domingues</span>
-                        </span>
-                        <i class="ph ph-arrow-up-right contact-arrow"></i>
-                    </a>
-
-                    <a href="https://wa.me/5513991365365" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-whatsapp-link">
-                        <span class="contact-icon"><i class="ph ph-whatsapp-logo"></i></span>
-                        <span class="contact-text">
-                            <span class="contact-label">WhatsApp</span>
+                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://wa.me/5513991365365" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-whatsapp-link">
+                            <span class="contact-cmd"><span class="t-prompt">$</span> whatsapp</span>
+                            <i class="ph ph-whatsapp-logo contact-icon" aria-hidden="true"></i>
                             <span class="contact-data" id="contact-whatsapp-text">+55 13 99136-5365</span>
-                        </span>
-                        <i class="ph ph-arrow-up-right contact-arrow"></i>
-                    </a>
-
-                    <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-github-link">
-                        <span class="contact-icon"><i class="ph ph-github-logo"></i></span>
-                        <span class="contact-text">
-                            <span class="contact-label">GitHub</span>
+                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                        </a>
+                        <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" class="contact-item" id="contact-github-link">
+                            <span class="contact-cmd"><span class="t-prompt">$</span> github</span>
+                            <i class="ph ph-github-logo contact-icon" aria-hidden="true"></i>
                             <span class="contact-data" id="contact-github-text">nathdomin</span>
-                        </span>
-                        <i class="ph ph-arrow-up-right contact-arrow"></i>
-                    </a>
+                            <i class="ph ph-arrow-up-right contact-arrow" aria-hidden="true"></i>
+                        </a>
+                    </div>
                 </div>
 
                 <div class="download-resume reveal">
-                    <a href="/arquivos/nathan_domingues_cv.pdf" download="Nathan_Domingues_Curriculo.pdf" class="button download-btn" id="cv-download-link">
-                        <i class="ph ph-download-simple"></i> Baixar Currículo em PDF
+                    <a href="/arquivos/curriculo_nathan_domingues.pdf" download class="button" id="cv-download-link">
+                        <i class="ph ph-download-simple"></i> <span data-i18n="contact.cv">baixar currículo.pdf</span>
+                    </a>
+                    <a href="/arquivos/nathan_domingues_resume_en.pdf" download class="button button--ghost" id="cv-download-other" hreflang="en">
+                        <i class="ph ph-translate"></i> <span data-i18n="contact.cvOther">english resume.pdf</span>
                     </a>
                 </div>
             </div>
         </section>
     </main>
 
-
+    <footer class="footer">
+        <div class="container footer-inner">
+            <span>© <span id="footer-year">2026</span> Nathan Domingues</span>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <span data-i18n="footer.built">feito com HTML, CSS &amp; JavaScript puros</span>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="https://github.com/nathdomin/site-curriculo" target="_blank" rel="noopener noreferrer"><span data-i18n="footer.source">ver código</span> <i class="ph ph-arrow-up-right"></i></a>
+        </div>
+    </footer>
 
     <!-- Janela com a descrição completa do projeto ("Ler mais") -->
-    <dialog class="project-modal" id="project-modal" aria-label="Detalhes do projeto">
-        <button type="button" class="project-modal-close" aria-label="Fechar"><i class="ph ph-x"></i></button>
+    <dialog class="project-modal" id="project-modal" aria-label="Detalhes do projeto" data-i18n-attr="aria-label:projects.details">
+        <button type="button" class="project-modal-close" aria-label="Fechar" data-i18n-attr="aria-label:projects.close"><i class="ph ph-x"></i></button>
         <div class="project-modal-content"></div>
     </dialog>
 
-    <!-- Renderiza o conteúdo dinâmico a partir de content/cv.json -->
+    <script src="js/i18n.js"></script>
     <script src="js/render.js"></script>
-    <!-- Main Script -->
     <script src="js/script.js"></script>
-    <!-- Redireciona para o painel /admin após login pelo widget de Identity -->
+
+    <!-- Netlify Identity só é carregado quando o link de convite/recuperação do CMS é aberto -->
     <script>
-        if (window.netlifyIdentity) {
-            window.netlifyIdentity.on("init", user => {
-                if (!user) {
-                    window.netlifyIdentity.on("login", () => {
-                        document.location.href = "/admin/";
-                    });
-                }
-            });
+        if (/(invite|recovery|confirmation|email_change)_token|access_token/.test(window.location.hash)) {
+            var identityScript = document.createElement('script');
+            identityScript.src = 'https://identity.netlify.com/v1/netlify-identity-widget.js';
+            // O widget se inicializa sozinho ao carregar e processa o token da URL;
+            // depois do login (aceitar convite / redefinir senha) vai para o painel.
+            identityScript.onload = function () {
+                window.netlifyIdentity.on('login', function () {
+                    document.location.href = '/admin/';
+                });
+            };
+            document.head.appendChild(identityScript);
         }
     </script>
 </body>
