@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <!--
   Fonte do currículo em português (arquivos/curriculo_nathan_domingues.pdf).
+  O conteúdo acompanha o site (content/cv.json). Ao mudar o site, atualize aqui também.
   Depois de editar, gere os PDFs de novo com: powershell -File tools\gerar-pdfs.ps1
 -->
 <html lang="pt-BR">
@@ -19,17 +20,19 @@
 
     <section>
         <h2>Resumo profissional</h2>
-        <p>Estudante de Inteligência Artificial na Universidade Santa Cecília, com vivência corporativa em rotinas administrativas e gestão de chamados (ServiceNow). Desenvolvo aplicações web e de IA com Python, TypeScript e JavaScript: um agente de IA para triagem de currículos, um jogo de plataforma 2D para navegador e um sistema full-stack de reserva de salas com React e PostgreSQL. Trabalho com desenvolvimento assistido por IA (Claude Code, Gemini) do protótipo ao deploy. Busco uma oportunidade em TI para aplicar minha capacidade de resolução de problemas e minhas habilidades em programação em projetos reais.</p>
+        <p>Sou estudante de <strong>Inteligência Artificial</strong> na Universidade Santa Cecília e desenvolvo projetos web e de IA com <strong>Python</strong>, <strong>TypeScript</strong> e <strong>JavaScript</strong>: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.</p>
+        <p>Trabalho com <strong>desenvolvimento assistido por IA</strong> (Claude Code, Gemini, Codex) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.</p>
+        <p>Hoje também sou Jovem Aprendiz no CSC de RH da <strong>Coca-Cola FEMSA</strong>. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar. Busco uma oportunidade em TI para aplicar minha capacidade de resolução de problemas e minhas habilidades em programação em projetos reais.</p>
     </section>
 
     <section>
         <h2>Habilidades técnicas e comportamentais</h2>
         <ul>
-            <li><strong>Linguagens:</strong> Python, TypeScript, JavaScript, SQL, HTML5, CSS.</li>
-            <li><strong>Web:</strong> React, Tailwind CSS, Node.js, FastAPI, Phaser 3, Vite; integração de APIs REST (ViaCEP, Gemini API, PokeAPI).</li>
-            <li><strong>IA:</strong> IA Generativa, Agentes de IA, Prompt Engineering, Bancos de Dados Vetoriais, Gemini API, Claude Code.</li>
-            <li><strong>Dados, nuvem e ferramentas:</strong> PostgreSQL, Supabase, Git, GitHub, Netlify, Render, Backblaze B2, ServiceNow, Pacote Office, FFmpeg, yt-dlp.</li>
-            <li><strong>Soft skills:</strong> Comunicação eficaz, Proatividade, Resolução de problemas, Organização e gestão do tempo, Trabalho em equipe, Adaptabilidade.</li>
+            <li><strong>Linguagens:</strong> Python, TypeScript, JavaScript, SQL.</li>
+            <li><strong>Web:</strong> HTML, CSS, React, Tailwind CSS, Node.js, Phaser 3.</li>
+            <li><strong>IA:</strong> IA Generativa, Gemini, Prompt Engineering, Claude Code, ChatGPT Codex, LLMs.</li>
+            <li><strong>Ferramentas:</strong> Git, GitHub, Vite, PostgreSQL, Supabase, Netlify, ServiceNow, Pacote Office, APIs REST.</li>
+            <li><strong>Soft skills:</strong> Comunicação, Disciplina, Flexibilidade, Agilidade, Trabalho em equipe, Proatividade.</li>
         </ul>
     </section>
 
@@ -39,16 +42,14 @@
             <p class="job-head">Coca-Cola FEMSA | Santos - SP</p>
             <p class="job-role">Jovem Aprendiz RH CSC | Janeiro de 2026 – Atual</p>
             <ul>
-                <li>Gerencio e soluciono chamados corporativos na plataforma ServiceNow, prestando suporte administrativo e garantindo o cumprimento dos prazos de atendimento (SLAs) e a satisfação do cliente interno.</li>
-                <li>Otimizo processos operacionais por meio da organização e digitalização de documentos, além da manutenção e atualização das planilhas corporativas do Centro de Serviços Compartilhados.</li>
+                <li>Suporte ao CSC de Recursos Humanos: atendimento e resolução de chamados no ServiceNow, atualização de planilhas corporativas, organização e digitalização de documentos e apoio às rotinas administrativas de alto volume da equipe.</li>
             </ul>
         </div>
         <div class="job">
             <p class="job-head">Express Courier | Praia Grande - SP</p>
             <p class="job-role">Auxiliar de Escritório | Março de 2025 – Agosto de 2025</p>
             <ul>
-                <li>Coordenei o fluxo logístico e a triagem de equipamentos (máquinas PagSeguro), prestando suporte operacional direto aos técnicos de campo.</li>
-                <li>Administrei rotinas de backoffice e gestão de agendas, organizando o fluxo de documentos físicos e digitais e auxiliando o setor financeiro na conferência de notas fiscais.</li>
+                <li>Rotinas de backoffice: gestão de agendas, planilhas e do fluxo de documentos físicos e digitais. Controle, triagem e logística reversa de equipamentos (máquinas de cartão PagSeguro), suporte aos técnicos de campo e conferência de notas fiscais para o financeiro.</li>
             </ul>
         </div>
     </section>
@@ -56,21 +57,22 @@
     <section>
         <h2>Projetos</h2>
         <ul>
-            <li><strong>VivAI+ (agente de IA para currículos):</strong> app web em Python que recebe currículos em PDF ou DOCX, extrai os dados do candidato e usa a Gemini API para cruzar o perfil com as vagas da Viva+, ignorando dados sensíveis e avaliando só competências. Histórico em banco de dados na nuvem, com arquitetura resiliente a picos de uso. <a class="project-link" href="https://agenteia-vivaplus.onrender.com">agenteia-vivaplus.onrender.com</a></li>
-            <li><strong>Sankofa: Caminhos da Resistência:</strong> jogo de plataforma 2D para navegador sobre a história da resistência negra no Brasil, em Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código (Web Audio API), com controles de toque e uma ferramenta própria que verifica se cada fase pode ser completada. <a class="project-link" href="https://nathdomin.github.io/sankofa">nathdomin.github.io/sankofa</a></li>
-            <li><strong>MeetKof:</strong> sistema full-stack de reserva de salas de reunião, com calendário (visões mensal, semanal e diária), bloqueio de conflitos de horário no banco e na API, painel administrativo e histórico de alterações. React 19, TypeScript, Tailwind, Node.js com Fastify, PostgreSQL no Supabase e testes com Vitest. <a class="project-link" href="https://github.com/nathdomin/reserva-salas">github.com/nathdomin/reserva-salas</a></li>
-            <li><strong>Digitalize:</strong> app web responsivo para digitalizar e organizar documentos de escritório, com scanner pela câmera do celular e processamento de imagem, pastas, busca interna e login protegido. <a class="project-link" href="https://digital-ize.netlify.app">digital-ize.netlify.app</a></li>
-            <li><strong>Adivinhe o Pokémon:</strong> jogo web de adivinhação que consome a PokeAPI e revela o Pokémon aos poucos, a cada dica. Trabalho prático da matéria Técnicas de Programação com IA (Unisanta). <a class="project-link" href="https://nathdomin.github.io/adivinhe-o-pokemon">nathdomin.github.io/adivinhe-o-pokemon</a></li>
-            <li><strong>Site institucional Viva+:</strong> site corporativo em HTML, CSS e JavaScript com painel administrativo para que equipes não técnicas atualizem o conteúdo. <a class="project-link" href="https://vivaplus.netlify.app">vivaplus.netlify.app</a></li>
-            <li><strong>Portfólio bilíngue:</strong> site em HTML, CSS e JavaScript puros com tema de terminal, versões em português e inglês, conteúdo editável por Decap CMS e dados ao vivo da API do GitHub. <a class="project-link" href="https://curriculonathdomin.netlify.app">curriculonathdomin.netlify.app</a></li>
+            <li><strong>Agente de RH para WhatsApp:</strong> Agente de IA para atendimento de RH no WhatsApp. Responde dúvidas sobre benefícios, crachá e férias com base nos documentos, usando RAG no Postgres, e passa para uma pessoa quando não encontra a resposta. Temas sensíveis não recebem resposta da IA, e respostas novas só entram na base com aprovação humana. Entende áudios, respeita o limite gratuito de mensagens e acertou 31 de 31 perguntas na avaliação. Projeto de estudo com empresa fictícia: a demonstração simula o envio pelo WhatsApp. <span class="project-tags">Tags: TypeScript, Supabase, RAG, LLM, WhatsApp API.</span> <a class="project-link" href="https://github.com/nathdomin/agente-rh-whatsapp">github.com/nathdomin/agente-rh-whatsapp</a></li>
+            <li><strong>VivAI+:</strong> Agente de IA para triagem de currículos. Recebe arquivos PDF ou DOCX, extrai os dados do candidato e usa a Gemini API para cruzar o perfil com as vagas abertas da Viva+. A análise ignora dados sensíveis e avalia só competências, e o histórico fica salvo em banco de dados na nuvem. A arquitetura foi pensada para não travar em picos de uso. <span class="project-tags">Tags: Python, Gemini API, IA Generativa, PDF/DOCX, Banco de Dados.</span> <a class="project-link" href="https://agenteia-vivaplus.onrender.com/">agenteia-vivaplus.onrender.com</a> | <a class="project-link" href="https://github.com/nathdomin/VivAIplus">github.com/nathdomin/VivAIplus</a></li>
+            <li><strong>Sankofa: Caminhos da Resistência:</strong> Jogo de plataforma 2D no navegador sobre a história da resistência negra no Brasil, feito para o Novembro Negro. Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código, sem nenhum arquivo de imagem ou áudio: as texturas saem de grades de pixel em texto e o som é sintetizado com a Web Audio API. Tem coyote time, jump buffer, golpes de capoeira em máquina de estados, controles de toque e uma ferramenta própria que simula os pulos para checar se cada fase é completável. <span class="project-tags">Tags: TypeScript, Phaser 3, Vite, Web Audio API, Game Dev.</span> <a class="project-link" href="https://nathdomin.github.io/sankofa/">nathdomin.github.io/sankofa</a> | <a class="project-link" href="https://github.com/nathdomin/sankofa">github.com/nathdomin/sankofa</a></li>
+            <li><strong>MeetKof:</strong> Sistema interno de reserva de salas de reunião. Calendário com visões mensal, semanal e diária, reservas sem conflito de horário (bloqueado no banco e na API), painel de administração de salas e usuários, configurações de regras e histórico de quem alterou o quê. Frontend em React 19 com TypeScript, Tailwind e TanStack Query; backend em Node.js com Fastify e PostgreSQL no Supabase; testes com Vitest. <span class="project-tags">Tags: TypeScript, React, Node.js, PostgreSQL, Supabase.</span> <a class="project-link" href="https://github.com/nathdomin/reserva-salas">github.com/nathdomin/reserva-salas</a></li>
+            <li><strong>Digitalize:</strong> App web para digitalizar e organizar documentos de escritório. Cria pastas, digitaliza pela câmera do celular com processamento de imagem que corrige iluminação e deixa o resultado com aspecto de scanner, busca dentro das pastas e protege o acesso com login. Interface responsiva para computador e celular. <span class="project-tags">Tags: JavaScript, Processamento de Imagem, Responsivo.</span> <a class="project-link" href="https://digital-ize.netlify.app/">digital-ize.netlify.app</a> | <a class="project-link" href="https://github.com/nathdomin/digitalize">github.com/nathdomin/digitalize</a></li>
+            <li><strong>Adivinhe o Pokémon:</strong> Jogo web de adivinhação com clima de programa de TV: descubra o Pokémon sorteado pela silhueta e pelas dicas. Consome a PokeAPI, e a cada erro surge uma nova dica e a imagem se revela um pouco mais. Trabalho prático da matéria Técnicas de Programação com IA, na Universidade Santa Cecília. <span class="project-tags">Tags: JavaScript, HTML, CSS, PokeAPI, Claude Code.</span> <a class="project-link" href="https://nathdomin.github.io/adivinhe-o-pokemon/">nathdomin.github.io/adivinhe-o-pokemon</a> | <a class="project-link" href="https://github.com/nathdomin/adivinhe-o-pokemon">github.com/nathdomin/adivinhe-o-pokemon</a></li>
+            <li><strong>Site Institucional Viva+:</strong> Site da Viva+, empresa de bem-estar corporativo (saúde, lazer, cultura e integração). Apresenta a empresa, setores, equipe e projetos, e tem um painel administrativo para a equipe atualizar o conteúdo sem programar. <span class="project-tags">Tags: HTML, CSS, JavaScript, Painel Admin.</span> <a class="project-link" href="https://vivaplus.netlify.app/">vivaplus.netlify.app</a> | <a class="project-link" href="https://github.com/nathdomin/vivaplus">github.com/nathdomin/vivaplus</a></li>
+            <li><strong>Este portfólio:</strong> HTML, CSS e JavaScript puros, sem framework: todo o conteúdo fica em um único JSON editável por um painel Decap CMS, os repositórios e o gráfico de contribuições vêm ao vivo da API do GitHub, e o deploy é automático na Netlify a cada push. <span class="project-tags">Tags: HTML, CSS, JavaScript, Decap CMS, GitHub API.</span> <a class="project-link" href="https://curriculonathdomin.netlify.app/">curriculonathdomin.netlify.app</a> | <a class="project-link" href="https://github.com/nathdomin/site-curriculo">github.com/nathdomin/site-curriculo</a></li>
         </ul>
     </section>
 
     <section>
         <h2>Formação</h2>
         <ul>
-            <li><strong>Tecnólogo em Inteligência Artificial</strong> – Universidade Santa Cecília | Agosto de 2026 – <em>Previsão: Julho de 2028</em></li>
-            <li><strong>Ensino Médio Completo</strong> – Colégio Adventista de Santos | 2024</li>
+            <li><strong>Tecnólogo em Inteligência Artificial</strong> – Universidade Santa Cecília, Santos - SP | Agosto de 2026 – Julho de 2028 <span class="edu-note">Graduação em andamento, focada no desenvolvimento de soluções de IA eficientes e inovadoras para negócios.</span></li>
+            <li><strong>Ensino Médio Completo</strong> – Colégio Adventista de Santos, Santos - SP | Janeiro de 2024 – Dezembro de 2024 <span class="edu-note">Formação geral que serviu de base para a graduação em Inteligência Artificial.</span></li>
         </ul>
     </section>
 
@@ -78,7 +80,7 @@
         <h2>Cursos e extracurriculares</h2>
         <ul>
             <li><strong>Gestão de Infraestrutura de TI</strong> – Nano Courses FIAP (Em andamento)</li>
-            <li><strong>Bootcamp de Bancos de Dados Vetoriais</strong> – Oracle Academy AI Student Labs (Outubro 2026)</li>
+            <li><strong>Oracle Academy AI Student Labs</strong> – Oracle (Outubro 2026)</li>
             <li><strong>Desenvolvendo apps com IA eficientemente</strong> – Unisanta (Outubro 2026)</li>
             <li><strong>Arduino e Programação: Como Transformar Códigos em Movimentos</strong> – Unisanta (Outubro 2026)</li>
             <li><strong>Ética na Era da IA</strong> – Fundação Bradesco (Setembro 2026)</li>

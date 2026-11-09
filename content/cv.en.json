@@ -274,6 +274,21 @@
         "name": "Microsoft Office",
         "icon": "ph-microsoft-excel-logo",
         "category": "Ferramentas"
+      },
+      {
+        "category": "Ferramentas",
+        "name": "REST APIs",
+        "icon": "ph-plugs-connected"
+      },
+      {
+        "category": "IA",
+        "name": "ChatGPT Codex",
+        "icon": "ph-open-ai-logo"
+      },
+      {
+        "category": "IA",
+        "name": "LLMs",
+        "icon": "ph-circuitry"
       }
     ],
     "behavioral": [

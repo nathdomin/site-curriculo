@@ -277,15 +277,18 @@
       },
       {
         "category": "Ferramentas",
-        "name": "APIs REST"
+        "name": "APIs REST",
+        "icon": "ph-plugs-connected"
       },
       {
         "category": "IA",
-        "name": "ChatGPT Codex"
+        "name": "ChatGPT Codex",
+        "icon": "ph-open-ai-logo"
       },
       {
         "category": "IA",
-        "name": "LLMs"
+        "name": "LLMs",
+        "icon": "ph-circuitry"
       }
     ],
     "behavioral": [
