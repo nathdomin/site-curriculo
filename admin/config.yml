@@ -95,6 +95,8 @@ collections:
               - { label: "Link do site no ar (botão “ver no ar”)", name: "link", widget: "string", required: false, hint: "Deixe vazio se o projeto não estiver publicado. Ex: https://meuprojeto.netlify.app" }
               - { label: "Link do repositório (botão “código”)", name: "repo", widget: "string", required: false, hint: "Ex: https://github.com/nathdomin/projeto" }
               - { label: "Print do projeto", name: "image", widget: "image", required: false, choose_url: false, hint: "Formato paisagem (16:9). Sem imagem, o card mostra um terminal com as tecnologias." }
+              - { label: "Vídeo curto (MP4)", name: "video", widget: "string", required: false, hint: "Opcional. Caminho do vídeo, ex: /img/uploads/demo.mp4. Toca sem som no card, e o print vira a capa." }
+              - { label: "Aviso ao lado dos botões", name: "note", widget: "string", required: false, hint: "Opcional. Ex: A primeira abertura pode levar cerca de 30 s." }
 
           - label: "03 · Stack e soft skills"
             name: "skills"

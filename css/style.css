@@ -659,6 +659,13 @@ button.t-help-cmd:hover,
     gap: 0.75rem;
 }
 
+/* Celular: botões logo depois do terminal, sem precisar rolar */
+@media screen and (max-width: 899px) {
+    .hero-main { display: flex; flex-direction: column; }
+    .hero-actions { order: 1; margin-top: 1.25rem; }
+    .hero-description { order: 2; margin: 1.25rem 0 0; }
+}
+
 .hero-photo {
     justify-self: center;
     width: min(100%, 320px);
@@ -858,6 +865,13 @@ button.t-help-cmd:hover,
 }
 
 .project-card:hover .project-img { transform: scale(1.04); }
+
+.project-note {
+    margin-top: 0.75rem;
+    font-family: var(--mono);
+    font-size: 0.75rem;
+    color: var(--comment);
+}
 
 /* Projeto sem imagem: "tela" com um trecho de terminal */
 .project-placeholder {

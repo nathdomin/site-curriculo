@@ -27,6 +27,7 @@ const I18N_STRINGS = {
         'theme.toDark': 'Mudar para tema escuro',
 
         'hero.roleCmd': 'cat cargo.txt',
+        'hero.cv': 'Baixar currículo',
         'hero.photoTitle': '~/fotos/nathan.png',
 
         'term.hint': '# digite help para ver os comandos',
@@ -157,6 +158,7 @@ const I18N_STRINGS = {
         'theme.toDark': 'Switch to dark theme',
 
         'hero.roleCmd': 'cat role.txt',
+        'hero.cv': 'Download resume',
         'hero.photoTitle': '~/photos/nathan.png',
 
         'term.hint': '# type help to see the commands',

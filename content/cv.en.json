@@ -1,11 +1,11 @@
 {
   "meta_title": "Nathan Domingues | Developer · AI & Web",
-  "meta_description": "Portfolio of Nathan Domingues, an Artificial Intelligence student who builds AI agents, web games and full-stack applications with Python and TypeScript.",
+  "meta_description": "Portfolio of Nathan Domingues, an Artificial Intelligence student seeking a development and AI internship. AI agents, web games and full-stack applications with Python and TypeScript.",
   "hero": {
     "subtitle": "hi, I'm",
     "name_line1": "Nathan",
     "name_line2": "Domingues",
-    "profession": "Developer in training · AI & Web",
+    "profession": "AI student · Seeking Dev & AI internships",
     "description": "I build AI agents, games that run in the browser and full-stack applications with Python and TypeScript. AI student at Unisanta and HR Apprentice at Coca-Cola FEMSA.",
     "terminal_lines": [
       {
@@ -13,14 +13,14 @@
         "output": "python/  typescript/  javascript/  react/  sql/"
       },
       {
-        "cmd": "cat focus.txt",
-        "output": "AI agents · web games · full-stack apps"
+        "cmd": "cat status.txt",
+        "output": "open to internships"
       }
     ],
     "cta_text": "View projects"
   },
   "about": {
-    "description": "I'm an **Artificial Intelligence** student at Universidade Santa Cecília (Brazil), and I build web and AI projects with **Python**, **TypeScript** and **JavaScript**: an agent that reads resumes and matches them to job openings, a platformer that runs in the browser, and a meeting room booking system with React and PostgreSQL.\n\nI work with **AI-assisted development** (Claude Code, Codex, Gemini) from prototype to deploy, using prompt engineering to plan, write, test and review code. Everything I build is public on GitHub.\n\nI'm also an HR Apprentice at the Shared Services Center of **Coca-Cola FEMSA**. That high-volume routine (ServiceNow tickets, spreadsheets, documents) is where many of my ideas come from: repetitive processes that can be automated.",
+    "description": "I'm an **Artificial Intelligence** student at Universidade Santa Cecília (Brazil), seeking a **development and AI internship**, and I build web and AI projects with **Python**, **TypeScript** and **JavaScript**: an agent that reads resumes and matches them to job openings, a platformer that runs in the browser, and a meeting room booking system with React and PostgreSQL.\n\nI work with **AI-assisted development** (Claude Code, Codex, Gemini) from prototype to deploy, using prompt engineering to plan, write, test and review code. Everything I build is public on GitHub.\n\nI'm also an HR Apprentice at the Shared Services Center of **Coca-Cola FEMSA**. That high-volume routine (ServiceNow tickets, spreadsheets, documents) is where many of my ideas come from: repetitive processes that can be automated.",
     "info_boxes": [
       {
         "title": "location",
@@ -46,6 +46,22 @@
   },
   "projects": [
     {
+      "title": "HR Agent for WhatsApp",
+      "description": "Scored 31 out of 31 questions in its evaluation: AI agent for HR support on WhatsApp that answers questions about benefits, badges and vacation based on company documents, using RAG on Postgres, and hands off to a person when it cannot find the answer. Sensitive topics never get an AI reply, and new answers only enter the knowledge base after human approval. It understands voice messages and stays within the free message limit. Study project with a fictional company: the demo simulates delivery through WhatsApp.",
+      "link": "",
+      "repo": "https://github.com/nathdomin/agente-rh-whatsapp",
+      "image": "/img/uploads/agente-rh-whatsapp.png",
+      "tags": [
+        "TypeScript",
+        "Supabase",
+        "RAG",
+        "LLM",
+        "WhatsApp API"
+      ],
+      "featured": true,
+      "video": "/img/uploads/agente-rh-demo.mp4"
+    },
+    {
       "title": "VivAI+",
       "description": "AI agent for resume screening. It takes PDF or DOCX files, extracts the candidate's data and uses the Gemini API to match the profile against Viva+'s open positions. The analysis ignores sensitive data and evaluates skills only, and the history is stored in a cloud database. The architecture was designed not to crash during usage spikes.",
       "link": "https://agenteia-vivaplus.onrender.com/",
@@ -58,37 +74,8 @@
         "PDF/DOCX",
         "Database"
       ],
-      "featured": false
-    },
-    {
-      "title": "HR Agent for WhatsApp",
-      "description": "AI agent for HR support on WhatsApp. It answers questions about benefits, badges and vacation based on company documents, using RAG on Postgres, and hands off to a person when it cannot find the answer. Sensitive topics never get an AI reply, and new answers only enter the knowledge base after human approval. It understands voice messages, stays within the free message limit and scored 31 out of 31 questions in its evaluation. Study project with a fictional company: the demo simulates delivery through WhatsApp.",
-      "link": "",
-      "repo": "https://github.com/nathdomin/agente-rh-whatsapp",
-      "image": "/img/uploads/agente-rh-whatsapp.png",
-      "tags": [
-        "TypeScript",
-        "Supabase",
-        "RAG",
-        "LLM",
-        "WhatsApp API"
-      ],
-      "featured": true
-    },
-    {
-      "title": "Sankofa: Paths of Resistance",
-      "description": "2D platformer that runs in the browser, about the history of Black resistance in Brazil, made for Black Awareness Month (November). Phaser 3 with strict TypeScript and Vite. Every sprite, background and song is generated in code, with no image or audio files: textures come from text-based pixel grids and the sound is synthesized with the Web Audio API. It features coyote time, jump buffering, capoeira moves in a state machine, touch controls and a custom tool that simulates the jumps to check that every level can be completed.",
-      "link": "https://nathdomin.github.io/sankofa/",
-      "repo": "https://github.com/nathdomin/sankofa",
-      "image": "/img/uploads/sankofa-fase1.png",
-      "tags": [
-        "TypeScript",
-        "Phaser 3",
-        "Vite",
-        "Web Audio API",
-        "Game Dev"
-      ],
-      "featured": false
+      "featured": false,
+      "note": "First load may take about 30 s (free server)."
     },
     {
       "title": "MeetKof",
@@ -102,6 +89,21 @@
         "Node.js",
         "PostgreSQL",
         "Supabase"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Sankofa: Paths of Resistance",
+      "description": "2D platformer that runs in the browser, about the history of Black resistance in Brazil, made for Black Awareness Month (November). Phaser 3 with strict TypeScript and Vite. Every sprite, background and song is generated in code, with no image or audio files: textures come from text-based pixel grids and the sound is synthesized with the Web Audio API. It features coyote time, jump buffering, capoeira moves in a state machine, touch controls and a custom tool that simulates the jumps to check that every level can be completed.",
+      "link": "https://nathdomin.github.io/sankofa/",
+      "repo": "https://github.com/nathdomin/sankofa",
+      "image": "/img/uploads/sankofa-fase1.png",
+      "tags": [
+        "TypeScript",
+        "Phaser 3",
+        "Vite",
+        "Web Audio API",
+        "Game Dev"
       ],
       "featured": false
     },
@@ -289,6 +291,26 @@
         "category": "IA",
         "name": "LLMs",
         "icon": "ph-circuitry"
+      },
+      {
+        "name": "FastAPI",
+        "icon": "devicon-fastapi-plain",
+        "category": "Web"
+      },
+      {
+        "name": "RAG",
+        "icon": "ph-books",
+        "category": "IA"
+      },
+      {
+        "name": "Vector Databases",
+        "icon": "ph-graph",
+        "category": "IA"
+      },
+      {
+        "name": "Render",
+        "icon": "ph-cloud",
+        "category": "Ferramentas"
       }
     ],
     "behavioral": [
@@ -297,7 +319,10 @@
       "Flexibility",
       "Agility",
       "Teamwork",
-      "Proactivity"
+      "Proactivity",
+      "Problem solving",
+      "Organization",
+      "Adaptability"
     ],
     "courses": [
       {
@@ -361,7 +386,7 @@
       "date": "JANUARY 2026 - PRESENT",
       "title": "HR Apprentice, Shared Services Center",
       "company": "Coca-Cola FEMSA | Santos - SP",
-      "description": "Support for the Human Resources Shared Services Center: handling and resolving tickets on ServiceNow, updating corporate spreadsheets, organizing and digitizing documents and supporting the team's high-volume administrative routines."
+      "description": "Support for the Human Resources Shared Services Center: handling and resolving tickets on ServiceNow, ensuring service-level agreements (SLAs) are met and internal customers are satisfied, updating corporate spreadsheets, organizing and digitizing documents and supporting the team's high-volume administrative routines."
     },
     {
       "date": "MARCH 2025 - AUGUST 2025",

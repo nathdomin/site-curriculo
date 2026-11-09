@@ -197,6 +197,16 @@ function renderProjects(projects) {
 }
 
 function renderProjectMedia(project) {
+    const video = (project.video || '').trim();
+    if (video) {
+        // Quem pede menos movimento no sistema recebe o vídeo parado, com controles
+        const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+        const playback = reduceMotion ? 'controls' : 'autoplay loop';
+        return `
+            <div class="project-img-wrapper">
+                <video class="project-img" src="${escapeHtml(video)}" ${project.image ? `poster="${escapeHtml(project.image)}"` : ''} ${playback} muted playsinline preload="metadata" aria-label="${escapeHtml(`${t('projects.imgAlt')} ${project.title || ''}`)}"></video>
+            </div>`;
+    }
     if (project.image) {
         const width = project.featured ? 1240 : 800;
         return `
@@ -224,8 +234,10 @@ function renderTags(tags) {
 function renderProjectActions(project) {
     const link = (project.link || '').trim();
     const repo = (project.repo || '').trim();
+    const note = (project.note || '').trim();
     if (!link && !repo) return '';
     return `
+        ${note ? `<p class="project-note">${escapeHtml(note)}</p>` : ''}
         <div class="project-actions">
             ${link ? `
             <a href="${escapeHtml(link)}" target="_blank" rel="noopener noreferrer" class="project-btn project-btn--primary">
@@ -462,6 +474,7 @@ function renderContact(contact) {
     const otherLang = currentLang === 'en' ? 'pt' : 'en';
     setCvLink('cv-download-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
     setCvLink('cv-download-other', otherLang, pdfs);
+    setCvLink('hero-cv-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
 }
 
 // Nome do arquivo baixado, igual para quem baixa pelo site em qualquer idioma

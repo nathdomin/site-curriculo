@@ -1,11 +1,11 @@
 {
   "meta_title": "Nathan Domingues | Dev · IA & Web",
-  "meta_description": "Portfólio de Nathan Domingues, estudante de Inteligência Artificial que desenvolve agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.",
+  "meta_description": "Portfólio de Nathan Domingues, estudante de Inteligência Artificial em busca de estágio em desenvolvimento e IA. Agentes de IA, jogos web e aplicações full-stack com Python e TypeScript.",
   "hero": {
     "subtitle": "olá, eu sou",
     "name_line1": "Nathan",
     "name_line2": "Domingues",
-    "profession": "Dev em formação · IA & Web",
+    "profession": "Estudante de IA · Busco estágio em Dev e IA",
     "description": "Construo agentes de IA, jogos que rodam no navegador e aplicações full-stack com Python e TypeScript. Estudante de IA na Unisanta e Jovem Aprendiz de RH na Coca-Cola FEMSA.",
     "terminal_lines": [
       {
@@ -13,14 +13,14 @@
         "output": "python/  typescript/  javascript/  react/  sql/"
       },
       {
-        "cmd": "cat foco.txt",
-        "output": "agentes de IA · jogos web · apps full-stack"
+        "cmd": "cat status.txt",
+        "output": "disponível para estágio"
       }
     ],
     "cta_text": "Ver projetos"
   },
   "about": {
-    "description": "Sou estudante de **Inteligência Artificial** na Universidade Santa Cecília e desenvolvo projetos web e de IA com **Python**, **TypeScript** e **JavaScript**: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.\n\nTrabalho com **desenvolvimento assistido por IA** (Claude Code, Gemini, Codex) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.\n\nHoje também sou Jovem Aprendiz no CSC de RH da **Coca-Cola FEMSA**. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar.",
+    "description": "Sou estudante de **Inteligência Artificial** na Universidade Santa Cecília, busco **estágio em desenvolvimento e IA** e desenvolvo projetos web e de IA com **Python**, **TypeScript** e **JavaScript**: um agente que lê currículos e cruza com vagas, um jogo de plataforma que roda no navegador, um sistema de reserva de salas com React e PostgreSQL.\n\nTrabalho com **desenvolvimento assistido por IA** (Claude Code, Gemini, Codex) do protótipo ao deploy, usando engenharia de prompts para planejar, escrever, testar e revisar código. Tudo o que faço fica público no GitHub.\n\nHoje também sou Jovem Aprendiz no CSC de RH da **Coca-Cola FEMSA**. A rotina de alto volume (chamados no ServiceNow, planilhas, documentos) é de onde saem muitas das minhas ideias: processos repetitivos que dá para automatizar.",
     "info_boxes": [
       {
         "title": "local",
@@ -46,6 +46,22 @@
   },
   "projects": [
     {
+      "title": "Agente de RH para WhatsApp",
+      "description": "Acertou 31 de 31 perguntas na avaliação: agente de IA para atendimento de RH no WhatsApp que responde dúvidas sobre benefícios, crachá e férias com base nos documentos, usando RAG no Postgres, e passa para uma pessoa quando não encontra a resposta. Temas sensíveis não recebem resposta da IA, e respostas novas só entram na base com aprovação humana. Entende áudios e respeita o limite gratuito de mensagens. Projeto de estudo com empresa fictícia: a demonstração simula o envio pelo WhatsApp.",
+      "link": "",
+      "repo": "https://github.com/nathdomin/agente-rh-whatsapp",
+      "image": "/img/uploads/agente-rh-whatsapp.png",
+      "tags": [
+        "TypeScript",
+        "Supabase",
+        "RAG",
+        "LLM",
+        "WhatsApp API"
+      ],
+      "featured": true,
+      "video": "/img/uploads/agente-rh-demo.mp4"
+    },
+    {
       "title": "VivAI+",
       "description": "Agente de IA para triagem de currículos. Recebe arquivos PDF ou DOCX, extrai os dados do candidato e usa a Gemini API para cruzar o perfil com as vagas abertas da Viva+. A análise ignora dados sensíveis e avalia só competências, e o histórico fica salvo em banco de dados na nuvem. A arquitetura foi pensada para não travar em picos de uso.",
       "link": "https://agenteia-vivaplus.onrender.com/",
@@ -58,37 +74,8 @@
         "PDF/DOCX",
         "Banco de Dados"
       ],
-      "featured": false
-    },
-    {
-      "title": "Agente de RH para WhatsApp",
-      "description": "Agente de IA para atendimento de RH no WhatsApp. Responde dúvidas sobre benefícios, crachá e férias com base nos documentos, usando RAG no Postgres, e passa para uma pessoa quando não encontra a resposta. Temas sensíveis não recebem resposta da IA, e respostas novas só entram na base com aprovação humana. Entende áudios, respeita o limite gratuito de mensagens e acertou 31 de 31 perguntas na avaliação. Projeto de estudo com empresa fictícia: a demonstração simula o envio pelo WhatsApp.",
-      "link": "",
-      "repo": "https://github.com/nathdomin/agente-rh-whatsapp",
-      "image": "/img/uploads/agente-rh-whatsapp.png",
-      "tags": [
-        "TypeScript",
-        "Supabase",
-        "RAG",
-        "LLM",
-        "WhatsApp API"
-      ],
-      "featured": true
-    },
-    {
-      "title": "Sankofa: Caminhos da Resistência",
-      "description": "Jogo de plataforma 2D no navegador sobre a história da resistência negra no Brasil, feito para o Novembro Negro. Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código, sem nenhum arquivo de imagem ou áudio: as texturas saem de grades de pixel em texto e o som é sintetizado com a Web Audio API. Tem coyote time, jump buffer, golpes de capoeira em máquina de estados, controles de toque e uma ferramenta própria que simula os pulos para checar se cada fase é completável.",
-      "link": "https://nathdomin.github.io/sankofa/",
-      "repo": "https://github.com/nathdomin/sankofa",
-      "image": "/img/uploads/sankofa-fase1.png",
-      "tags": [
-        "TypeScript",
-        "Phaser 3",
-        "Vite",
-        "Web Audio API",
-        "Game Dev"
-      ],
-      "featured": false
+      "featured": false,
+      "note": "A primeira abertura pode levar cerca de 30 s (servidor gratuito)."
     },
     {
       "title": "MeetKof",
@@ -102,6 +89,21 @@
         "Node.js",
         "PostgreSQL",
         "Supabase"
+      ],
+      "featured": false
+    },
+    {
+      "title": "Sankofa: Caminhos da Resistência",
+      "description": "Jogo de plataforma 2D no navegador sobre a história da resistência negra no Brasil, feito para o Novembro Negro. Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código, sem nenhum arquivo de imagem ou áudio: as texturas saem de grades de pixel em texto e o som é sintetizado com a Web Audio API. Tem coyote time, jump buffer, golpes de capoeira em máquina de estados, controles de toque e uma ferramenta própria que simula os pulos para checar se cada fase é completável.",
+      "link": "https://nathdomin.github.io/sankofa/",
+      "repo": "https://github.com/nathdomin/sankofa",
+      "image": "/img/uploads/sankofa-fase1.png",
+      "tags": [
+        "TypeScript",
+        "Phaser 3",
+        "Vite",
+        "Web Audio API",
+        "Game Dev"
       ],
       "featured": false
     },
@@ -289,6 +291,26 @@
         "category": "IA",
         "name": "LLMs",
         "icon": "ph-circuitry"
+      },
+      {
+        "name": "FastAPI",
+        "icon": "devicon-fastapi-plain",
+        "category": "Web"
+      },
+      {
+        "name": "RAG",
+        "icon": "ph-books",
+        "category": "IA"
+      },
+      {
+        "name": "Bancos de Dados Vetoriais",
+        "icon": "ph-graph",
+        "category": "IA"
+      },
+      {
+        "name": "Render",
+        "icon": "ph-cloud",
+        "category": "Ferramentas"
       }
     ],
     "behavioral": [
@@ -297,7 +319,10 @@
       "Flexibilidade",
       "Agilidade",
       "Trabalho em equipe",
-      "Proatividade"
+      "Proatividade",
+      "Resolução de problemas",
+      "Organização",
+      "Adaptabilidade"
     ],
     "courses": [
       {
@@ -361,7 +386,7 @@
       "date": "JANEIRO DE 2026 - ATUAL",
       "title": "Jovem Aprendiz RH CSC",
       "company": "Coca-Cola FEMSA | Santos - SP",
-      "description": "Suporte ao CSC de Recursos Humanos: atendimento e resolução de chamados no ServiceNow, atualização de planilhas corporativas, organização e digitalização de documentos e apoio às rotinas administrativas de alto volume da equipe."
+      "description": "Suporte ao CSC de Recursos Humanos: atendimento e resolução de chamados no ServiceNow, garantindo o cumprimento dos prazos (SLAs) e a satisfação do cliente interno, atualização de planilhas corporativas, organização e digitalização de documentos e apoio às rotinas administrativas de alto volume da equipe."
     },
     {
       "date": "MARÇO DE 2025 - AGOSTO DE 2025",

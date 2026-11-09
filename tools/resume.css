@@ -1,40 +1,40 @@
 /* Estilo compartilhado dos currículos (curriculo-pt.html e resume-en.html) */
-@page { size: Letter; margin: 0.5in 0.65in; }
+@page { size: A4; margin: 0.5in 0.6in; }
 
 * { box-sizing: border-box; margin: 0; padding: 0; }
 
 body {
     font-family: Arial, Helvetica, sans-serif;
-    font-size: 10pt;
+    font-size: 9.5pt;
     line-height: 1.3;
     color: #000;
 }
 
 a { color: inherit; text-decoration: none; }
 
-header { text-align: center; margin-bottom: 10pt; }
-h1 { font-size: 18pt; margin-bottom: 3pt; }
-header p { font-size: 10pt; }
+header { text-align: center; margin-bottom: 8pt; }
+h1 { font-size: 18pt; margin-bottom: 1pt; }
+header p { font-size: 9.5pt; }
+header .headline { font-size: 11pt; font-weight: bold; margin-bottom: 3pt; }
 
 h2 {
-    font-size: 12.5pt;
+    font-size: 11pt;
     text-transform: uppercase;
-    margin: 9pt 0 3pt;
+    margin: 8pt 0 3pt;
+    padding-bottom: 1pt;
+    border-bottom: 1px solid #000;
 }
 
-ul { padding-left: 20pt; }
-li { margin-bottom: 2.5pt; }
+ul { padding-left: 16pt; }
+li { margin-bottom: 1.5pt; }
 
-.job { margin-top: 6pt; break-inside: avoid; }
-.job-head { font-weight: bold; }
-.job-role { font-style: italic; }
-.job ul { margin-top: 4pt; margin-bottom: 6pt; }
+.job, .project { margin-top: 4pt; break-inside: avoid; }
+.job-head, .project-head { font-weight: bold; }
+.job-role { font-style: italic; font-weight: normal; }
+.project-head span { font-weight: normal; }
+.job ul, .project ul { margin-top: 1.5pt; }
 
-.project-link { color: #333; white-space: nowrap; }
-.project-tags { color: #333; }
-
-section > p + p { margin-top: 4pt; }
-.edu-note { display: block; }
+.more { margin-top: 4pt; }
 
 h2 { break-after: avoid; }
 li { break-inside: avoid; }
