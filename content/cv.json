@@ -61,6 +61,21 @@
       "featured": true
     },
     {
+      "title": "Agente de RH para WhatsApp",
+      "description": "Agente de IA para atendimento de RH no WhatsApp. Responde dúvidas sobre benefícios, crachá e férias com base nos documentos, usando RAG no Postgres, e passa para uma pessoa quando não encontra a resposta. Temas sensíveis não recebem resposta da IA, e respostas novas só entram na base com aprovação humana. Entende áudios, respeita o limite gratuito de mensagens e acertou 31 de 31 perguntas na avaliação. Projeto de estudo com empresa fictícia: a demonstração simula o envio pelo WhatsApp.",
+      "link": "",
+      "repo": "https://github.com/nathdomin/agente-rh-whatsapp",
+      "image": "/img/uploads/agente-rh-whatsapp.png",
+      "tags": [
+        "TypeScript",
+        "Supabase",
+        "RAG",
+        "LLM",
+        "WhatsApp API"
+      ],
+      "featured": false
+    },
+    {
       "title": "Sankofa: Caminhos da Resistência",
       "description": "Jogo de plataforma 2D no navegador sobre a história da resistência negra no Brasil, feito para o Novembro Negro. Phaser 3 com TypeScript strict e Vite. Todos os sprites, cenários e músicas são gerados em código, sem nenhum arquivo de imagem ou áudio: as texturas saem de grades de pixel em texto e o som é sintetizado com a Web Audio API. Tem coyote time, jump buffer, golpes de capoeira em máquina de estados, controles de toque e uma ferramenta própria que simula os pulos para checar se cada fase é completável.",
       "link": "https://nathdomin.github.io/sankofa/",
