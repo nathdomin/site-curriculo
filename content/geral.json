@@ -1,15 +1,15 @@
 {
   "photo": "/img/uploads/1787783254138.png",
   "contact": {
-    "email": "nathandomin44@gmail.com",
-    "linkedin_label": "Nathan Domingues",
-    "linkedin_url": "https://www.linkedin.com/in/nathan-domingues-985606321/",
-    "whatsapp_label": "+55 13 99136-5365",
+    "cv_pdf_en": "/arquivos/nathan_domingues_resume_en.pdf",
     "whatsapp_url": "https://wa.me/5513991365365",
-    "github_label": "nathdomin",
-    "github_url": "https://github.com/nathdomin",
     "cv_pdf": "/arquivos/curriculo_nathan_domingues.pdf",
-    "cv_pdf_en": "/arquivos/nathan_domingues_resume_en.pdf"
+    "whatsapp_label": "+55 13 99136-5365",
+    "linkedin_url": "https://www.linkedin.com/in/nathandomingues",
+    "linkedin_label": "Nathan Domingues",
+    "github_url": "https://github.com/nathdomin",
+    "github_label": "nathdomin",
+    "email": "nathandomin44@gmail.com"
   },
   "github": {
     "username": "nathdomin",
