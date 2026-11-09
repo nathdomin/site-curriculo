@@ -58,7 +58,7 @@
         "PDF/DOCX",
         "Database"
       ],
-      "featured": true
+      "featured": false
     },
     {
       "title": "HR Agent for WhatsApp",
@@ -73,7 +73,7 @@
         "LLM",
         "WhatsApp API"
       ],
-      "featured": false
+      "featured": true
     },
     {
       "title": "Sankofa: Paths of Resistance",
