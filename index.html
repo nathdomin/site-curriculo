@@ -81,15 +81,28 @@
 
             <div class="nav-menu" id="nav-menu" data-label="~/navegacao" data-i18n-attr="data-label:nav.path">
                 <ul class="nav-list">
-                    <li><a href="#sobre" class="nav-link"><span class="nav-num">01</span><span data-i18n="nav.about">sobre</span></a></li>
-                    <li><a href="#projetos" class="nav-link"><span class="nav-num">02</span><span data-i18n="nav.projects">projetos</span></a></li>
-                    <li><a href="#stack" class="nav-link"><span class="nav-num">03</span><span data-i18n="nav.stack">stack</span></a></li>
-                    <li><a href="#experiencia" class="nav-link"><span class="nav-num">04</span><span data-i18n="nav.experience">experiência</span></a></li>
-                    <li><a href="#formacao" class="nav-link"><span class="nav-num">05</span><span data-i18n="nav.education">formação</span></a></li>
-                    <li><a href="#github" class="nav-link"><span class="nav-num">06</span><span data-i18n="nav.github">github</span></a></li>
-                    <li><a href="#contato" class="nav-link"><span class="nav-num">07</span><span data-i18n="nav.contact">contato</span></a></li>
+                    <li style="--i:0"><a href="#sobre" class="nav-link"><span class="nav-num">01</span><span data-i18n="nav.about">sobre</span></a></li>
+                    <li style="--i:1"><a href="#projetos" class="nav-link"><span class="nav-num">02</span><span data-i18n="nav.projects">projetos</span></a></li>
+                    <li style="--i:2"><a href="#stack" class="nav-link"><span class="nav-num">03</span><span data-i18n="nav.stack">stack</span></a></li>
+                    <li style="--i:3"><a href="#experiencia" class="nav-link"><span class="nav-num">04</span><span data-i18n="nav.experience">experiência</span></a></li>
+                    <li style="--i:4"><a href="#formacao" class="nav-link"><span class="nav-num">05</span><span data-i18n="nav.education">formação</span></a></li>
+                    <li style="--i:5"><a href="#github" class="nav-link"><span class="nav-num">06</span><span data-i18n="nav.github">github</span></a></li>
+                    <li style="--i:6"><a href="#contato" class="nav-link"><span class="nav-num">07</span><span data-i18n="nav.contact">contato</span></a></li>
                 </ul>
-                <div class="nav-close" id="nav-close" role="button" aria-label="Fechar menu" data-i18n-attr="aria-label:nav.close" tabindex="0"></div>
+
+                <!-- Só no celular/tablet: atalhos no pé da gaveta -->
+                <div class="nav-drawer-footer">
+                    <a href="/arquivos/curriculo_nathan_domingues.pdf" download class="button" id="nav-cv-link">
+                        <i class="ph ph-download-simple" aria-hidden="true"></i> <span data-i18n="hero.cv">Baixar currículo</span>
+                    </a>
+                    <div class="nav-social">
+                        <a href="https://github.com/nathdomin" target="_blank" rel="noopener noreferrer" aria-label="GitHub" id="nav-github-link"><i class="ph ph-github-logo" aria-hidden="true"></i></a>
+                        <a href="https://www.linkedin.com/in/nathan-domingues-985606321/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn" id="nav-linkedin-link"><i class="ph ph-linkedin-logo" aria-hidden="true"></i></a>
+                        <a href="mailto:nathandomin44@gmail.com" aria-label="E-mail" id="nav-email-link"><i class="ph ph-envelope-simple" aria-hidden="true"></i></a>
+                    </div>
+                </div>
+
+                <button type="button" class="nav-close" id="nav-close" aria-label="Fechar menu" data-i18n-attr="aria-label:nav.close"></button>
             </div>
 
             <div class="nav-overlay" id="nav-overlay"></div>
@@ -102,11 +115,13 @@
                     <i class="ph ph-sun icon-sun" aria-hidden="true"></i>
                     <i class="ph ph-moon icon-moon" aria-hidden="true"></i>
                 </button>
-                <div class="nav-toggle" id="nav-toggle" role="button" aria-label="Abrir menu" data-i18n-attr="aria-label:nav.open" aria-expanded="false" tabindex="0">
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                    <span class="nav-toggle-bar"></span>
-                </div>
+                <button type="button" class="nav-toggle" id="nav-toggle" aria-label="Abrir menu" data-i18n-attr="aria-label:nav.open" aria-expanded="false" aria-controls="nav-menu">
+                    <span class="nav-toggle-bars" aria-hidden="true">
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                        <span class="nav-toggle-bar"></span>
+                    </span>
+                </button>
             </div>
         </nav>
     </header>
@@ -193,7 +208,12 @@
                 <div class="projects-container reveal" id="projects-container">
                     <!-- Preenchido via js/render.js a partir de content/cv.json -->
                 </div>
-                <div class="projects-dots" id="projects-dots"></div>
+                <div class="projects-nav" id="projects-nav" hidden>
+                    <button type="button" class="projects-arrow" id="projects-prev" aria-label="Projeto anterior" data-i18n-attr="aria-label:projects.prev"><i class="ph ph-caret-left" aria-hidden="true"></i></button>
+                    <div class="projects-dots" id="projects-dots"></div>
+                    <span class="projects-count" id="projects-count" aria-hidden="true"></span>
+                    <button type="button" class="projects-arrow" id="projects-next" aria-label="Próximo projeto" data-i18n-attr="aria-label:projects.next"><i class="ph ph-caret-right" aria-hidden="true"></i></button>
+                </div>
             </div>
         </section>
 
@@ -388,6 +408,8 @@
             <span data-i18n="footer.built">feito com HTML, CSS &amp; JavaScript puros</span>
             <span class="footer-sep" aria-hidden="true">·</span>
             <a href="https://github.com/nathdomin/site-curriculo" target="_blank" rel="noopener noreferrer"><span data-i18n="footer.source">ver código</span> <i class="ph ph-arrow-up-right"></i></a>
+            <span class="footer-sep" aria-hidden="true">·</span>
+            <a href="#home" class="footer-top"><span class="t-prompt">$</span> <span data-i18n="footer.top">cd ~ (voltar ao topo)</span> <i class="ph ph-arrow-up" aria-hidden="true"></i></a>
         </div>
     </footer>
 

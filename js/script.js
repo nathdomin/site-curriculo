@@ -6,40 +6,61 @@ const navToggle = document.getElementById('nav-toggle');
 const navClose = document.getElementById('nav-close');
 const navOverlay = document.getElementById('nav-overlay');
 
+const isMenuOpen = () => navMenu.classList.contains('show-menu');
+
 function openMenu() {
     navMenu.classList.add('show-menu');
     if (navOverlay) navOverlay.classList.add('show-overlay');
     document.body.classList.add('no-scroll');
     if (navToggle) navToggle.setAttribute('aria-expanded', 'true');
+    // Foco no primeiro link, para quem navega pelo teclado já começar dentro da gaveta
+    const firstLink = navMenu.querySelector('.nav-link');
+    if (firstLink) setTimeout(() => firstLink.focus({ preventScroll: true }), 50);
 }
 
-function closeMenu() {
+function closeMenu({ restoreFocus = false } = {}) {
+    if (!isMenuOpen()) return;
     navMenu.classList.remove('show-menu');
     if (navOverlay) navOverlay.classList.remove('show-overlay');
     document.body.classList.remove('no-scroll');
-    if (navToggle) navToggle.setAttribute('aria-expanded', 'false');
+    if (navToggle) {
+        navToggle.setAttribute('aria-expanded', 'false');
+        if (restoreFocus) navToggle.focus({ preventScroll: true });
+    }
 }
 
-function onActivate(el, handler) {
-    if (!el) return;
-    el.addEventListener('click', handler);
-    el.addEventListener('keydown', (e) => {
-        if (e.key === 'Enter' || e.key === ' ') {
-            e.preventDefault();
-            handler();
-        }
-    });
-}
-
-onActivate(navToggle, openMenu);
-onActivate(navClose, closeMenu);
-if (navOverlay) navOverlay.addEventListener('click', closeMenu);
+if (navToggle) navToggle.addEventListener('click', openMenu);
+if (navClose) navClose.addEventListener('click', () => closeMenu({ restoreFocus: true }));
+if (navOverlay) navOverlay.addEventListener('click', () => closeMenu({ restoreFocus: true }));
 
 document.addEventListener('keydown', (e) => {
-    if (e.key === 'Escape' && navMenu.classList.contains('show-menu')) closeMenu();
+    if (!isMenuOpen()) return;
+    if (e.key === 'Escape') {
+        closeMenu({ restoreFocus: true });
+        return;
+    }
+    // Mantém o Tab circulando dentro da gaveta enquanto ela está aberta
+    if (e.key === 'Tab') {
+        const focusable = [...navMenu.querySelectorAll('a[href], button:not([disabled])')]
+            .filter(el => el.offsetParent !== null);
+        if (!focusable.length) return;
+        const first = focusable[0];
+        const last = focusable[focusable.length - 1];
+        if (e.shiftKey && document.activeElement === first) {
+            e.preventDefault();
+            last.focus();
+        } else if (!e.shiftKey && document.activeElement === last) {
+            e.preventDefault();
+            first.focus();
+        }
+    }
 });
 
-document.querySelectorAll('.nav-link').forEach(link => link.addEventListener('click', closeMenu));
+// Fecha ao escolher um link (e ao passar para o layout de computador)
+navMenu.querySelectorAll('a').forEach(link => link.addEventListener('click', () => closeMenu()));
+window.matchMedia('(min-width: 1024px)').addEventListener('change', (e) => {
+    if (e.matches) closeMenu();
+});
 
 /* ================= HEADER COM FUNDO AO ROLAR ================= */
 const header = document.getElementById('header');

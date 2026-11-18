@@ -69,6 +69,8 @@ const I18N_STRINGS = {
         'projects.ready': 'pronto',
         'projects.imgAlt': 'Tela do projeto',
         'projects.goTo': 'Ir para o projeto',
+        'projects.prev': 'Projeto anterior',
+        'projects.next': 'Próximo projeto',
         'projects.details': 'Detalhes do projeto',
         'projects.close': 'Fechar',
 
@@ -136,7 +138,8 @@ const I18N_STRINGS = {
         'form.error': '✗ não foi possível enviar agora. tente pelo e-mail ao lado.',
 
         'footer.built': 'feito com HTML, CSS & JavaScript puros',
-        'footer.source': 'ver código'
+        'footer.source': 'ver código',
+        'footer.top': 'cd ~ (voltar ao topo)'
     },
 
     en: {
@@ -200,6 +203,8 @@ const I18N_STRINGS = {
         'projects.ready': 'ready',
         'projects.imgAlt': 'Screenshot of',
         'projects.goTo': 'Go to project',
+        'projects.prev': 'Previous project',
+        'projects.next': 'Next project',
         'projects.details': 'Project details',
         'projects.close': 'Close',
 
@@ -267,7 +272,8 @@ const I18N_STRINGS = {
         'form.error': '✗ could not send right now. please use the email beside.',
 
         'footer.built': 'built with plain HTML, CSS & JavaScript',
-        'footer.source': 'view source'
+        'footer.source': 'view source',
+        'footer.top': 'cd ~ (back to top)'
     }
 };
 

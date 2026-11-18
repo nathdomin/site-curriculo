@@ -289,11 +289,17 @@ function initProjectModal() {
     modal.addEventListener('close', () => document.body.classList.remove('no-scroll'));
 }
 
-// No celular os cards viram um carrossel horizontal; os pontinhos indicam a posição.
-// Pode ser chamado de novo (troca de idioma): o listener de rolagem é registrado uma vez só.
+// No celular os cards viram um carrossel horizontal com setas, pontinhos e contador "01/04".
+// Pode ser chamado de novo (troca de idioma): os listeners são registrados uma vez só.
 function initProjectsCarousel(container) {
+    const nav = document.getElementById('projects-nav');
     const dots = document.getElementById('projects-dots');
-    if (!dots) return;
+    const prev = document.getElementById('projects-prev');
+    const next = document.getElementById('projects-next');
+    if (!nav || !dots) return;
+
+    const total = container.children.length;
+    nav.hidden = total < 2;
 
     dots.innerHTML = [...container.children]
         .map((_, i) => `<button type="button" class="projects-dot" data-index="${i}" aria-label="${escapeHtml(t('projects.goTo'))} ${i + 1}"></button>`)
@@ -301,26 +307,72 @@ function initProjectsCarousel(container) {
 
     if (!container.dataset.carousel) {
         container.dataset.carousel = 'true';
-        container.addEventListener('scroll', () => updateProjectDots(container, dots), { passive: true });
+        let ticking = false;
+        container.addEventListener('scroll', () => {
+            if (ticking) return;
+            ticking = true;
+            requestAnimationFrame(() => {
+                updateProjectDots(container);
+                ticking = false;
+            });
+        }, { passive: true });
+
         dots.addEventListener('click', (e) => {
             const dot = e.target.closest('.projects-dot');
-            if (!dot) return;
-            const cards = container.children;
-            const card = cards[Number(dot.dataset.index)];
-            if (card) container.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: 'smooth' });
+            if (dot) scrollToProject(container, Number(dot.dataset.index));
         });
+        if (prev) prev.addEventListener('click', () => scrollToProject(container, activeProjectIndex(container) - 1));
+        if (next) next.addEventListener('click', () => scrollToProject(container, activeProjectIndex(container) + 1));
     }
 
-    updateProjectDots(container, dots);
+    updateProjectDots(container);
 }
 
-function updateProjectDots(container, dots) {
-    const center = container.scrollLeft + container.clientWidth / 2;
+function scrollToProject(container, index) {
+    const cards = container.children;
+    const card = cards[Math.max(0, Math.min(index, cards.length - 1))];
+    if (!card) return;
+    const smooth = !window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    container.scrollTo({ left: card.offsetLeft - cards[0].offsetLeft, behavior: smooth ? 'smooth' : 'auto' });
+}
+
+// Card cuja borda esquerda está mais perto do início visível do carrossel
+function activeProjectIndex(container) {
+    const cards = [...container.children];
+    if (!cards.length) return 0;
+    // No fim da rolagem, o último card é o ativo (ele não consegue encostar na esquerda)
+    if (container.scrollLeft + container.clientWidth >= container.scrollWidth - 4) return cards.length - 1;
+    const start = cards[0].offsetLeft;
     let active = 0;
-    [...container.children].forEach((card, i) => {
-        if (card.offsetLeft - container.offsetLeft <= center) active = i;
+    let best = Infinity;
+    cards.forEach((card, i) => {
+        const distance = Math.abs(card.offsetLeft - start - container.scrollLeft);
+        if (distance < best) { best = distance; active = i; }
     });
-    [...dots.children].forEach((dot, i) => dot.classList.toggle('active', i === active));
+    return active;
+}
+
+function updateProjectDots(container) {
+    const dots = document.getElementById('projects-dots');
+    const prev = document.getElementById('projects-prev');
+    const next = document.getElementById('projects-next');
+    const count = document.getElementById('projects-count');
+    const total = container.children.length;
+    const active = activeProjectIndex(container);
+
+    if (dots) {
+        [...dots.children].forEach((dot, i) => {
+            dot.classList.toggle('active', i === active);
+            if (i === active) dot.setAttribute('aria-current', 'true');
+            else dot.removeAttribute('aria-current');
+        });
+    }
+    if (prev) prev.disabled = active <= 0;
+    if (next) next.disabled = active >= total - 1;
+    if (count) {
+        const pad = (n) => String(n).padStart(2, '0');
+        count.innerHTML = `<strong>${pad(active + 1)}</strong>/${pad(total)}`;
+    }
 }
 
 /* ---------------- Stack ---------------- */
@@ -459,6 +511,9 @@ function renderContact(contact) {
 
     setText('contact-email-text', contact.email);
     setHref('contact-email-link', contact.email && `mailto:${contact.email}`);
+    setHref('nav-email-link', contact.email && `mailto:${contact.email}`);
+    setHref('nav-linkedin-link', contact.linkedin_url);
+    setHref('nav-github-link', contact.github_url);
 
     setText('contact-linkedin-text', contact.linkedin_label);
     setHref('contact-linkedin-link', contact.linkedin_url);
@@ -475,6 +530,7 @@ function renderContact(contact) {
     setCvLink('cv-download-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
     setCvLink('cv-download-other', otherLang, pdfs);
     setCvLink('hero-cv-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
+    setCvLink('nav-cv-link', pdfs[currentLang] ? currentLang : 'pt', pdfs);
 }
 
 // Nome do arquivo baixado, igual para quem baixa pelo site em qualquer idioma
